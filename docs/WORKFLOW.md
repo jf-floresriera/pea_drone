@@ -88,33 +88,43 @@ validación cruzada entre especies. El **2018** es el año núcleo: 3 sitios × 
 - Si se obtienen los reportes de Pix4D (faltante 3), se tabulan el RMS de reproyección, el número de imágenes
   calibradas y el uso de GCP.
 
-### 2.2 Calibración radiométrica (se rehace) → `04_radiometric_calibration.py`
-1. Buscar el panel en cada mosaico (objetivo homogéneo y brillante de ≈0,15-0,30 m) y aplicar la **línea empírica**
-   ρ = a·DN + b con el panel y un objetivo oscuro (sombra o asfalto).
-2. Si no hay panel: **normalización radiométrica relativa** con objetivos pseudo-invariantes (caminos, grava y suelo
-   desnudo de calles), con IR-MAD o regresión robusta, tomando como referencia una fecha calibrada.
-3. Control de calidad: estabilidad del suelo desnudo entre fechas, NDVI del suelo ≈ 0,1-0,2 y del dosel cerrado
-   ≈ 0,8-0,9. Se reportan las firmas antes y después (figuras de la Fase 1c vs. 2.2).
-4. Se usan índices normalizados (robustos a la ganancia), pero los índices con sumas o diferencias simples
-   (TVI, SAVI) requieren reflectancia.
+### 2.2 Calibración radiométrica (se rehace) → `05_radiometric_calibration.py`
+**Diagnóstico (2026-10-16).** Se buscaron paneles en los mosaicos (objetos pequeños, homogéneos y brillantes en las
+5 bandas). Solo aparecen **dianas GCP** (tableros blancos y damas blanco/negro), que confirman que la ortorrectificación
+usó puntos de control. Los blancos están **saturados** (DN ≈ 65520) en 2018-2019 y varían entre vuelos en 2017.
+El panel de reflectancia (MicaSense 2017, Spectralon 99 % en 2018-19) no está en los mosaicos: se fotografió en tierra.
 
-### 2.3 Corregistro multitemporal → `05_coregistration.py`
+**Método adoptado: línea empírica cruzada con Sentinel-2 L2A** (reflectancia de superficie, Planetary Computer):
+1. Para cada vuelo, se toma la escena S2 más cercana (|Δt| ≤ 6 d) con ≥95 % de la huella en las clases SCL 4/5.
+2. Los DN UAV se agregan (media) a la grilla S2: 10 m para B02/B03/B04/B08 y 20 m para B05.
+   Se usan solo píxeles con cobertura UAV completa.
+3. Ajuste robusto (Huber) ρ = a·DN + b por banda y vuelo. Se reportan R², RMSE y RMSE-CV de 5 particiones.
+4. Se guardan los coeficientes (`calibration_coefficients.csv`) y se aplican al extraer rasgos. No se escriben
+   mosaicos calibrados por falta de disco.
+5. Limitaciones a declarar:
+   - El ajuste es global por vuelo y no corrige las costuras internas del mosaico; esto se absorbe con efectos
+     espaciales (fila/columna) en los modelos mixtos.
+   - Hay diferencias espectrales menores entre las bandas S2 y RedEdge (RE 717 vs. B05 705 nm).
+   - Entre la escena S2 y el vuelo pueden pasar hasta ±6 días de crecimiento.
+6. Si los autores entregan las capturas del panel, se calibra con panel y la calibración S2 queda como validación independiente.
+
+### 2.3 Corregistro multitemporal → `06_coregistration.py`
 - Correlación de fase de NIR entre cada fecha y una fecha de referencia por sitio-año. Meta: error < 1 GSD.
 - Remuestreo a una grilla común por sitio-año (2 cm) para usar los mismos polígonos de parcela en todas las fechas.
 
-### 2.4 Polígonos de parcela → `06_plot_grid.py`
+### 2.4 Polígonos de parcela → `07_plot_grid.py`
 - Entrada: matriz fila × columna del croquis + rotación (Description) + dimensiones (6,1 × 1,5 m; calles 0,75 m).
 - Ajuste fino: perfiles de vegetación proyectados sobre los ejes rotados (los valles corresponden a las calles).
 - Recorte de bordes para evitar efecto borde, como en Zhang 2021. Salida: GeoPackage por sitio-año con `plot_uid`.
   Validación visual con superposición sobre el CIR (figura del material suplementario).
 
-### 2.5 Segmentación dosel / suelo / flor → `07_segmentation.py`
+### 2.5 Segmentación dosel / suelo / flor → `08_segmentation.py`
 - Réplica: umbral de SAVI. Mejora: umbral automático (Otsu) y luego un clasificador píxel a píxel (RF o U-Net)
   entrenado con anotaciones mínimas, con una clase **flor** (flores blancas de arveja) que Zhang solo descartó.
 
 ---
 
-## 3. Extracción de rasgos por parcela y fecha → `08_features.py`
+## 3. Extracción de rasgos por parcela y fecha → `09_features.py`
 - **Estructura:** cobertura del dosel (%), área y, si hay solape suficiente, altura con modelo digital de superficie
   (requiere las nubes o los DSM de Pix4D).
 - **Índices de la réplica:** NDVI, GNDVI, SAVI, NDRE y TVI (media y suma).
@@ -124,7 +134,7 @@ validación cruzada entre especies. El **2018** es el año núcleo: 3 sitios × 
 - **Reproducción:** fracción de flor por parcela (arveja).
 - **Tiempo:** días desde siembra y **grados-día acumulados** (base 3 °C).
 
-## 4. Réplica de Zhang et al. (2021) → `09_replication.py`
+## 4. Réplica de Zhang et al. (2021) → `10_replication.py`
 - Correlaciones de Pearson parcela a parcela y por cultivar (media de 3 rep.) con rendimiento, días a floración y madurez.
 - LASSO (α = 1, CV 5 × 3, rasgos seleccionados en ≥75 % de las corridas, partición 3:1 × 4 y LOO por cultivar),
   con normalización dentro de sitio-año.
@@ -140,7 +150,7 @@ validación cruzada entre especies. El **2018** es el año núcleo: 3 sitios × 
    partir de la senescencia, validadas contra `fiftyflowr` y `physmatur` (Pullman).
 4. **Morfología:** discriminación de tipo de hoja y tipo de semilla (verde/amarilla, kabuli) con firmas espectrales y temporales.
 
-## 6. Machine Learning / Deep Learning → `10_models.py`
+## 6. Machine Learning / Deep Learning → `11_models.py`
 | Familia | Modelos | Entrada |
 |---|---|---|
 | Lineal regularizado (réplica) | LASSO, Elastic Net, PLSR | Rasgos por fecha |
