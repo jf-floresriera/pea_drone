@@ -22,9 +22,21 @@ Los mosaicos calibrados no se escriben (falta disco); los coeficientes se aplica
 """
 from __future__ import annotations
 
+import os
+import shutil
 import sys
 import warnings
 from pathlib import Path
+
+# GDAL no decodifica rutas no-ASCII del bundle de certificados (p. ej. 'C:\Users\Jesús…\certifi\cacert.pem');
+# se copia a una ruta ASCII del proyecto ANTES de importar rasterio.
+import certifi  # noqa: E402
+_CA = Path(__file__).resolve().parents[1] / "data_ext" / "cacert.pem"
+_CA.parent.mkdir(exist_ok=True)
+if not _CA.exists():
+    shutil.copy(certifi.where(), _CA)
+os.environ["GDAL_CURL_CA_BUNDLE"] = os.environ["CURL_CA_BUNDLE"] = str(_CA)
+os.environ.setdefault("GDAL_DISABLE_READDIR_ON_OPEN", "EMPTY_DIR")
 
 import geopandas as gpd
 import matplotlib
