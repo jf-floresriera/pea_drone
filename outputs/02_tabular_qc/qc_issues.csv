@@ -1,0 +1,9 @@
+severity,where,issue
+ALTA,2018 Genesee 1881,Description dice 'Advanced Green Pea' pero el código 1881 es garbanzo (x8x)
+MEDIA,2018 Pullman 1804,60 parcelas en la hoja vs 20 en Description
+MEDIA,2018 Pullman 1883,33 entradas vs 22 en Description
+ALTA,Description (todos los años),'seedyield' rotulado en g/ha; rango observado 134-5087 → son kg/ha (verificado: yieldlbs = seedyield × 0.892 en 1901 Fairfield)
+INFO,2017 1701 Fairfield vs Pullman,100% de parcelas con fenología idéntica entre sitios; se asume válido (valores del ensayo según los investigadores)
+INFO,2017 1701B Fairfield vs Pullman,100% de parcelas con fenología idéntica entre sitios; se asume válido (valores del ensayo según los investigadores)
+INFO,2017 1702 Fairfield vs Pullman,100% de parcelas con fenología idéntica entre sitios; se asume válido (valores del ensayo según los investigadores)
+BAJA,rendimiento,10 parcelas con |z robusto|>3.5 (ver yield_outliers.csv)

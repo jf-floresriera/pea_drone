@@ -1,0 +1,19 @@
+# Datos crudos: no se versionan (tamaño > límite de GitHub y propiedad de WSU/USDA-ARS)
+Images2017/
+Images2018/
+Images2019/
+*.tif
+*.tiff
+*.crdownload
+# Datos de campo originales y tablas a nivel de parcela: pendientes de autorización para repo público
+*.xlsx
+PulsePlotMaps_2017-2019.pdf
+outputs/02_tabular_qc/plots_master.csv
+outputs/02_tabular_qc/yield_outliers.csv
+outputs/02_tabular_qc/trials_description.csv
+outputs/**/*.gpkg
+# Entorno
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/

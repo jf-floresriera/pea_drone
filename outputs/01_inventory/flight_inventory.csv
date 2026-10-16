@@ -1,0 +1,56 @@
+year,site,crop,stage,date,flight_dir,bands_ok,missing_bands,gsd_m,area_ha,size_mb,usable_all_bands
+2017,Fairfield,pea,,2017-07-24,Fairfield_Pea_July24,5,,0.0298,0.992,119.32,True
+2017,Pullman,chickpea,,2017-06-05,Chickpea_June05,4,red edge,0.0308,0.793,70.44,False
+2017,Pullman,chickpea,,2017-06-26,Chickpea_Jun26,4,red edge,0.0299,1.347,135.29,False
+2017,Pullman,chickpea,,2017-07-07,Chickpea_Jul07,4,red edge,0.0307,1.236,118.0,False
+2017,Pullman,chickpea,,2017-07-21,Chickpea_July21,3,"green,red edge",0.0325,0.723,41.87,False
+2017,Pullman,chickpea,,2017-07-28,Chickpea_July28,4,red edge,0.0298,1.279,131.07999999999998,False
+2017,Pullman,chickpea,,2017-08-07,Chickpea_Aug07,5,,0.0293,1.374,174.42000000000002,True
+2017,Pullman,chickpea,,2017-08-16,Chickpea_Aug16,5,,0.0297,1.303,170.03,True
+2017,Pullman,pea,,2017-06-05,Pea_June05,5,,0.0309,1.008,111.88,True
+2017,Pullman,pea,,2017-06-26,Pea_Jun26,5,,0.0296,1.234,150.47,True
+2017,Pullman,pea,,2017-07-07,Pea_Jul07,5,,0.0276,0.833,113.95,True
+2017,Pullman,pea,,2017-07-21,Pea_July21,5,,0.0297,0.905,110.0,True
+2017,Pullman,pea,,2017-07-28,Pea_July28,5,,0.0289,0.906,113.00999999999999,True
+2018,Fairfield,chickpea,,2018-06-12,Fairfield_Chickpea_Jun12,5,,0.0176,0.926,219.59,True
+2018,Fairfield,chickpea,,2018-06-29,Fairfield_Chickpea_Jun29,5,,0.0189,0.947,217.07999999999998,True
+2018,Fairfield,chickpea,,2018-07-12,Fairfield_Chickpea_Jul12,5,,0.0177,0.9,229.52,True
+2018,Fairfield,chickpea,,2018-07-25,Fairfield_Chickpea_Jul25,5,,0.0181,0.93,230.32999999999998,True
+2018,Fairfield,pea,,2018-06-12,Fairfield_Pea_Jun12,5,,0.018,0.961,276.85,True
+2018,Fairfield,pea,,2018-06-29,Fairfield_Pea_Jun29,5,,0.0183,0.932,262.85,True
+2018,Fairfield,pea,,2018-07-12,Fairfield_Pea_Jul12,5,,0.0171,0.872,291.7,True
+2018,Fairfield,pea,,2018-07-25,Fairfield_Pea_Jul25,5,,0.018,0.913,274.28,True
+2018,Fairfield,pea,,2018-08-07,Fairfield_Pea_Aug07,5,,0.0174,0.884,282.32,True
+2018,Genesee,pea+chickpea,,2018-06-08,Genesee_Pea_Chickpea_Jun8,5,,0.0169,0.714,210.67000000000002,True
+2018,Genesee,pea+chickpea,,2018-06-26,Genesee_Pea_Chickpea_Jun26,5,,0.0163,0.732,228.19,True
+2018,Genesee,pea+chickpea,,2018-07-09,Genesee_Pea_Chickpea_Jul9,5,,0.0169,0.738,205.25,True
+2018,Genesee,pea+chickpea,,2018-07-23,Genesee_Pea_Chickpea_Jul23,5,,0.017,0.723,201.95,True
+2018,Genesee,pea+chickpea,,2018-08-06,Genesee_Pea_Chickpea_Aug6,5,,0.0176,0.763,197.17,True
+2018,Pullman,chickpea,,2018-06-08,Pullman_Chickpea_June8,5,,0.0173,0.845,314.81,True
+2018,Pullman,chickpea,,2018-06-22,Pullman_Chickpea_June22,5,,0.0179,0.821,279.97,True
+2018,Pullman,chickpea,,2018-07-03,Pullman_Chickpea_July3,5,,0.0144,0.696,383.33,True
+2018,Pullman,chickpea,,2018-07-19,Pullman_Chickpea_July19,5,,0.0176,0.754,281.73,True
+2018,Pullman,chickpea,,2018-07-27,Pullman_Chickpea_July27,5,,0.0175,0.801,290.23,True
+2018,Pullman,pea,,2018-06-08,Pullman_Pea_June8,5,,0.0174,1.006,367.31,True
+2018,Pullman,pea,,2018-06-22,Pullman_Pea_June22,5,,0.0175,1.039,369.14,True
+2018,Pullman,pea,,2018-07-03,Pullman_Pea_July3,5,,0.0178,1.019,361.48,True
+2018,Pullman,pea,,2018-07-19,Pullman_Pea_July 19,5,,0.017,1.026,376.64,True
+2018,Pullman,pea,,2018-07-27,Pullman_Pea_July27,5,,0.018,0.991,337.31,True
+2019,Fairfield,chickpea,,2019-06-10,Fairfield_Chickpea_June10,5,,0.0201,0.527,98.0,True
+2019,Fairfield,chickpea,,2019-06-28,Fairfield_Chickpea_June28,5,,0.0208,0.544,92.5,True
+2019,Fairfield,chickpea,,2019-07-12,Fairfield_Chickpea_July12,5,,0.0206,0.504,88.64,True
+2019,Fairfield,chickpea,,2019-07-23,Fairfield_Chickpea_July23,5,,0.0209,0.524,89.83,True
+2019,Fairfield,pea,,2019-06-10,Fairfield_Pea_June10,5,,0.0197,0.893,270.93,True
+2019,Fairfield,pea,,2019-06-28,Fairfield_Pea_June28,5,,0.0199,0.889,266.78,True
+2019,Fairfield,pea,,2019-07-12,Fairfield_Pea_July12,5,,0.0195,0.922,272.58,True
+2019,Genesee,pea+chickpea,,2019-06-05,Genesee_Pea_Chickpea_June05,5,,0.0166,0.788,258.47,True
+2019,Genesee,pea+chickpea,,2019-06-18,GeneseeJ_Pea_Chickpea_June18,5,,0.0175,0.799,248.42000000000002,True
+2019,Genesee,pea+chickpea,,2019-07-05,Genesee_Pea_Chickpea_July05,5,,0.0179,0.783,238.51,True
+2019,Genesee,pea+chickpea,,2019-07-16,Genesee_Pea_Chickpea_July16,5,,0.0162,0.698,256.16,True
+2019,Pullman,pea+chickpea,advanced,2019-06-05,Pullman_Pea_Chickpea_Advanced_June05,5,,0.0227,1.335,197.97,True
+2019,Pullman,pea+chickpea,advanced,2019-06-17,Pullman_Pea_Chickpea_Advanced_June17,2,"blue,green,red edge",0.0208,1.229,92.75999999999999,False
+2019,Pullman,pea+chickpea,advanced,2019-07-05,Pullman_Pea_Chickpea_Advanced_July05,0,"blue,green,nir,red,red edge",,,0.0,False
+2019,Pullman,pea+chickpea,advanced,2019-07-16,Pullman_Pea_Chickpea_Advanced_July16,0,"blue,green,nir,red,red edge",,,0.0,False
+2019,Pullman,pea+chickpea,preliminary,2019-06-17,Pullman_Pea_Chickpea_Preliminary_June17,0,"blue,green,nir,red,red edge",,,0.0,False
+2019,Pullman,pea+chickpea,preliminary,2019-07-05,Pullman_Pea_Chickpea_Preliminary_July05,0,"blue,green,nir,red,red edge",,,0.0,False
+2019,Pullman,pea+chickpea,preliminary,2019-07-17,Pullman_Pea_Chickpea_Preliminary_July16,0,"blue,green,nir,red,red edge",,,0.0,False
