@@ -24,6 +24,7 @@ pipeline/            scripts numerados, uno por paso (ejecutar en orden)
   01_inventory_images.py    inventario y QC de ortomosaicos
   02_qc_tabular.py          consolidación y QC de datos de campo
   03_spectral_histograms.py histogramas y firmas espectrales (DN sin calibrar)
+  04_context_maps.py        mapas de localización, ensayos por campo y calendario de vuelos
 docs/
   WORKFLOW.md        hoja de ruta metodológica completa (fases 0-7)
   DATA_ISSUES.md     registro de problemas de datos y decisiones tomadas
@@ -36,6 +37,7 @@ pip install -r requirements.txt
 python pipeline/01_inventory_images.py
 python pipeline/02_qc_tabular.py
 python pipeline/03_spectral_histograms.py
+python pipeline/04_context_maps.py   # requiere data_ext/ (Natural Earth + US Census, ver cabecera del script)
 ```
 Los datos crudos (ortomosaicos `Images20NN/`, `20NNPulseDataset.xlsx`, `PulsePlotMaps_2017-2019.pdf`) no se versionan.
 Se colocan en la raíz del repositorio con la misma estructura de carpetas.
@@ -44,7 +46,7 @@ Se colocan en la raíz del repositorio con la misma estructura de carpetas.
 | Fase | Descripción | Estado |
 |---|---|---|
 | 1 | Inventario y QC (imágenes, campo, respuesta espectral) | ✅ |
-| 1b | Mapas de contexto de los sitios | en curso |
+| 1b | Mapas de contexto (localización, campos, calendario) | ✅ |
 | 2 | Calibración radiométrica, corregistro, grilla de parcelas, segmentación | en curso |
 | 3-6 | Rasgos, réplica, temporal y genética, ML/DL | pendiente |
 | 7 | Manuscrito | pendiente |

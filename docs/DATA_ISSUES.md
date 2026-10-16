@@ -26,6 +26,7 @@ Cada entrada indica dónde se detectó el problema, el efecto que tiene y la dec
 | FLD-06 | 1803/1804 Pullman 2018 sin columna de bloque | Bloque inferido por la secuencia de parcela, verificado balanceado (`block_inferred = True`) |
 | FLD-07 | Nombres de columnas inconsistentes (`bloc`, `slotseedwt`, `entry` en lugar de `record`, columnas duplicadas) | Normalizados en `02_qc_tabular.py` |
 | FLD-08 | Hojas de Pullman 2019 desordenadas | Se ordena por número de parcela |
+| FLD-09 | Description trae un solo GPS por sitio-año, pero en Fairfield el garbanzo está en **otro campo**: a ~6 km al N de la arveja en 2018 y a ~2 km al O en 2019 (verificado con los ortomosaicos) | La ubicación de cada campo se toma del centroide del mosaico (`outputs/04_context/mosaic_footprints.geojson`). La rotación de parcelas ya era distinta por ensayo |
 
 ## Croquis (PulsePlotMaps_2017-2019.pdf)
 

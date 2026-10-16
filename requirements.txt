@@ -9,3 +9,4 @@ scikit-learn==1.7.2
 openpyxl==3.1.5
 tabulate==0.10.0
 pymupdf==1.28.2
+contextily==1.7.1
