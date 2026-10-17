@@ -30,6 +30,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from config import OUT, ROOT  # noqa: E402
 
 OUTDIR = OUT / "07_plot_grid"
+NOM_COL, NOM_ROW = 6.1, 2.0
 DEC = 4  # submuestreo (≈7-12 cm)
 TRIAL_COLORS = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#6250d6", "#e34948"]
 
@@ -110,12 +111,12 @@ def make_sampler(veg, tr, C, c0, ux, uy, hx, hy):
     return f
 
 
-def refine(veg, tr, C, c0, ux, uy, hx, hy, pitch_x, pitch_y):
+def refine(veg, tr, C, c0, ux, uy, hx, hy, pitch_x, pitch_y, s0=(1.0, 1.0)):
     f = make_sampler(veg, tr, C, c0, ux, uy, hx, hy)
-    best_q = np.array([0, 0, 0, 1.0, 1.0]); best_v = f(best_q)
-    # Puntos de partida en escala (capturas estiradas) con búsqueda de traslación de ±medio espaciamiento
-    for sx in np.geomspace(0.75, 1.4, 12):
-        for sy in np.geomspace(0.75, 1.4, 12):
+    best_q = np.array([0, 0, 0, *s0]); best_v = f(best_q)
+    # Puntos de partida en escala alrededor del prior s0, con búsqueda de traslación de ±medio espaciamiento
+    for sx in s0[0] * np.geomspace(0.8, 1.25, 12):
+        for sy in s0[1] * np.geomspace(0.8, 1.25, 12):
             for tx in np.linspace(-pitch_x / 2, pitch_x / 2, 7):
                 for ty in np.linspace(-pitch_y / 2, pitch_y / 2, 7):
                     q = np.array([tx * ux[0] + ty * uy[0], tx * ux[1] + ty * uy[1], 0, sx, sy])
@@ -143,6 +144,10 @@ def main() -> None:
     grid = gpd.read_file(OUTDIR / "plot_grid.gpkg", layer="plots")
     reg = pd.read_csv(OUTDIR / "registration.csv")
     rows, refined = [], []
+    global NOM_COL, NOM_ROW
+    pp = grid.groupby("page")[["pitch_col_m", "pitch_row_m"]].first()
+    NOM_COL, NOM_ROW = float(pp.pitch_col_m.median()), float(pp.pitch_row_m.median())
+    print(f"espaciamiento nominal (mediana de campos): {NOM_COL:.2f} × {NOM_ROW:.2f} m")
     for _, rg in reg[reg.status == "OK"].iterrows():
         g = grid[grid.page == rg.page].copy()
         nir, tr = read(rg.ref_flight, inv, "nir")
@@ -163,7 +168,13 @@ def main() -> None:
         px, py = gl.pitch_col_m.iloc[0], gl.pitch_row_m.iloc[0]
         hx, hy = 0.80 * px / 2, 0.70 * py / 2
         is_plot = (gl.kind == "plot").to_numpy()
-        q, _ = refine(veg, tr, C[is_plot], c0, ux, uy, hx, hy, px, py)
+        # Prior físico: todos los ensayos comparten el diseño de parcela (6,1 × 1,5 m + calles; Zhang et al. 2021).
+        # Si el espaciamiento registrado se aleja >20 % de la mediana de los demás campos (aliasing por franjas dentro
+        # de la parcela), se reescala a esa mediana antes de optimizar.
+        s0 = (NOM_COL / px if abs(px / NOM_COL - 1) > 0.2 else 1.0, NOM_ROW / py if abs(py / NOM_ROW - 1) > 0.2 else 1.0)
+        if s0 != (1.0, 1.0):
+            print(f"   prior físico: espaciamiento {px:.2f}×{py:.2f} m → escala inicial ({s0[0]:.2f}, {s0[1]:.2f})")
+        q, _ = refine(veg, tr, C[is_plot], c0, ux, uy, hx, hy, px * s0[0], py * s0[1], s0)
         polys, P = polys_from(q, C, c0, ux, uy, hx, hy)
         gl["geometry"] = polys
         gl["E"], gl["N"] = P[:, 0], P[:, 1]
@@ -181,7 +192,8 @@ def main() -> None:
         # Figura: CIR + polígonos por ensayo
         def st(a):
             lo, hi = np.nanpercentile(a, [2, 98]); return np.clip((a - lo) / (hi - lo), 0, 1)
-        cir = np.dstack([st(nir), st(red), st(green)]); cir[~np.isfinite(nir)] = 1
+        g3 = green if green is not None else red  # vuelos parciales sin verde
+        cir = np.dstack([st(nir), st(red), st(g3)]); cir[~np.isfinite(nir)] = 1
         ext = (tr.c, tr.c + tr.a * nir.shape[1], tr.f + tr.e * nir.shape[0], tr.f)
         fig, axes = plt.subplots(1, 2, figsize=(11, 5.5))
         b = gl.total_bounds

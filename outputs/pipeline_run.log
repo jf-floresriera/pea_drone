@@ -130,3 +130,73 @@
 [10:57:47]    07 sigue en ejecución (64 min de espera)
 [10:58:17]    07 sigue en ejecución (65 min de espera)
 [10:58:18]    07 terminó.
+[10:59:24] ==============================================================================
+[10:59:24] PIPELINE pea_drone · 9 pasos · estimado 5.0 h
+[10:59:24]    07b → 09 → 10 → 11 → 12 → 13 → 14 → 15 → 16
+[10:59:24] ------------------------------------------------------------------------------
+[10:59:24] PASO 1/9 [07b] Verificación y refinamiento afín de la grilla · estimado 25 min · restante total ≈ 5.0 h (fin ≈ 16:02)
+[10:59:27]    espaciamiento nominal (mediana de campos): 6.12 × 1.96 m
+[10:59:36]    pág 1 2017 Fairfield: contraste 0.42 → 0.55 (dentro 0.90, anillo 0.35) t=(+0.24,-0.01) m rot=+0.06° sx=0.988 sy=0.995 → espaciamiento 6.16 × 2.01 m
+[10:59:39]       prior físico: espaciamiento 6.07×1.27 m → escala inicial (1.00, 1.54)
+[10:59:48]    pág 2 2017 Pullman: contraste 0.01 → 0.08 (dentro 0.24, anillo 0.16) t=(-0.03,-0.10) m rot=-0.10° sx=1.013 sy=1.618 → espaciamiento 6.14 × 2.06 m
+[10:59:55]    pág 3 2017 Pullman: contraste 0.27 → 0.31 (dentro 0.86, anillo 0.56) t=(+0.20,-0.01) m rot=-0.44° sx=1.000 sy=1.011 → espaciamiento 6.12 × 1.99 m
+[11:00:06]    pág 4 2018 Fairfield: contraste 0.22 → 0.24 (dentro 0.59, anillo 0.35) t=(-0.15,+0.20) m rot=+0.00° sx=1.000 sy=1.000 → espaciamiento 6.09 × 1.92 m
+[11:00:13]    pág 5 2018 Fairfield: contraste 0.39 → 0.57 (dentro 0.75, anillo 0.18) t=(+0.24,-0.10) m rot=-0.01° sx=1.005 sy=1.002 → espaciamiento 6.10 × 2.04 m
+[11:00:23]    pág 6 2018 Genesee: contraste 0.15 → 0.16 (dentro 0.69, anillo 0.52) t=(+0.66,+0.79) m rot=+0.01° sx=1.020 sy=0.904 → espaciamiento 6.29 × 1.87 m
+[11:00:37]    pág 7 2018 Pullman: contraste 0.56 → 0.67 (dentro 0.92, anillo 0.25) t=(+0.04,-0.09) m rot=-0.14° sx=1.002 sy=1.010 → espaciamiento 6.07 × 1.96 m
+[11:00:47]    pág 8 2018 Pullman: contraste 0.43 → 0.54 (dentro 0.94, anillo 0.40) t=(-0.19,-0.18) m rot=+0.44° sx=1.000 sy=0.985 → espaciamiento 6.13 × 1.92 m
+[11:00:50]       prior físico: espaciamiento 6.19×1.01 m → escala inicial (1.00, 1.93)
+[11:00:57]    pág 9 2019 Fairfield: contraste 0.29 → 0.63 (dentro 0.91, anillo 0.28) t=(-0.11,+0.88) m rot=+0.21° sx=1.001 sy=1.978 → espaciamiento 6.19 × 2.01 m
+[11:01:05]    pág 10 2019 Fairfield: contraste 0.47 → 0.46 (dentro 0.89, anillo 0.42) t=(+0.11,-0.10) m rot=-0.23° sx=1.002 sy=1.014 → espaciamiento 6.19 × 1.98 m
+[11:01:15]    pág 11 2019 Genesee: contraste 0.44 → 0.64 (dentro 0.95, anillo 0.30) t=(-0.15,+0.15) m rot=-0.17° sx=1.020 sy=0.987 → espaciamiento 6.10 × 1.98 m
+[11:01:29]    pág 12 2019 Pullman: contraste 0.42 → 0.43 (dentro 0.54, anillo 0.11) t=(+0.00,-0.01) m rot=+0.02° sx=0.997 sy=0.995 → espaciamiento 6.20 × 1.98 m
+[11:01:29]    Traceback (most recent call last):
+[11:01:29]      File "C:\Trabajo_eterno\drone_images\pipeline\07b_check_plot_grid.py", line 225, in <module>
+[11:01:29]        main()
+[11:01:29]      File "C:\Trabajo_eterno\drone_images\pipeline\07b_check_plot_grid.py", line 195, in main
+[11:01:29]        cir = np.dstack([st(nir), st(red), st(green)]); cir[~np.isfinite(nir)] = 1
+[11:01:29]      File "C:\Trabajo_eterno\drone_images\pipeline\07b_check_plot_grid.py", line 194, in st
+[11:01:29]        lo, hi = np.nanpercentile(a, [2, 98]); return np.clip((a - lo) / (hi - lo), 0, 1)
+[11:01:29]      File "C:\Users\JesúsEnriqueFloresRi\AppData\Local\Programs\Python\Python310\lib\site-packages\numpy\lib\_nanfunctions_impl.py", line 1409, in nanpercentile
+[11:01:29]        return _nanquantile_unchecked(
+[11:01:29]      File "C:\Users\JesúsEnriqueFloresRi\AppData\Local\Programs\Python\Python310\lib\site-packages\numpy\lib\_nanfunctions_impl.py", line 1620, in _nanquantile_unchecked
+[11:01:29]        return fnb._ureduce(a,
+[11:01:29]      File "C:\Users\JesúsEnriqueFloresRi\AppData\Local\Programs\Python\Python310\lib\site-packages\numpy\lib\_function_base_impl.py", line 3894, in _ureduce
+[11:01:29]        r = func(a, **kwargs)
+[11:01:29]      File "C:\Users\JesúsEnriqueFloresRi\AppData\Local\Programs\Python\Python310\lib\site-packages\numpy\lib\_nanfunctions_impl.py", line 1648, in _nanquantile_ureduce_func
+[11:01:29]        result = _nanquantile_1d(part, q, overwrite_input, method, weights=wgt)
+[11:01:29]      File "C:\Users\JesúsEnriqueFloresRi\AppData\Local\Programs\Python\Python310\lib\site-packages\numpy\lib\_nanfunctions_impl.py", line 1700, in _nanquantile_1d
+[11:01:29]        return fnb._quantile_unchecked(
+[11:01:29]      File "C:\Users\JesúsEnriqueFloresRi\AppData\Local\Programs\Python\Python310\lib\site-packages\numpy\lib\_function_base_impl.py", line 4550, in _quantile_unchecked
+[11:01:29]        return _ureduce(a,
+[11:01:29]      File "C:\Users\JesúsEnriqueFloresRi\AppData\Local\Programs\Python\Python310\lib\site-packages\numpy\lib\_function_base_impl.py", line 3894, in _ureduce
+[11:01:29]        r = func(a, **kwargs)
+[11:01:29]      File "C:\Users\JesúsEnriqueFloresRi\AppData\Local\Programs\Python\Python310\lib\site-packages\numpy\lib\_function_base_impl.py", line 4727, in _quantile_ureduce_func
+[11:01:29]        result = _quantile(arr,
+[11:01:29]      File "C:\Users\JesúsEnriqueFloresRi\AppData\Local\Programs\Python\Python310\lib\site-packages\numpy\lib\_function_base_impl.py", line 4859, in _quantile
+[11:01:29]        result = _lerp(previous,
+[11:01:29]      File "C:\Users\JesúsEnriqueFloresRi\AppData\Local\Programs\Python\Python310\lib\site-packages\numpy\lib\_function_base_impl.py", line 4653, in _lerp
+[11:01:29]        diff_b_a = subtract(b, a)
+[11:01:29]    TypeError: unsupported operand type(s) for -: 'NoneType' and 'NoneType'
+[11:01:29] ✗ PASO 07b FALLÓ tras 2.1 min (ver outputs/logs/07b.log). Pipeline detenido.
+[11:01:46] ==============================================================================
+[11:01:46] PIPELINE pea_drone · 9 pasos · estimado 5.0 h
+[11:01:46]    07b → 09 → 10 → 11 → 12 → 13 → 14 → 15 → 16
+[11:01:46] ------------------------------------------------------------------------------
+[11:01:46] PASO 1/9 [07b] Verificación y refinamiento afín de la grilla · estimado 25 min · restante total ≈ 5.0 h (fin ≈ 16:04)
+[11:01:49]    espaciamiento nominal (mediana de campos): 6.12 × 1.96 m
+[11:01:57]    pág 1 2017 Fairfield: contraste 0.42 → 0.55 (dentro 0.90, anillo 0.35) t=(+0.24,-0.01) m rot=+0.06° sx=0.988 sy=0.995 → espaciamiento 6.16 × 2.01 m
+[11:01:59]       prior físico: espaciamiento 6.07×1.27 m → escala inicial (1.00, 1.54)
+[11:02:08]    pág 2 2017 Pullman: contraste 0.01 → 0.08 (dentro 0.24, anillo 0.16) t=(-0.03,-0.10) m rot=-0.10° sx=1.013 sy=1.618 → espaciamiento 6.14 × 2.06 m
+[11:02:15]    pág 3 2017 Pullman: contraste 0.27 → 0.31 (dentro 0.86, anillo 0.56) t=(+0.20,-0.01) m rot=-0.44° sx=1.000 sy=1.011 → espaciamiento 6.12 × 1.99 m
+[11:02:24]    pág 4 2018 Fairfield: contraste 0.22 → 0.24 (dentro 0.59, anillo 0.35) t=(-0.15,+0.20) m rot=+0.00° sx=1.000 sy=1.000 → espaciamiento 6.09 × 1.92 m
+[11:02:32]    pág 5 2018 Fairfield: contraste 0.39 → 0.57 (dentro 0.75, anillo 0.18) t=(+0.24,-0.10) m rot=-0.01° sx=1.005 sy=1.002 → espaciamiento 6.10 × 2.04 m
+[11:02:41]    pág 6 2018 Genesee: contraste 0.15 → 0.16 (dentro 0.69, anillo 0.52) t=(+0.66,+0.79) m rot=+0.01° sx=1.020 sy=0.904 → espaciamiento 6.29 × 1.87 m
+[11:02:55]    pág 7 2018 Pullman: contraste 0.56 → 0.67 (dentro 0.92, anillo 0.25) t=(+0.04,-0.09) m rot=-0.14° sx=1.002 sy=1.010 → espaciamiento 6.07 × 1.96 m
+[11:03:05]    pág 8 2018 Pullman: contraste 0.43 → 0.54 (dentro 0.94, anillo 0.40) t=(-0.19,-0.18) m rot=+0.44° sx=1.000 sy=0.985 → espaciamiento 6.13 × 1.92 m
+[11:03:08]       prior físico: espaciamiento 6.19×1.01 m → escala inicial (1.00, 1.93)
+[11:03:14]    pág 9 2019 Fairfield: contraste 0.29 → 0.63 (dentro 0.91, anillo 0.28) t=(-0.11,+0.88) m rot=+0.21° sx=1.001 sy=1.978 → espaciamiento 6.19 × 2.01 m
+[11:03:21]    pág 10 2019 Fairfield: contraste 0.47 → 0.46 (dentro 0.89, anillo 0.42) t=(+0.11,-0.10) m rot=-0.23° sx=1.002 sy=1.014 → espaciamiento 6.19 × 1.98 m
+[11:03:32]    pág 11 2019 Genesee: contraste 0.44 → 0.64 (dentro 0.95, anillo 0.30) t=(-0.15,+0.15) m rot=-0.17° sx=1.020 sy=0.987 → espaciamiento 6.10 × 1.98 m
+[11:03:45]    pág 12 2019 Pullman: contraste 0.42 → 0.43 (dentro 0.54, anillo 0.11) t=(+0.00,-0.01) m rot=+0.02° sx=0.997 sy=0.995 → espaciamiento 6.20 × 1.98 m
+[11:03:48] ✓ PASO 07b completado en 2.0 min
