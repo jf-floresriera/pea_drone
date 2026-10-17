@@ -2,12 +2,12 @@
   "started": "2026-10-17 12:57:53.834742",
   "steps": {
     "11": "ok (33.0 min)",
-    "12": "pendiente",
+    "12": "ok (1.4 min)",
     "13": "pendiente",
     "14": "pendiente",
     "15": "pendiente",
     "16": "pendiente"
   },
-  "current": "11",
-  "eta": "2026-10-17 16:35:53.834742"
+  "current": "12",
+  "eta": "2026-10-17 15:21:57.790064"
 }

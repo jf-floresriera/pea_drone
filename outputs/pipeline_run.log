@@ -535,3 +535,15 @@
 [13:30:02]    [57/58] green_pea 2018_combinado anidada: R²parcela=0.21 R²cultivar=0.10 sel=7.0
 [13:30:50]    [58/58] green_pea 2017_combinado anidada: R²parcela=0.17 R²cultivar=nan sel=2.5
 [13:30:55] ✓ PASO 11 completado en 33.0 min
+[13:31:00]    ✓ subido a GitHub (paso 11)
+[13:31:00] ------------------------------------------------------------------------------
+[13:31:00] PASO 2/6 [12] Curvas temporales en grados-día · estimado 7 min · restante total ≈ 1.8 h (fin ≈ 15:21)
+[13:32:24]                        n_dates  logistic_r2       x0  max_rate    auc
+[13:32:24]    trait
+[13:32:24]    CIrededge_plotmean      4.0        0.815  498.025     0.698  1.380
+[13:32:24]    GNDVI_plotmean          4.0        0.891  414.592     0.523  0.583
+[13:32:24]    NDRE_plotmean           4.0        0.883  453.392     0.187  0.389
+[13:32:24]    NDVI_plotmean           4.0        0.930  443.728     0.331  0.587
+[13:32:24]    canopy_cover            4.0        0.920  456.163     0.253  0.640
+[13:32:24]    ajustes logísticos válidos: {'CIrededge_plotmean': 1560, 'GNDVI_plotmean': 1656, 'NDRE_plotmean': 1560, 'NDVI_plotmean': 1656, 'canopy_cover': 1597}
+[13:32:27] ✓ PASO 12 completado en 1.4 min
