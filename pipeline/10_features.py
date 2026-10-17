@@ -98,7 +98,7 @@ def main() -> None:
             files = inv[inv.flight_dir == f].set_index("band")
             if files.empty:
                 continue
-            sh = cr[(cr.flight_dir == f) & (cr.status.isin(["OK", "REF"]))]
+            sh = cr[cr.flight_dir == f]
             dE, dN = (sh.iloc[0].shift_E_m, sh.iloc[0].shift_N_m) if not sh.empty else (0.0, 0.0)
             polys = g.copy()
             polys["geometry"] = polys.geometry.translate(dE, dN)

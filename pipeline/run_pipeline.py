@@ -26,7 +26,7 @@ LOG = OUT / "pipeline_run.log"
 STATUS = OUT / "pipeline_status.json"
 STEPS = [  # (id, script, descripción, minutos estimados)
     ("07b", "07b_check_plot_grid.py", "Verificación y refinamiento afín de la grilla", 25),
-    ("09", "09_coregistration.py", "Corregistro multitemporal", 15),
+    ("09", "09_coregistration.py", "Corregistro multitemporal (grilla como referencia)", 6),
     ("10", "10_features.py", "Extracción de rasgos por parcela y fecha", 45),
     ("11", "11_replication.py", "Réplica de Zhang et al. (2021)", 50),
     ("12", "12_temporal.py", "Curvas temporales en grados-día", 10),
