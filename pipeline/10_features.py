@@ -99,6 +99,10 @@ def main() -> None:
             if files.empty:
                 continue
             sh = cr[cr.flight_dir == f]
+            # Vuelos con corregistro no resoluble se excluyen (riesgo de asignar la parcela vecina): docs/DATA_ISSUES.md
+            if sh.empty or sh.iloc[0].status in ("AMBIGUO", "SIN_NIR_ROJO"):
+                print(f"p{page} {f}: excluido (corregistro {sh.iloc[0].status if not sh.empty else 'ausente'})")
+                continue
             dE, dN = (sh.iloc[0].shift_E_m, sh.iloc[0].shift_N_m) if not sh.empty else (0.0, 0.0)
             polys = g.copy()
             polys["geometry"] = polys.geometry.translate(dE, dN)

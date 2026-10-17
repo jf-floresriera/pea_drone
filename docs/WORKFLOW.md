@@ -134,9 +134,17 @@ El panel de reflectancia (MicaSense 2017, Spectralon 99 % en 2018-19) no está e
      rojo 0,076, todavía comprimida respecto del dosel puro; ver `DATA_ISSUES.md`, IMG-07.
 8. Si los autores entregan las capturas del panel, se calibra con panel y la calibración S2 queda como validación independiente.
 
-### 2.3 Corregistro multitemporal → `06_coregistration.py`
-- Correlación de fase de NIR entre cada fecha y una fecha de referencia por sitio-año. Meta: error < 1 GSD.
-- Remuestreo a una grilla común por sitio-año (2 cm) para usar los mismos polígonos de parcela en todas las fechas.
+### 2.3 Corregistro multitemporal → `09_coregistration.py`
+- Los mosaicos de distintas fechas están desplazados entre sí ~0,7 m (máx. 2,1 m).
+- Métodos descartados:
+  - correlación de fase entre fechas (aliasing por el patrón periódico de parcelas);
+  - NDVI suavizado (inestable por el cambio fenológico);
+  - dianas GCP (cambian de posición entre vuelos).
+- **Método adoptado:** refinamiento de la grilla en cada vuelo, buscando la traslación que maximiza el contraste de
+  vegetación dentro de la parcela frente a la calle.
+  - La búsqueda se hace en los ejes de la grilla: ±2,5 m a lo largo de la parcela y ±0,95 m entre filas
+    (< medio espaciamiento, sin aliasing).
+  - Los vuelos con desfase entre filas en el límite se excluyen por ambiguos (4/52).
 
 ### 2.4 Polígonos de parcela → `07_plot_grid.py`
 - Entrada: matriz fila × columna del croquis + rotación (Description) + dimensiones (6,1 × 1,5 m; calles 0,75 m).
