@@ -94,19 +94,34 @@ validación cruzada entre especies. El **2018** es el año núcleo: 3 sitios × 
 usó puntos de control. Los blancos están **saturados** (DN ≈ 65520) en 2018-2019 y varían entre vuelos en 2017.
 El panel de reflectancia (MicaSense 2017, Spectralon 99 % en 2018-19) no está en los mosaicos: se fotografió en tierra.
 
-**Método adoptado: línea empírica cruzada con Sentinel-2 L2A** (reflectancia de superficie, Planetary Computer):
+**Método adoptado: línea empírica cruzada con Sentinel-2 L2A y muestreo por sectores** (Planetary Computer):
 1. Para cada vuelo, se toma la escena S2 más cercana (|Δt| ≤ 6 d) con ≥95 % de la huella en las clases SCL 4/5.
-2. Los DN UAV se agregan (media) a la grilla S2: 10 m para B02/B03/B04/B08 y 20 m para B05.
-   Se usan solo píxeles con cobertura UAV completa.
-3. Ajuste robusto (Huber) ρ = a·DN + b por banda y vuelo. Se reportan R², RMSE y RMSE-CV de 5 particiones.
-4. Se guardan los coeficientes (`calibration_coefficients.csv`) y se aplican al extraer rasgos. No se escriben
-   mosaicos calibrados por falta de disco.
-5. Limitaciones a declarar:
-   - El ajuste es global por vuelo y no corrige las costuras internas del mosaico; esto se absorbe con efectos
-     espaciales (fila/columna) en los modelos mixtos.
-   - Hay diferencias espectrales menores entre las bandas S2 y RedEdge (RE 717 vs. B05 705 nm).
-   - Entre la escena S2 y el vuelo pueden pasar hasta ±6 días de crecimiento.
-6. Si los autores entregan las capturas del panel, se calibra con panel y la calibración S2 queda como validación independiente.
+2. **Desajuste de escala (2 cm vs. 10-20 m).** La comparación píxel a píxel dio R² de 0,0-0,6 por:
+   - el error de geolocalización de S2;
+   - la PSF del sensor MSI;
+   - la mezcla parcela/calle en los bordes.
+   Se reemplazó por un **muestreo por sectores**:
+   - Sector = celda de 20 m de la grilla S2 (2×2 píxeles de 10 m; 1 píxel de B05).
+   - El UAV se lleva a 2 m y se convoluciona con una gaussiana que imita la PSF de S2 (σ = 4 m en las bandas de 10 m
+     y 8 m en B05); luego se promedia por sector.
+   - Se busca el desfase UAV-S2 en ±20 m que maximiza la correlación NIR+rojo (se halló, p. ej., 10 m en Pullman 2018).
+   - Se usan solo sectores con cobertura UAV completa, SCL 4/5 y CV interno del NIR ≤ 0,25.
+   - Los sectores se estratifican en suelo, mezcla y dosel según el NDVI de S2.
+   Resultado en Pullman 2018-07-19: R² de 0,85-0,93 en azul, rojo y NIR (antes ≈0,1-0,4).
+3. **Ajuste agrupado por año y banda:** ρ = b(año, banda) + g(vuelo, banda)·DN, con Huber robusto.
+   - El offset b (nivel de negro del sensor) es común a los vuelos del año y la ganancia g es propia de cada vuelo.
+   - Al combinar fechas se amplía el rango (suelo en junio, dosel en julio) y el offset queda identificado,
+     incluso en vuelos tempranos de bajo contraste.
+4. Validación física independiente: NDVI de dosel y suelo y reflectancia del rojo y del NIR del dosel, en rangos esperables.
+5. Se guardan los coeficientes (`calibration_coefficients.csv`) y se aplican al extraer rasgos.
+   No se escriben mosaicos calibrados por falta de disco.
+6. Limitaciones a declarar:
+   - La calibración es global por vuelo y no corrige las costuras internas del mosaico (se tratan con efectos espaciales).
+   - Hay diferencias espectrales menores entre bandas S2 y RedEdge.
+   - El desfase temporal es de hasta ±6 días.
+   - La PSF de S2 se aproxima con una gaussiana.
+   - Hay pocos sectores por campo (≈10-90).
+7. Si los autores entregan las capturas del panel, se calibra con panel y la calibración S2 queda como validación independiente.
 
 ### 2.3 Corregistro multitemporal → `06_coregistration.py`
 - Correlación de fase de NIR entre cada fecha y una fecha de referencia por sitio-año. Meta: error < 1 GSD.
