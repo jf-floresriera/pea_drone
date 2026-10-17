@@ -68,14 +68,23 @@ def main() -> None:
             groups = gcrop.loc[y.index, "entry_name"]
             model = make_pipeline(SimpleImputer(strategy="median"), StandardScaler(),
                                   RidgeCV(alphas=np.logspace(-2, 3, 30)))
-            pred = pd.Series(np.nan, index=y.index)
+            # Se predice la desviación respecto de la media del ambiente (medias calculadas solo con entrenamiento);
+            # los rasgos ya están estandarizados dentro de ambiente.
+            pred = pd.Series(np.nan, index=y.index); envmean = pd.Series(np.nan, index=y.index)
             for tr, te in GroupKFold(n_splits=5).split(Xz, y, groups):
-                model.fit(Xz.iloc[tr], y.iloc[tr])
-                pred.iloc[te] = model.predict(Xz.iloc[te])
-            cvs.append(dict(crop=crop, target=t, n=len(y), n_features=Xz.shape[1], r2=r2_score(y, pred),
-                            rmse_days=float(np.sqrt(mean_squared_error(y, pred))), spearman=spearmanr(y, pred)[0]))
+                mu = y.iloc[tr].groupby(env.iloc[tr]).mean()
+                mte = env.iloc[te].map(mu).fillna(y.iloc[tr].mean())
+                model.fit(Xz.iloc[tr], y.iloc[tr] - env.iloc[tr].map(mu))
+                pred.iloc[te] = model.predict(Xz.iloc[te]) + mte.to_numpy()
+                envmean.iloc[te] = mte.to_numpy()
+            dev_o, dev_p = y - envmean, pred - envmean
+            cvs.append(dict(crop=crop, target=t, n=len(y), n_features=Xz.shape[1],
+                            r2_within_env=r2_score(dev_o, dev_p), r=float(np.corrcoef(dev_o, dev_p)[0, 1]),
+                            r2=r2_score(y, pred), rmse_days=float(np.sqrt(mean_squared_error(y, pred))),
+                            spearman=spearmanr(y, pred)[0]))
             preds.append(pd.DataFrame(dict(obs=y, pred=pred, crop=crop, target=t, env=env)))
-            print(f"{crop} {t}: R²={cvs[-1]['r2']:.2f} RMSE={cvs[-1]['rmse_days']:.1f} d n={len(y)}")
+            print(f"{crop} {t}: R² dentro de ambiente={cvs[-1]['r2_within_env']:.2f} (r={cvs[-1]['r']:.2f}) · "
+                  f"R² absoluto={cvs[-1]['r2']:.2f} · RMSE={cvs[-1]['rmse_days']:.1f} d · n={len(y)}")
     pd.DataFrame(cors).to_csv(OUTDIR / "phenology_correlations.csv", index=False)
     pd.DataFrame(cvs).to_csv(OUTDIR / "phenology_cv.csv", index=False)
     pr = pd.concat(preds) if preds else pd.DataFrame()
@@ -97,8 +106,9 @@ def main() -> None:
         ax.set_xlabel("Observado (días)"); ax.set_ylabel("Predicho (días)")
         ax.set_title(f"({letter}) {'Arveja' if crop == 'pea' else 'Garbanzo'}: {style.wrap(PHENO[t], 22)}", loc="left")
     axes[0][-1].legend(loc="upper left", bbox_to_anchor=(1.02, 1), markerscale=2)
-    style.note(fig, "Predicción por validación cruzada agrupada por genotipo (5 particiones); ridge sobre parámetros de "
-                    "curva y rasgos en la grilla de grados-día, estandarizados dentro de ambiente.")
+    style.note(fig, "Validación cruzada agrupada por genotipo (5 particiones); ridge sobre parámetros de curva y rasgos en "
+                    "la grilla de grados-día estandarizados dentro de ambiente; se predice la desviación respecto de la media "
+                    "del ambiente (estimada con entrenamiento).")
     style.save(fig, OUTDIR / "fig_phenology_obs_pred")
 
 
