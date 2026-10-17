@@ -30,7 +30,7 @@ def read_description(year: int) -> pd.DataFrame:
     hdr = raw.iloc[0].tolist()
     end = raw.index[raw[0].isna()][0]  # bloque superior hasta la primera fila vacía
     d = raw.iloc[1:end].copy()
-    d.columns = hdr
+    d.columns = [str(h).strip() for h in hdr]
     d = d.rename(columns={"Trial No.": "trial", "Trial Location": "site", "Crop Type": "crop_type",
                           "Number of Varieties": "n_entries_expected", "Number of Replicate": "n_reps_expected",
                           "Number of Plots": "n_plots_expected", "Planting Date": "planting_date",
