@@ -121,7 +121,13 @@ El panel de reflectancia (MicaSense 2017, Spectralon 99 % en 2018-19) no está e
    - El desfase temporal es de hasta ±6 días.
    - La PSF de S2 se aproxima con una gaussiana.
    - Hay pocos sectores por campo (≈10-90).
-7. Si los autores entregan las capturas del panel, se calibra con panel y la calibración S2 queda como validación independiente.
+7. **Resultados (55/55 vuelos con escena S2, |Δt| mediano 1 d):**
+   - Ajuste agrupado: R² de 0,85-0,94 (azul), 0,85-0,89 (verde), 0,87-0,96 (rojo), 0,90-0,95 (red edge)
+     y 0,80-0,96 (NIR); RMSE por vuelo de 0,004-0,017.
+   - Desfases UAV-S2 hallados de 0-28 m (frecuentemente 10 m).
+   - Validación física: el suelo y el NIR quedan en rangos razonables, pero el dosel puro queda con NDVI
+     comprimido (0,56-0,78); ver `DATA_ISSUES.md`, IMG-07.
+8. Si los autores entregan las capturas del panel, se calibra con panel y la calibración S2 queda como validación independiente.
 
 ### 2.3 Corregistro multitemporal → `06_coregistration.py`
 - Correlación de fase de NIR entre cada fecha y una fecha de referencia por sitio-año. Meta: error < 1 GSD.
