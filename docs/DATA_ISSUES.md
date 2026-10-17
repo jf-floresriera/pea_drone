@@ -35,3 +35,10 @@ Cada entrada indica dónde se detectó el problema, el efecto que tiene y la dec
 |---|---|---|
 | MAP-01 | Errores de digitación en el croquis: Fairfield 2018 1802 F16-C5 "36"→35; Pullman 2018 1801 F2-C6 "35"→55; Fairfield 2018 y Pullman 2018 1881: la celda de la parcela 32 dice "1881" | Corregidos explícitamente en `pipeline/06_parse_plot_maps.py` (`CORRECTIONS`). Tras corregir, los 34 ensayos (2415 parcelas) coinciden 1:1 con el Excel (`outputs/06_plot_maps/plot_map_validation.csv`) |
 | MAP-02 | Fairfield 2019, 1901, fila 2: el orden es 12, 22, 2 (no 2, 12, 22), resaltado en **verde** por los autores | Se interpreta como posición de siembra anotada y **se respeta el croquis** (decisión: confiar en los datos de los investigadores). Las celdas se asignan a 1901 por su fila |
+
+## Grilla georreferenciada
+
+| ID | Observación | Decisión |
+|---|---|---|
+| GRID-01 | Registro captura↔mosaico con aliasing vertical en Pullman 2017 (arveja) y Fairfield 2019 (arveja): cada parcela muestra dos franjas y el registro tomó la franja como parcela (espaciamiento entre filas de 1,27 y 1,01 m frente a ≈2,0 m en los demás campos) | Prior físico en `07b`: se reescala a la mediana de los demás campos (6,1 × 2,0 m) antes del refinamiento afín. Fairfield 2019: contraste 0,29 → 0,63 |
+| GRID-02 | Contraste vegetación dentro/calle bajo en Pullman 2017 arveja (0,08; vuelo de referencia senescente del 28-jul) y Genesee 2018 (0,16; vuelo del 6-ago con el dosel cerrado sobre las calles) | Verificados visualmente (Pullman 2017 bien alineado; Genesee 2018 alineado con las franjas, con algunos polígonos de arveja que tocan las separaciones entre parcelas). Se marcan como **confianza media** y se evaluará su exclusión en un análisis de sensibilidad |
