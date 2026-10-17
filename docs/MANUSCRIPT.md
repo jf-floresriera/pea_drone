@@ -177,9 +177,21 @@ The authors' field maps (13 pages) are vector tables overlaid on screenshots of 
 - **Plot polygons.** Centred on each cell and oriented along the grid axes, with 80 % of the inter-column and 70 % of the
   inter-row spacing to exclude borders and alleys.
 - **Refinement** (`pipeline/07b_check_plot_grid.py`). An affine refinement (translation, rotation and anisotropic scale)
-  maximised the contrast between vegetation fraction inside the polygons and in a 0.4–0.5 m surrounding ring.
+  maximised the contrast between vegetation fraction inside the polygons and in a 0.4–0.5 m surrounding ring
+  (vegetation = digital-number NDVI above the flight's Otsu threshold).
+  - In two fields the registration locked onto the two canopy strips visible within each plot (row spacing 1.0–1.3 m
+    instead of ≈2.0 m). Because all trials share the same plot design (6.1 m × 1.5 m plus alleys), spacings departing
+    > 20 % from the median of the other fields were rescaled to that median before refinement.
+- **Multi-temporal co-registration** (`pipeline/09_coregistration.py`). Orthomosaics of different dates were offset from
+  each other by a median of 0.68 m (maximum 2.1 m), despite the use of ground control points.
+  - Image-to-image phase correlation, smoothed-NDVI correlation and matching of ground-control targets all failed:
+    respectively because of aliasing on the periodic plot pattern, phenological change between dates, and targets
+    moved between flights.
+  - The grid was therefore re-fitted to every flight by translation only, along the grid axes: ±2.5 m along the plot
+    and ±0.95 m across rows, i.e. less than half the row spacing, so a shift to the neighbouring row is impossible.
+  - Flights whose across-row shift reached the search limit (4 of 52) were excluded as ambiguous.
 
-### 2.6 Trait extraction [PENDING]
+### 2.6 Trait extraction
 For each plot and date, calibrated reflectance is summarised after soil and flower masking:
 - canopy cover;
 - the indices used by Zhang et al. (2021): NDVI (Rouse et al., 1974), GNDVI (Gitelson et al., 1996), SAVI (Huete, 1988),
@@ -189,24 +201,40 @@ For each plot and date, calibrated reflectance is summarised after soil and flow
 - within-plot percentiles;
 - GLCM texture (Haralick et al., 1973).
 
-Canopy segmentation is benchmarked as: SAVI threshold (replication) vs. Otsu (1979) vs. a supervised classifier including
-a pea-flower class. Thermal time is computed as growing degree days with a 3 °C base, as in Zhang et al. (2021), from
-daily gridded weather.
+- **Canopy mask.** Calibrated SAVI above the Otsu (1979) threshold of each flight and field, an automatic analogue of
+  the visually chosen SAVI thresholds of Zhang et al. (2021). Each index was summarised as canopy mean, plot mean,
+  canopy sum, percentiles and coefficient of variation (`pipeline/10_features.py`).
+- **Thermal time.** Growing degree days from sowing with a 3 °C base, as in Zhang et al. (2021), computed from Daymet V4
+  daily weather (Thornton et al., 2022) at the centroid of each field (`pipeline/08_weather_gdd.py`).
+- **Common thermal-time grid.** Because each site-year was flown on different dates, plot traits were linearly
+  interpolated to 400, 550, 700, 850, 1000 and 1150 °C·d for pooled analyses, without extrapolation.
 
-### 2.7 Replication analysis [PENDING]
+### 2.7 Replication analysis
 Pearson correlations between traits and seed yield, days to flowering and days to maturity are computed at plot and
 cultivar level. LASSO yield models are fitted with the original settings: α = 1, 5-fold × 3 cross-validation, features
 retained in ≥ 75 % of runs, 3:1 split repeated four times and leave-one-cultivar-out (Tibshirani, 1996; Zhang et al., 2021).
+- **Leakage-free variant.** In the original procedure, feature selection uses the full dataset before splitting. We
+  therefore also report a "nested" variant in which selection is repeated within every training partition.
+- **Sensitivity of pooled datasets.** For data pooled within a year we compared standardisation within site against
+  standardisation over the pooled dataset (`pipeline/11b_replication_sensitivity.py`).
 
-### 2.8 Temporal and genetic analyses [PENDING]
+### 2.8 Temporal, genetic and phenological analyses
 - **Growth curves.** Logistic and P-spline curves are fitted per plot to canopy cover and indices against growing degree
   days. Parameters: maximum, maximum rate, inflection, area under the curve and senescence rate (cf. Borra-Serrano et al., 2020).
 - **Mixed models.** Spatial mixed models (SpATS; Rodríguez-Álvarez et al., 2018) provide genotype BLUEs/BLUPs and
   generalised heritability (Cullis et al., 2006; Piepho and Möhring, 2007).
-- **Downstream analyses.** Genetic correlations with seed yield; multi-environment G×E; coincidence of selection between
-  UAV-based and yield-based rankings.
+  - The model was fitted by REML (statsmodels) with block and quadratic row/column trends as fixed effects.
+  - Entry-mean heritability was computed as σ²g/(σ²g + σ²e/r).
+- **Downstream analyses.**
+  - Correlations between genotypic values (μ + BLUP) of UAV traits and of seed yield. These approximate genetic
+    correlations and are biased towards zero by shrinkage.
+  - Coincidence of the top 20 % genotypes selected by yield and by each UAV trait.
+  - G×E for trials repeated across sites: crossed genotype and genotype × environment variance components.
+- **Phenology.** Days to flowering and to maturity were predicted with ridge regression on curve parameters and
+  thermal-time-grid traits under genotype-grouped 5-fold cross-validation. Targets were deviations from the
+  environment mean, estimated on training plots only (`pipeline/14_phenology.py`).
 
-### 2.9 Machine learning [PENDING]
+### 2.9 Machine learning
 - **Models:** LASSO, elastic net, PLSR, random forests (Breiman, 2001), XGBoost (Chen and Guestrin, 2016), temporal
   convolutional/recurrent networks, and CNNs on multi-temporal plot image chips.
 - **Validation schemes:** random-plot, leave-genotype-out, leave-environment-out and forward-in-time.
@@ -251,13 +279,68 @@ retained in ≥ 75 % of runs, 3:1 split repeated four times and leave-one-cultiv
 | 2018 | 0.806 | 0.755 | 0.898 | 0.882 | 0.800 |
 | 2019 | 0.864 | 0.702 | 0.951 | 0.784 | 0.949 |
 
-### 3.3 Plot-layout digitisation
-After four documented corrections, the digitised maps matched the field records exactly for all 34 trials (2,415 plots).
-Georeferencing accuracy: [PENDING final values of the inside/ring vegetation contrast per field].
+### 3.3 Plot-layout digitisation, georeferencing and co-registration
+- **Digitisation.** After four documented corrections, the digitised maps matched the field records exactly for all 34
+  trials (2,415 plots).
+- **Georeferencing.** The refined grids reproduced the physical plot spacing in all 12 georeferenced fields
+  (6.07–6.29 m along plots, 1.87–2.06 m across rows). The median inside/alley vegetation contrast was 0.50
+  (range 0.08–0.67).
+  - The two lowest values belong to reference flights with senescent pea (Pullman 2017, 28 July; contrast 0.08) or with
+    canopy closed over the alleys (Genesee 2018, 6 August; 0.16). Both were checked visually and flagged as
+    medium-confidence fields.
+- **Co-registration.** It raised the median contrast of non-reference flights from 0.08 to 0.40. Shifts had a median
+  of 0.68 m (maximum 2.09 m), mostly along the plot axis.
+- **Final dataset.** 8,079 plot × flight records from 2,172 plots and 46 flights. The preliminary 2019 Pullman trials
+  have no usable imagery.
 
-### 3.4–3.7 Replication, temporal traits, genetic parameters and machine learning [PENDING]
+### 3.4 Replication of Zhang et al. (2021)
+**Correlations.** The single-flight correlations were of the same magnitude as published (Table 3; Supplementary Fig. S4).
+- Seed yield, plot level: maximum |r| of 0.77 for kabuli chickpea (canopy area, Genesee 2019; published 0.74) and 0.79
+  for green pea (GNDVI sum, Fairfield 2017; published up to 0.83).
+- Seed yield, cultivar level: maximum r of 0.88 for chickpea (published 0.93).
+- Phenology: correlations reached 0.65 (yellow pea, NDRE) at plot level and 0.76–0.86 at cultivar level, for days to
+  flowering and maturity respectively, close to the published 0.76–0.85.
 
----
+**LASSO yield models.** These replicated only partly (Table 3; Fig. 7).
+- For 2019 chickpea the test R² was comparable or higher: Genesee 0.69 vs. 0.51; Pullman 0.50 vs. 0.57.
+- For 2017–2018 and Fairfield 2019 it was markedly lower, and pooled within-year models reached R² 0.17–0.28
+  (published 0.82–0.89).
+- Removing information leakage (nested selection) lowered R² in most datasets, by up to ≈ 0.25.
+- [PENDING: effect of the normalisation of pooled datasets, `sensitivity_combined_normalization.csv`.]
+
+### 3.5 Canopy dynamics in thermal time
+- **Curve fits.** Logistic curves fitted the growth phase of 72–76 % of plots, depending on the trait, with median
+  R² 0.91–0.94 for canopy cover and NDVI (Fig. 5).
+- **Inflection.** Canopy cover reached its inflection at a median of 446–480 °C·d in green pea, yellow pea and kabuli
+  chickpea, and later in green chickpea (530 °C·d), i.e. before the reported flowering window (721–772 °C·d).
+- **Senescence.** Fastest in yellow pea (median −0.15 per 100 °C·d) and slowest in kabuli chickpea (−0.06).
+
+### 3.6 Genetic parameters of UAV traits
+**Heritability (Table 4; Fig. 6).**
+- Field traits: entry-mean heritability was high, as expected for advanced trials (seed yield 0.80–0.92 across market
+  classes; days to flowering 0.87–0.99).
+- Single-flight UAV traits: median H² was 0.77 for canopy cover, 0.83 for NDVI, 0.80 for GNDVI and 0.72 for NDRE.
+- Integrated dynamic traits were also heritable: canopy-cover AUC 0.81–0.93; NDVI AUC 0.53–0.79. The inflection time
+  of canopy cover was not (median ≈ 0).
+
+**Correlations with seed yield at genotype level** differed sharply between crops.
+- **Chickpea:** median correlations of 0.66 (canopy cover and area) and 0.69 (NDRE).
+- **Pea:** ≤ 0.18 despite comparable heritability, consistent with the difficulty reported for pea canopies with
+  tendrils and stipules (Zhang et al., 2021).
+- **Coincidence of the top 20 %:** median 0.33–0.41 for canopy traits.
+
+**G×E for seed yield.** In trials repeated across sites in 2018–2019, the G×E variance was 0.37–1.02 times the genotypic
+variance, and multi-environment heritability was 0.56–0.77.
+
+### 3.7 Phenology from UAV time series
+- **Correlations.** The strongest correlates were NDRE AUC and maximum. With days to flowering in pea: r = 0.49 and 0.44.
+  With days to maturity in pea: 0.47; in chickpea, NDVI AUC gave −0.48.
+- **Genotype-grouped prediction.** Prediction of within-environment deviations was weak: R² 0.02–0.16 (r = 0.16–0.40).
+  RMSE was 3.2 days for flowering and 3.9–5.5 days for maturity.
+- **Interpretation.** Within a given trial, UAV dynamics rank flowering and maturity moderately well. Predicting them
+  for unseen genotypes with a pooled model does not yet replace field scoring.
+
+### 3.8 Machine-learning models [PENDING]
 
 ## 4. Discussion (outline) [PENDING]
 1. **Archived orthomosaics as a reusable resource.** What can and cannot be recovered without raw imagery and panel data.
@@ -311,5 +394,6 @@ authors' agreement.]
 - Rouse, J. W., Haas, R. H., Schell, J. A., Deering, D. W. (1974). Monitoring vegetation systems in the Great Plains with ERTS. *Third ERTS Symposium*, NASA SP-351, 309–317.
 - Sankaran, S., et al. (2015). Low-altitude, high-resolution aerial imaging systems for row and field crop phenotyping: a review. *European Journal of Agronomy* 70, 112–123. https://doi.org/10.1016/j.eja.2015.07.004
 - Smith, G. M., Milton, E. J. (1999). The use of the empirical line method to calibrate remotely sensed data to reflectance. *International Journal of Remote Sensing* 20, 2653–2662.
+- Thornton, M. M., Shrestha, R., Wei, Y., Thornton, P. E., Kao, S.-C., Wilson, B. E. (2022). Daymet: daily surface weather data on a 1-km grid for North America, Version 4 R1. ORNL DAAC. https://doi.org/10.3334/ORNLDAAC/2129
 - Tibshirani, R. (1996). Regression shrinkage and selection via the lasso. *Journal of the Royal Statistical Society: Series B* 58(1), 267–288.
 - Zhang, C., McGee, R. J., Vandemark, G. J., Sankaran, S. (2021). Crop performance evaluation of chickpea and dry pea breeding lines across seasons and locations using phenomics data. *Frontiers in Plant Science* 12, 640259. https://doi.org/10.3389/fpls.2021.640259
