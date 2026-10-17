@@ -1,102 +1,107 @@
-"""Fase 2.3 - Corregistro multitemporal de los ortomosaicos de cada campo.
+"""Fase 2.3 - Corregistro multitemporal: desfase de la grilla de parcelas en cada vuelo.
 
-La grilla de parcelas se georreferencia sobre un vuelo de referencia por campo (`07`). Para usar los mismos polígonos
-en todas las fechas se estima el desfase (traslación) de cada vuelo respecto de la referencia:
-  1. Ambos mosaicos se leen en una grilla UTM común de 5 cm sobre la intersección de huellas.
-  2. Se usa el gradiente de la banda roja (bordes de parcelas y calles, estables aunque cambie el dosel).
-  3. Correlación de fase con ventana de Hann (skimage.registration.phase_cross_correlation, precisión subpíxel 1/10).
-  4. Control: desfases > 1 m se marcan como sospechosos y se repiten con NIR.
-Los vuelos usaron GCP, por lo que se esperan desfases de pocos centímetros.
-Salida: outputs/09_coregistration/coregistration.csv (shift_E_m, shift_N_m a sumar a la grilla para cada vuelo)
+Primera versión (descartada): correlación de fase de bordes entre cada fecha y la referencia. Sobre un patrón
+periódico de parcelas sufre aliasing (34/56 vuelos con desfases de 1-27 m, imposibles en mosaicos con GCP).
+Método adoptado (grilla como referencia, sin aliasing):
+  1. Para cada vuelo se calcula la vegetación (NDVI con DN > umbral de Otsu del vuelo) a ≈5 cm.
+  2. Se busca la traslación de la grilla refinada (`07b`) que maximiza el contraste de vegetación dentro de las
+     parcelas frente a un anillo exterior (calles), en ±0,9 m (menos de medio espaciamiento entre filas ≈2 m, de modo
+     que no puede saltar a la parcela vecina), paso de 0,1 m y refinamiento de 0,025 m.
+  3. Se acepta si mejora el contraste en > 0,02 y el contraste final es > 0,10; si no (p. ej. vuelos tempranos con poco
+     dosel), se usa desfase 0, lo esperable en mosaicos con GCP.
+Salida: outputs/09_coregistration/coregistration.csv (shift_E_m, shift_N_m a sumar a la grilla en cada vuelo)
 """
 from __future__ import annotations
 
+import importlib.util
 import sys
 from pathlib import Path
 
+import geopandas as gpd
 import numpy as np
 import pandas as pd
 import rasterio
-from rasterio.enums import Resampling
-from rasterio.transform import from_origin
-from rasterio.warp import reproject
-from scipy.ndimage import sobel
-from skimage.registration import phase_cross_correlation
 
 sys.path.insert(0, str(Path(__file__).parent))
 from config import OUT, ROOT  # noqa: E402
 
+_spec = importlib.util.spec_from_file_location("chk", Path(__file__).parent / "07b_check_plot_grid.py")
+chk = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(chk)
 OUTDIR = OUT / "09_coregistration"
-RES = 0.05
+DEC = 3
+PAGES = {1: dict(crop="pea"), 2: dict(crop="pea"), 3: dict(crop="chickpea"), 4: dict(crop="pea"),
+         5: dict(crop="chickpea"), 6: {}, 7: dict(crop="pea"), 8: dict(crop="chickpea"), 9: dict(crop="pea"),
+         10: dict(crop="chickpea"), 11: {}, 12: dict(stage="advanced")}
 
 
-def on_grid(path: Path, bounds, res=RES):
-    W, H = int((bounds[2] - bounds[0]) / res), int((bounds[3] - bounds[1]) / res)
-    tr = from_origin(bounds[0], bounds[3], res, res)
-    with rasterio.open(path) as s:
-        out = np.full((H, W), np.nan, np.float32)
-        d = s.read(1).astype(np.float32)
-        valid = (s.read(s.count) > 0) if s.count > 1 else d > 0
-        reproject(np.where(valid, d, np.nan), out, src_transform=s.transform, src_crs=s.crs, dst_transform=tr,
-                  dst_crs=s.crs, resampling=Resampling.average, src_nodata=np.nan, dst_nodata=np.nan)
-    return out
-
-
-def edges(a):
-    a = np.nan_to_num((a - np.nanmean(a)) / (np.nanstd(a) + 1e-6))
-    return np.hypot(sobel(a, 0), sobel(a, 1))
+def veg_map(flight: str, inv: pd.DataFrame):
+    def rd(b):
+        r = inv[(inv.flight_dir == flight) & (inv.band == b)]
+        if r.empty:
+            return None, None, None
+        with rasterio.open(ROOT / r.iloc[0].path) as s:
+            a = s.read(1, out_shape=(s.height // DEC, s.width // DEC)).astype(np.float32)
+            tr = s.transform * s.transform.scale(s.width / a.shape[1], s.height / a.shape[0])
+            return np.where(a > 0, a, np.nan), tr, s.crs
+    nir, tr, crs = rd("nir"); red, _, _ = rd("red")
+    if nir is None or red is None:
+        return None, None, None
+    nd = (nir - red) / (nir + red)
+    v = (nd > chk.otsu(nd[np.isfinite(nd)])).astype(np.float32)
+    v[~np.isfinite(nd)] = np.nan
+    return v, tr, crs
 
 
 def main() -> None:
     OUTDIR.mkdir(parents=True, exist_ok=True)
     inv = pd.read_csv(OUT / "01_inventory" / "image_inventory.csv")
     inv = inv[inv.status == "OK"]
-    reg = pd.read_csv(OUT / "07_plot_grid" / "registration.csv")
     fl = pd.read_csv(OUT / "01_inventory" / "flight_inventory.csv")
-    pages = {1: dict(crop="pea"), 2: dict(crop="pea"), 3: dict(crop="chickpea"), 4: dict(crop="pea"),
-             5: dict(crop="chickpea"), 6: {}, 7: dict(crop="pea"), 8: dict(crop="chickpea"), 9: dict(crop="pea"),
-             10: dict(crop="chickpea"), 11: {}, 12: dict(stage="advanced")}
+    reg = pd.read_csv(OUT / "07_plot_grid" / "registration.csv")
+    grid = gpd.read_file(OUT / "07_plot_grid" / "plot_grid_refined.gpkg", layer="plots")
     rows = []
     for _, rg in reg[reg.status == "OK"].iterrows():
         sel = fl[(fl.year == rg.year) & (fl.site == rg.site)]
-        for k, v in pages[int(rg.page)].items():
+        for k, v in PAGES[int(rg.page)].items():
             sel = sel[sel[k] == v]
-
-        def path(f, band):
-            r = inv[(inv.flight_dir == f) & (inv.band == band)]
-            return ROOT / r.iloc[0].path if not r.empty else None
-        ref_p = path(rg.ref_flight, "red")
+        g = grid[(grid.page == rg.page) & (grid["kind"] == "plot")]
         for f in sel.flight_dir:
-            if f == rg.ref_flight:
-                rows.append(dict(page=rg.page, year=rg.year, site=rg.site, flight_dir=f, ref_flight=rg.ref_flight,
-                                 band="ref", shift_E_m=0.0, shift_N_m=0.0, error=0.0, status="REF"))
+            veg, tr, crs = veg_map(f, inv)
+            if veg is None:
+                rows.append(dict(page=rg.page, year=rg.year, site=rg.site, flight_dir=f, shift_E_m=0.0, shift_N_m=0.0,
+                                 status="SIN_NIR_ROJO"))
                 continue
-            for band in ("red", "nir"):
-                p, pr = path(f, band), path(rg.ref_flight, band)
-                if p is None or pr is None:
-                    continue
-                with rasterio.open(p) as a, rasterio.open(pr) as b:
-                    ba, bb = a.bounds, b.bounds
-                ib = (max(ba[0], bb[0]), max(ba[1], bb[1]), min(ba[2], bb[2]), min(ba[3], bb[3]))
-                # recorte central (60 %) de la intersección para evitar bordes del mosaico
-                cx, cy, hw, hh = (ib[0] + ib[2]) / 2, (ib[1] + ib[3]) / 2, 0.3 * (ib[2] - ib[0]), 0.3 * (ib[3] - ib[1])
-                box = (cx - hw, cy - hh, cx + hw, cy + hh)
-                A, B = edges(on_grid(pr, box)), edges(on_grid(p, box))
-                shift, err, _ = phase_cross_correlation(A, B, upsample_factor=10, normalization=None)
-                dy_px, dx_px = shift  # desplazamiento a aplicar a B para alinearlo con A
-                sE, sN = -dx_px * RES, dy_px * RES  # traslación de la grilla (en coordenadas de A) hacia B
-                status = "OK" if np.hypot(sE, sN) <= 1.0 else "SOSPECHOSO"
-                rows.append(dict(page=rg.page, year=rg.year, site=rg.site, flight_dir=f, ref_flight=rg.ref_flight,
-                                 band=band, shift_E_m=round(sE, 3), shift_N_m=round(sN, 3), error=round(float(err), 4),
-                                 status=status))
-                print(f"p{rg.page} {f} ({band}): ΔE={sE:+.3f} ΔN={sN:+.3f} m [{status}]")
-                if status == "OK":
-                    break
+            gl = g.to_crs(crs)
+            C = np.column_stack([gl.E, gl.N]) if crs.to_epsg() == 32611 else \
+                np.column_stack([gl.geometry.centroid.x, gl.geometry.centroid.y])
+            ux = np.array([gl.ux_E.iloc[0], gl.ux_N.iloc[0]]); uy = np.array([gl.uy_E.iloc[0], gl.uy_N.iloc[0]])
+            hx, hy = 0.80 * gl.pitch_col_m.iloc[0] / 2, 0.70 * gl.pitch_row_m.iloc[0] / 2
+            fs = chk.make_sampler(veg, tr, C, C.mean(axis=0), ux, uy, hx, hy)
+            c0 = fs(np.array([0, 0, 0, 1.0, 1.0]))
+            best = (c0, 0.0, 0.0)
+            for dE in np.arange(-0.9, 0.91, 0.1):
+                for dN in np.arange(-0.9, 0.91, 0.1):
+                    c = fs(np.array([dE, dN, 0, 1.0, 1.0]))
+                    if c > best[0]:
+                        best = (c, dE, dN)
+            for dE in np.arange(best[1] - 0.1, best[1] + 0.101, 0.025):
+                for dN in np.arange(best[2] - 0.1, best[2] + 0.101, 0.025):
+                    c = fs(np.array([dE, dN, 0, 1.0, 1.0]))
+                    if c > best[0]:
+                        best = (c, dE, dN)
+            ok = best[0] - c0 > 0.02 and best[0] > 0.10
+            sE, sN = (best[1], best[2]) if ok else (0.0, 0.0)
+            status = "REF" if f == rg.ref_flight else ("AJUSTADO" if ok else "SIN_MEJORA")
+            rows.append(dict(page=rg.page, year=rg.year, site=rg.site, flight_dir=f, ref_flight=rg.ref_flight,
+                             contrast_0=round(c0, 3), contrast=round(max(best[0], c0), 3), shift_E_m=round(sE, 3),
+                             shift_N_m=round(sN, 3), status=status))
+            print(f"p{rg.page} {f}: contraste {c0:.2f} → {best[0]:.2f}  desfase ({sE:+.2f}, {sN:+.2f}) m [{status}]",
+                  flush=True)
     df = pd.DataFrame(rows)
     df.to_csv(OUTDIR / "coregistration.csv", index=False)
-    ok = df[df.status == "OK"]
-    print(f"\n{len(ok)} vuelos OK; desfase mediano {np.hypot(ok.shift_E_m, ok.shift_N_m).median():.3f} m, "
-          f"máximo {np.hypot(ok.shift_E_m, ok.shift_N_m).max():.3f} m; sospechosos: {(df.status == 'SOSPECHOSO').sum()}")
+    d = np.hypot(df.shift_E_m, df.shift_N_m)
+    print(f"\n{len(df)} vuelos · ajustados {int((df.status == 'AJUSTADO').sum())} · desfase mediano (ajustados) "
+          f"{d[df.status == 'AJUSTADO'].median():.2f} m · máx {d.max():.2f} m")
 
 
 if __name__ == "__main__":
