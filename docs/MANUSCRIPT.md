@@ -153,12 +153,14 @@ Physiological and phenological records were used as delivered by the original in
    - Only homogeneous sectors were kept: full UAV coverage, clear-sky classification in the whole sector, and within-sector
      NIR coefficient of variation ≤ 0.25.
    - Sectors were stratified by Sentinel-2 NDVI into soil, mixed and canopy strata.
-5. **Calibration model.** Fitted per band and year by robust (Huber) regression:
-   ρ_S2 = b(year, band) + g(flight, band) · DN.
-   - The offset b represents the sensor/processing dark level shared by all flights of a season.
-   - The gain g absorbs exposure and illumination differences between flights.
-   - Pooling dates spans the full reflectance range, from bare soil in June to closed canopy in July, which identifies
-     the offset even for early, low-contrast flights.
+5. **Calibration model.** Two candidate models were fitted on the sectors with robust (Huber) or ordinary least squares:
+   - **M2:** ρ_S2 = b(year, band) + g(flight, band) · DN, with an offset shared by all flights of a season.
+   - **M3:** ρ_S2 = g(flight, band) · DN, least squares through the origin.
+   Because the within-field reflectance range is narrow and digital numbers are noisy, M2 slopes suffer from attenuation
+   (errors-in-variables) bias. Its high pooled R² mainly reflects between-flight level differences, while within-flight
+   contrast is flattened. The model was therefore selected by **physical plausibility**: a penalty measuring departure of
+   calibrated canopy and soil medians from expected ranges (canopy NDVI ≥ 0.85, soil NDVI 0.05–0.25, canopy red ≤ 0.08),
+   rather than by R².
 
 ### 2.5 Plot-layout digitisation and georeferencing
 The authors' field maps (13 pages) are vector tables overlaid on screenshots of the rotated orthomosaics.
@@ -231,22 +233,23 @@ retained in ≥ 75 % of runs, 3:1 split repeated four times and leave-one-cultiv
 - **Sectors.** 442 valid 20 m sectors were obtained (2–18 per flight).
 - **Geolocation offsets.** Non-zero UAV–Sentinel-2 offsets (10–28 m) were found in 64 % of flights, which confirms that
   geolocation mismatch is a major error source in direct pixel comparisons.
-- **Fit quality.** The pooled model gave R² of 0.80–0.96 per band and year, with median per-flight RMSE of 0.004–0.017
-  reflectance units (Table 2). Free per-flight fits on the same sectors had median R² of only 0.05–0.65 because of the
-  narrow reflectance range inside each ~1 ha field.
-- **Physical plausibility.** Calibrated soil and NIR values were plausible: soil median NDVI 0.30, red 0.14, NIR 0.27.
-  Canopy contrast remained compressed: median canopy NDVI 0.56, red 0.09.
+- **Model comparison.** M2 reached pooled R² of 0.80–0.96 but had near-zero (some negative) gains in the blue, green
+  and red-edge bands. M3 had pooled R² of 0.59–0.95 (green 2017 was not fitted) with median per-flight RMSE of
+  0.004–0.018 reflectance units. Physical-plausibility penalty: 0.46 (M2) vs. 0.29 (M3); M3 was adopted (Table 2).
+- **Physical plausibility (M3).** Soil values were plausible (median NDVI 0.27, red 0.14). The vegetation class remained
+  compressed (median NDVI 0.59, red 0.076).
 - **Interpretation.** The archived orthomosaics are not linear in radiance, most likely because of colour balancing
-  during mosaicking. The calibration therefore harmonises scale across dates, sites and years at plot and field level,
-  but absolute reflectance of pure canopy pixels should be interpreted with caution.
+  during mosaicking. The calibration harmonises scale across dates, sites and years at plot and field level, but absolute
+  reflectance of pure canopy pixels should be interpreted with caution.
 
-**Table 2.** Pooled cross-calibration fit (`outputs/05_radiometric/calibration_coefficients.csv`).
+**Table 2.** Pooled R² of the adopted through-origin calibration (M3) by band and year
+(`outputs/05_radiometric/calibration_coefficients.csv`).
 
 | Year | Blue | Green | Red | Red edge | NIR |
 |---|---|---|---|---|---|
-| 2017 R² | 0.885 | 0.868 | 0.866 | 0.953 | 0.795 |
-| 2018 R² | 0.849 | 0.888 | 0.895 | 0.901 | 0.799 |
-| 2019 R² | 0.938 | 0.852 | 0.957 | 0.904 | 0.964 |
+| 2017 | 0.589 | −0.068 | 0.740 | 0.762 | 0.615 |
+| 2018 | 0.806 | 0.755 | 0.898 | 0.882 | 0.800 |
+| 2019 | 0.864 | 0.702 | 0.951 | 0.784 | 0.949 |
 
 ### 3.3 Plot-layout digitisation
 After four documented corrections, the digitised maps matched the field records exactly for all 34 trials (2,415 plots).

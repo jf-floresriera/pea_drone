@@ -108,10 +108,15 @@ El panel de reflectancia (MicaSense 2017, Spectralon 99 % en 2018-19) no está e
    - Se usan solo sectores con cobertura UAV completa, SCL 4/5 y CV interno del NIR ≤ 0,25.
    - Los sectores se estratifican en suelo, mezcla y dosel según el NDVI de S2.
    Resultado en Pullman 2018-07-19: R² de 0,85-0,93 en azul, rojo y NIR (antes ≈0,1-0,4).
-3. **Ajuste agrupado por año y banda:** ρ = b(año, banda) + g(vuelo, banda)·DN, con Huber robusto.
-   - El offset b (nivel de negro del sensor) es común a los vuelos del año y la ganancia g es propia de cada vuelo.
-   - Al combinar fechas se amplía el rango (suelo en junio, dosel en julio) y el offset queda identificado,
-     incluso en vuelos tempranos de bajo contraste.
+3. **Modelo de calibración: dos candidatos, elegido por plausibilidad física.**
+   - **M2 (offset común + ganancia por vuelo):** ρ = b(año, banda) + g(vuelo, banda)·DN. R² agrupado de 0,80-0,96,
+     pero ese R² proviene sobre todo de ajustar el **nivel** de cada vuelo. Dentro de cada campo el rango de ρ es
+     estrecho y el DN ruidoso, así que la pendiente sufre **sesgo de atenuación**: las ganancias de azul, verde y red
+     edge quedan ≈0 (algunas negativas) y se borra el contraste entre parcelas.
+   - **M3 (por el origen):** ρ = g(vuelo, banda)·DN, mínimos cuadrados por el origen. Conserva el contraste relativo
+     dentro del vuelo y fija la escala con S2. R² agrupado de 0,59-0,95 (el verde de 2017 no se ajusta).
+   - **Selección:** penalización física (NDVI del dosel ≥ 0,85, NDVI del suelo de 0,05-0,25, rojo del dosel ≤ 0,08)
+     de 0,46 para M2 y **0,29 para M3** → se adopta **M3**. Ambos quedan en `calibration_candidates.csv`.
 4. Validación física independiente: NDVI de dosel y suelo y reflectancia del rojo y del NIR del dosel, en rangos esperables.
 5. Se guardan los coeficientes (`calibration_coefficients.csv`) y se aplican al extraer rasgos.
    No se escriben mosaicos calibrados por falta de disco.
@@ -121,12 +126,12 @@ El panel de reflectancia (MicaSense 2017, Spectralon 99 % en 2018-19) no está e
    - El desfase temporal es de hasta ±6 días.
    - La PSF de S2 se aproxima con una gaussiana.
    - Hay pocos sectores por campo (2-18 por vuelo; 442 en total).
-7. **Resultados (55/55 vuelos con escena S2, |Δt| mediano 1 d):**
-   - Ajuste agrupado: R² de 0,85-0,94 (azul), 0,85-0,89 (verde), 0,87-0,96 (rojo), 0,90-0,95 (red edge)
-     y 0,80-0,96 (NIR); RMSE por vuelo de 0,004-0,017.
+7. **Resultados (55/55 vuelos con escena S2, |Δt| mediano 1 d; modelo M3):**
+   - R² agrupado por año: azul 0,59-0,86, verde −0,07-0,76, rojo 0,74-0,95, red edge 0,76-0,88 y NIR 0,62-0,95;
+     RMSE mediano por vuelo de 0,004-0,018.
    - Desfases UAV-S2 hallados de 0-28 m (frecuentemente 10 m).
-   - Validación física: el suelo y el NIR quedan en rangos razonables, pero el dosel puro queda con NDVI
-     comprimido (0,56-0,78); ver `DATA_ISSUES.md`, IMG-07.
+   - Validación física (M3): suelo con NDVI 0,27 y rojo 0,14 (razonables); la clase vegetación queda con NDVI 0,59 y
+     rojo 0,076, todavía comprimida respecto del dosel puro; ver `DATA_ISSUES.md`, IMG-07.
 8. Si los autores entregan las capturas del panel, se calibra con panel y la calibración S2 queda como validación independiente.
 
 ### 2.3 Corregistro multitemporal → `06_coregistration.py`
