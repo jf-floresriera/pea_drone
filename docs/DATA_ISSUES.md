@@ -33,4 +33,5 @@ Cada entrada indica dónde se detectó el problema, el efecto que tiene y la dec
 
 | ID | Problema | Decisión |
 |---|---|---|
-| MAP-01 | Errores de digitación: Pullman 2018 F1-C6 "35" (va 55); Fairfield 2018 "36" repetido en C5; Fairfield 2019 F2 en otro orden | Al construir la grilla se valida que cada parcela aparezca una sola vez y se corrige por secuencia |
+| MAP-01 | Errores de digitación en el croquis: Fairfield 2018 1802 F16-C5 "36"→35; Pullman 2018 1801 F2-C6 "35"→55; Fairfield 2018 y Pullman 2018 1881: la celda de la parcela 32 dice "1881" | Corregidos explícitamente en `pipeline/06_parse_plot_maps.py` (`CORRECTIONS`). Tras corregir, los 34 ensayos (2415 parcelas) coinciden 1:1 con el Excel (`outputs/06_plot_maps/plot_map_validation.csv`) |
+| MAP-02 | Fairfield 2019, 1901, fila 2: el orden es 12, 22, 2 (no 2, 12, 22), resaltado en **verde** por los autores | Se interpreta como posición de siembra anotada y **se respeta el croquis** (decisión: confiar en los datos de los investigadores). Las celdas se asignan a 1901 por su fila |
