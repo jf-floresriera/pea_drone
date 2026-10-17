@@ -606,3 +606,62 @@
 [13:33:58]    pea fiftyflowr: R² dentro de ambiente=0.05 (r=0.21) · R² absoluto=0.19 · RMSE=3.2 d · n=1051
 [13:33:58]    pea physmatur: R² dentro de ambiente=0.02 (r=0.16) · R² absoluto=0.26 · RMSE=3.9 d · n=1053
 [13:34:00] ✓ PASO 14 completado en 0.1 min
+[13:34:03]    ✓ subido a GitHub (paso 14)
+[13:34:03] ------------------------------------------------------------------------------
+[13:34:03] PASO 5/6 [15] Machine Learning / Deep Learning · estimado 45 min · restante total ≈ 0.8 h (fin ≈ 14:20)
+[13:40:19]    [1/8] pea yield_z parcela: Elastic Net=0.11, LASSO=0.11, PLSR=0.11, Random Forest=0.23, TempCNN=0.22, XGBoost=0.22  (6.2 min)
+[13:44:03]    [1/8] pea yield_z genotipo: Elastic Net=0.10, LASSO=0.08, PLSR=0.10, Random Forest=0.23, TempCNN=0.21, XGBoost=0.23  (10.0 min)
+[13:49:15]    [1/8] pea yield_z ambiente: Elastic Net=-0.15, LASSO=-0.14, PLSR=-0.25, Random Forest=-0.05, TempCNN=-0.52, XGBoost=-0.12  (15.2 min)
+[13:49:52]    [1/8] pea yield_z año futuro: Elastic Net=0.03, LASSO=0.03, PLSR=0.02, Random Forest=0.12, TempCNN=-0.23, XGBoost=0.08  (15.8 min)
+[13:52:20]    [2/8] pea seedyield parcela: Elastic Net=-0.00, LASSO=0.34, PLSR=0.51, Random Forest=0.62, TempCNN=0.72, XGBoost=0.66  (18.3 min)
+[13:55:06]    [2/8] pea seedyield genotipo: Elastic Net=0.08, LASSO=0.60, PLSR=0.50, Random Forest=0.61, TempCNN=0.72, XGBoost=0.66  (21.0 min)
+[13:58:51]    [2/8] pea seedyield ambiente: Elastic Net=-5.18, LASSO=-6.36, PLSR=-5.82, Random Forest=-8.34, TempCNN=-4.19, XGBoost=-8.18  (24.8 min)
+[13:59:13]    [2/8] pea seedyield año futuro: Elastic Net=-1.39, LASSO=-2.60, PLSR=-1.87, Random Forest=-0.28, TempCNN=-0.13, XGBoost=-0.57  (25.1 min)
+[14:00:54]    [3/8] pea fiftyflowr parcela: Elastic Net=0.08, LASSO=0.08, PLSR=0.07, Random Forest=0.22, TempCNN=0.25, XGBoost=0.19  (26.8 min)
+[14:02:41]    [3/8] pea fiftyflowr genotipo: Elastic Net=0.02, LASSO=0.03, PLSR=0.00, Random Forest=0.16, TempCNN=0.19, XGBoost=0.13  (28.6 min)
+[14:04:17]    [3/8] pea fiftyflowr ambiente: Elastic Net=-0.96, LASSO=-0.99, PLSR=-1.18, Random Forest=-1.03, TempCNN=-0.72, XGBoost=-1.52  (30.2 min)
+[14:04:37]    [3/8] pea fiftyflowr año futuro: Elastic Net=-0.89, LASSO=-0.93, PLSR=-1.27, Random Forest=-0.37, TempCNN=-0.28, XGBoost=-0.60  (30.5 min)
+[14:05:57]    [4/8] pea physmatur parcela: Elastic Net=0.10, LASSO=0.02, PLSR=0.21, Random Forest=0.37, TempCNN=0.40, XGBoost=0.28  (31.9 min)
+[14:07:42]    [4/8] pea physmatur genotipo: Elastic Net=0.08, LASSO=0.04, PLSR=0.17, Random Forest=0.38, TempCNN=0.41, XGBoost=0.33  (33.6 min)
+[14:08:43]    [4/8] pea physmatur ambiente: Elastic Net=-1.36, LASSO=-1.39, PLSR=-1.31, Random Forest=-1.84, TempCNN=-1.36, XGBoost=-2.31  (34.6 min)
+[14:08:57]    [4/8] pea physmatur año futuro: Elastic Net=-1.86, LASSO=-2.01, PLSR=-1.60, Random Forest=-2.12, TempCNN=-1.49, XGBoost=-2.14  (34.9 min)
+[14:09:55]    [5/8] chickpea yield_z parcela: Elastic Net=0.35, LASSO=0.41, PLSR=0.28, Random Forest=0.51, TempCNN=0.49, XGBoost=0.51  (35.8 min)
+[14:10:49]    [5/8] chickpea yield_z genotipo: Elastic Net=0.32, LASSO=0.34, PLSR=0.24, Random Forest=0.49, TempCNN=0.42, XGBoost=0.49  (36.7 min)
+[14:12:06]    [5/8] chickpea yield_z ambiente: Elastic Net=-1.15, LASSO=-1.11, PLSR=-1.55, Random Forest=-1.06, TempCNN=-5.41, XGBoost=-1.11  (38.0 min)
+[14:12:14]    [5/8] chickpea yield_z año futuro: Elastic Net=-0.05, LASSO=-0.04, PLSR=-0.07, Random Forest=-0.40, TempCNN=-0.44, XGBoost=-0.71  (38.1 min)
+[14:12:46]    [6/8] chickpea seedyield parcela: Elastic Net=0.76, LASSO=0.77, PLSR=0.73, Random Forest=0.81, TempCNN=0.85, XGBoost=0.83  (38.7 min)
+[14:13:21]    [6/8] chickpea seedyield genotipo: Elastic Net=0.75, LASSO=0.75, PLSR=0.73, Random Forest=0.80, TempCNN=0.83, XGBoost=0.82  (39.3 min)
+[14:14:12]    [6/8] chickpea seedyield ambiente: Elastic Net=-9.70, LASSO=-19.76, PLSR=-9.12, Random Forest=-8.54, TempCNN=-6.68, XGBoost=-8.84  (40.1 min)
+[14:14:18]    [6/8] chickpea seedyield año futuro: Elastic Net=-0.37, LASSO=-0.59, PLSR=-0.28, Random Forest=-2.68, TempCNN=-1.39, XGBoost=-2.85  (40.2 min)
+[14:14:55]    [7/8] chickpea fiftyflowr parcela: Elastic Net=0.14, LASSO=0.14, PLSR=0.13, Random Forest=0.22, TempCNN=0.13, XGBoost=0.06  (40.8 min)
+[14:15:33]    [7/8] chickpea fiftyflowr genotipo: Elastic Net=0.16, LASSO=0.17, PLSR=0.13, Random Forest=0.24, TempCNN=0.19, XGBoost=0.10  (41.5 min)
+[14:15:57]    [7/8] chickpea fiftyflowr ambiente: Elastic Net=-0.30, LASSO=-0.25, PLSR=-0.68, Random Forest=-0.43, TempCNN=-0.28, XGBoost=-0.86  (41.9 min)
+[14:16:05]    [7/8] chickpea fiftyflowr año futuro: Elastic Net=-0.49, LASSO=-0.23, PLSR=-0.25, Random Forest=-0.27, TempCNN=-0.10, XGBoost=-0.31  (42.0 min)
+[14:16:35]    [8/8] chickpea physmatur parcela: Elastic Net=0.35, LASSO=0.34, PLSR=0.31, Random Forest=0.35, TempCNN=0.29, XGBoost=0.36  (42.5 min)
+[14:17:09]    [8/8] chickpea physmatur genotipo: Elastic Net=0.33, LASSO=0.30, PLSR=0.28, Random Forest=0.28, TempCNN=0.26, XGBoost=0.22  (43.1 min)
+[14:17:27]    [8/8] chickpea physmatur ambiente: Elastic Net=-1.97, LASSO=-2.01, PLSR=-2.15, Random Forest=-1.33, TempCNN=-1.87, XGBoost=-1.15  (43.4 min)
+[14:17:33]    [8/8] chickpea physmatur año futuro: Elastic Net=-0.64, LASSO=-0.61, PLSR=-0.69, Random Forest=-0.19, TempCNN=-0.05, XGBoost=-0.13  (43.5 min)
+[14:18:18]    Traceback (most recent call last):
+[14:18:18]      File "C:\Trabajo_eterno\drone_images\pipeline\15_models.py", line 277, in <module>
+[14:18:18]        main()
+[14:18:18]      File "C:\Trabajo_eterno\drone_images\pipeline\15_models.py", line 221, in main
+[14:18:18]        importance(pt, Xz)
+[14:18:18]      File "C:\Trabajo_eterno\drone_images\pipeline\15_models.py", line 241, in importance
+[14:18:18]        sv = shap.TreeExplainer(model[-1]).shap_values(Xi)
+[14:18:18]      File "C:\Users\JesúsEnriqueFloresRi\AppData\Local\Programs\Python\Python310\lib\site-packages\shap\explainers\_tree.py", line 278, in __init__
+[14:18:18]        self.model = TreeEnsemble(model, self.data, self.data_missing, model_output)
+[14:18:18]      File "C:\Users\JesúsEnriqueFloresRi\AppData\Local\Programs\Python\Python310\lib\site-packages\shap\explainers\_tree.py", line 1279, in __init__
+[14:18:18]        self._set_xgboost_model_attributes(
+[14:18:18]      File "C:\Users\JesúsEnriqueFloresRi\AppData\Local\Programs\Python\Python310\lib\site-packages\shap\explainers\_tree.py", line 1506, in _set_xgboost_model_attributes
+[14:18:18]        loader = XGBTreeModelLoader(self.original_model)
+[14:18:18]      File "C:\Users\JesúsEnriqueFloresRi\AppData\Local\Programs\Python\Python310\lib\site-packages\shap\explainers\_tree.py", line 2104, in __init__
+[14:18:18]        self.base_score = float(learner_model_param["base_score"])
+[14:18:18]    ValueError: could not convert string to float: '[2.856207E-1]'
+[14:18:26] ✗ PASO 15 FALLÓ tras 44.4 min (ver outputs/logs/15.log). Pipeline detenido.
+[14:21:32] ==============================================================================
+[14:21:32] PIPELINE pea_drone · 1 pasos · estimado 0.1 h
+[14:21:32]    16
+[14:21:32] ------------------------------------------------------------------------------
+[14:21:32] PASO 1/1 [16] Figuras y tablas del manuscrito · estimado 3 min · restante total ≈ 0.1 h (fin ≈ 14:24)
+[14:21:33]    Figuras: 22 · Tablas: 5
+[14:21:33] ✓ PASO 16 completado en 0.0 min

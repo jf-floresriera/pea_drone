@@ -1,0 +1,47 @@
+pea ambiente ['2017_Fairfield']: sin imágenes (media)/nulo R²=-0.00, z/Random Forest R²=-0.32, z/XGBoost R²=-0.33, abs/Random Forest R²=-0.02, abs/XGBoost R²=-0.02, abs+z/Random Forest R²=-0.02, abs+z/XGBoost R²=-0.01
+pea ambiente ['2017_Pullman']: sin imágenes (media)/nulo R²=-18.69, z/Random Forest R²=-38.42, z/XGBoost R²=-35.65, abs/Random Forest R²=-11.48, abs/XGBoost R²=-13.72, abs+z/Random Forest R²=-12.38, abs+z/XGBoost R²=-9.36
+pea ambiente ['2018_Fairfield']: sin imágenes (media)/nulo R²=-0.02, z/Random Forest R²=-1.31, z/XGBoost R²=-1.23, abs/Random Forest R²=-3.66, abs/XGBoost R²=-2.64, abs+z/Random Forest R²=-4.87, abs+z/XGBoost R²=-2.92
+pea ambiente ['2018_Genesee']: sin imágenes (media)/nulo R²=-8.89, z/Random Forest R²=-22.16, z/XGBoost R²=-20.39, abs/Random Forest R²=-6.43, abs/XGBoost R²=-7.69, abs+z/Random Forest R²=-4.97, abs+z/XGBoost R²=-4.58
+pea ambiente ['2018_Pullman']: sin imágenes (media)/nulo R²=-1.38, z/Random Forest R²=-0.44, z/XGBoost R²=-0.77, abs/Random Forest R²=-1.04, abs/XGBoost R²=-0.93, abs+z/Random Forest R²=-1.92, abs+z/XGBoost R²=-2.60
+pea ambiente ['2019_Fairfield']: sin imágenes (media)/nulo R²=-0.44, z/Random Forest R²=-0.08, z/XGBoost R²=-0.34, abs/Random Forest R²=-0.43, abs/XGBoost R²=-0.41, abs+z/Random Forest R²=-0.41, abs+z/XGBoost R²=-0.36
+pea ambiente ['2019_Genesee']: sin imágenes (media)/nulo R²=-4.99, z/Random Forest R²=-2.27, z/XGBoost R²=-2.47, abs/Random Forest R²=-3.20, abs/XGBoost R²=-3.15, abs+z/Random Forest R²=-2.99, abs+z/XGBoost R²=-2.49
+pea ambiente ['2019_Pullman']: sin imágenes (media)/nulo R²=-0.76, z/Random Forest R²=-0.38, z/XGBoost R²=-0.91, abs/Random Forest R²=-1.06, abs/XGBoost R²=-0.99, abs+z/Random Forest R²=-0.94, abs+z/XGBoost R²=-1.24
+pea año futuro ['2019_Fairfield', '2019_Genesee', '2019_Pullman']: sin imágenes (media)/nulo R²=-0.11, z/Random Forest R²=-0.14, z/XGBoost R²=-0.24, abs/Random Forest R²=-0.03, abs/XGBoost R²=-0.07, abs+z/Random Forest R²=-0.03, abs+z/XGBoost R²=-0.07
+chickpea ambiente ['2017_Pullman']: sin imágenes (media)/nulo R²=-12.33, z/Random Forest R²=-17.34, z/XGBoost R²=-17.44, abs/Random Forest R²=-0.08, abs/XGBoost R²=-0.30, abs+z/Random Forest R²=-0.38, abs+z/XGBoost R²=-0.24
+chickpea ambiente ['2018_Fairfield']: sin imágenes (media)/nulo R²=-29.26, z/Random Forest R²=-21.31, z/XGBoost R²=-23.67, abs/Random Forest R²=-14.69, abs/XGBoost R²=-21.71, abs+z/Random Forest R²=-15.94, abs+z/XGBoost R²=-16.08
+chickpea ambiente ['2018_Genesee']: sin imágenes (media)/nulo R²=-4.98, z/Random Forest R²=-5.56, z/XGBoost R²=-5.43, abs/Random Forest R²=-1.90, abs/XGBoost R²=-2.94, abs+z/Random Forest R²=-1.80, abs+z/XGBoost R²=-2.44
+chickpea ambiente ['2018_Pullman']: sin imágenes (media)/nulo R²=-2.15, z/Random Forest R²=-4.15, z/XGBoost R²=-11.49, abs/Random Forest R²=-9.30, abs/XGBoost R²=-13.95, abs+z/Random Forest R²=-9.55, abs+z/XGBoost R²=-12.53
+chickpea ambiente ['2019_Fairfield']: sin imágenes (media)/nulo R²=-0.53, z/Random Forest R²=-0.33, z/XGBoost R²=-0.44, abs/Random Forest R²=-0.26, abs/XGBoost R²=-0.30, abs+z/Random Forest R²=-0.37, abs+z/XGBoost R²=-0.26
+chickpea ambiente ['2019_Genesee']: sin imágenes (media)/nulo R²=-3.39, z/Random Forest R²=-2.97, z/XGBoost R²=-2.85, abs/Random Forest R²=-1.27, abs/XGBoost R²=-1.35, abs+z/Random Forest R²=-0.96, abs+z/XGBoost R²=-0.85
+chickpea ambiente ['2019_Pullman']: sin imágenes (media)/nulo R²=-0.64, z/Random Forest R²=-7.43, z/XGBoost R²=-7.57, abs/Random Forest R²=-0.30, abs/XGBoost R²=-0.55, abs+z/Random Forest R²=-0.27, abs+z/XGBoost R²=-0.00
+chickpea año futuro ['2019_Fairfield', '2019_Genesee', '2019_Pullman']: sin imágenes (media)/nulo R²=-0.33, z/Random Forest R²=-2.99, z/XGBoost R²=-3.35, abs/Random Forest R²=0.15, abs/XGBoost R²=0.01, abs+z/Random Forest R²=0.22, abs+z/XGBoost R²=0.08
+                                                           r2      rmse  spearman
+crop     scheme     features             model                                   
+chickpea ambiente   abs                  Random Forest -1.270   590.008     0.315
+                                         XGBoost       -1.350   600.396     0.335
+                    abs+z                Random Forest -0.955   547.601     0.342
+                                         XGBoost       -0.845   532.004     0.376
+                    sin imágenes (media) nulo          -3.389   820.436       NaN
+                    z                    Random Forest -5.562   905.136     0.332
+                                         XGBoost       -7.575   951.697     0.340
+         año futuro abs                  Random Forest  0.148   506.935     0.706
+                                         XGBoost        0.012   545.798     0.721
+                    abs+z                Random Forest  0.224   483.875     0.643
+                                         XGBoost        0.085   525.322     0.719
+                    sin imágenes (media) nulo          -0.329   633.189       NaN
+                    z                    Random Forest -2.987  1096.506    -0.299
+                                         XGBoost       -3.353  1145.857    -0.279
+pea      ambiente   abs                  Random Forest -2.127   698.225     0.222
+                                         XGBoost       -1.812   684.581     0.099
+                    abs+z                Random Forest -2.455   727.885     0.160
+                                         XGBoost       -2.549   704.921     0.145
+                    sin imágenes (media) nulo          -1.068   660.939       NaN
+                    z                    Random Forest -0.876   669.474     0.123
+                                         XGBoost       -1.070   723.863     0.089
+         año futuro abs                  Random Forest -0.027   697.745     0.112
+                                         XGBoost       -0.073   713.306    -0.040
+                    abs+z                Random Forest -0.028   698.110     0.096
+                                         XGBoost       -0.066   711.082    -0.084
+                    sin imágenes (media) nulo          -0.107   724.423       NaN
+                    z                    Random Forest -0.139   735.065     0.034
+                                         XGBoost       -0.243   767.634    -0.174

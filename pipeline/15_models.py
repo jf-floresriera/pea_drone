@@ -182,6 +182,11 @@ def main() -> None:
     t0 = time.time()
     d = load()
     pt, Xz, S = build(d)
+    if "--post" in sys.argv:  # solo importancia y figuras a partir de results.csv ya calculado
+        importance(pt, Xz)
+        figures(pd.read_csv(OUTDIR / "results.csv"))
+        print(f"post-proceso {(time.time() - t0) / 60:.1f} min")
+        return
     Xa, Sa = Xz.to_numpy(float), S.reshape(len(S), -1)
     res, preds = [], []
     jobs = [(c, t) for c in ("pea", "chickpea") for t in TARGETS]
@@ -224,7 +229,6 @@ def main() -> None:
 
 
 def importance(pt: pd.DataFrame, Xz: pd.DataFrame) -> None:
-    import shap
     for crop in ("pea", "chickpea"):
         idx = np.where((pt.crop == crop).to_numpy() & pt.yield_z.notna().to_numpy())[0]
         X, y, env = Xz.iloc[idx], pt.yield_z.iloc[idx].to_numpy(), pt.env.iloc[idx].to_numpy()
@@ -237,9 +241,12 @@ def importance(pt: pd.DataFrame, Xz: pd.DataFrame) -> None:
         imp = pd.concat(imps, axis=1).mean(axis=1).sort_values(ascending=False)
         imp.rename("perm_importance").to_csv(OUTDIR / f"importance_perm_{crop}.csv")
         model.fit(X, y)
+        # Valores SHAP exactos de árboles (TreeSHAP) con la API nativa de XGBoost (pred_contribs); el paquete `shap`
+        # 0.49 no es compatible con el formato de base_score de XGBoost 3.x.
+        import xgboost as xgb
         Xi = model[0].transform(X)
-        sv = shap.TreeExplainer(model[-1]).shap_values(Xi)
-        pd.Series(np.abs(sv).mean(axis=0), index=X.columns).sort_values(ascending=False).rename(
+        contrib = model[-1].get_booster().predict(xgb.DMatrix(Xi), pred_contribs=True)[:, :-1]
+        pd.Series(np.abs(contrib).mean(axis=0), index=X.columns).sort_values(ascending=False).rename(
             "mean_abs_shap").to_csv(OUTDIR / f"importance_shap_{crop}.csv")
         fig, ax = style.figure("1.5col", 3.4)
         top = imp.head(15)[::-1]

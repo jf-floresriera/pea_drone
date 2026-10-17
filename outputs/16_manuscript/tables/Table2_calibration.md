@@ -1,0 +1,7 @@
+**Table2_calibration.** R² agrupado de la calibración UAV→Sentinel-2 (modelo adoptado).
+
+|   year |   blue |   green |   nir |   red |   red edge |
+|-------:|-------:|--------:|------:|------:|-----------:|
+|   2017 |  0.589 |  -0.068 | 0.615 | 0.74  |      0.762 |
+|   2018 |  0.806 |   0.755 | 0.8   | 0.898 |      0.882 |
+|   2019 |  0.864 |   0.702 | 0.949 | 0.951 |      0.784 |
