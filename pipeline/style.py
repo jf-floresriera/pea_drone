@@ -62,6 +62,14 @@ def note(fig, text: str) -> None:
     fig.supxlabel("\n".join(textwrap.wrap(text, 160)), fontsize=6, color=MUTED, x=0.0, ha="left")
 
 
+def market_legend(fig, classes=None, loc="outside upper center", ncol=5) -> None:
+    """Leyenda única de clases comerciales (parches de color) fuera de los ejes, para no rotular cada eje x."""
+    import matplotlib.patches as mpatches
+    classes = classes or list(MARKET)
+    handles = [mpatches.Patch(facecolor=MARKET[c], alpha=0.6, edgecolor=MUTED, label=MARKET_ES[c]) for c in classes]
+    fig.legend(handles=handles, loc=loc, ncol=ncol, frameon=False)
+
+
 def save(fig, path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(path.with_suffix(".png"))

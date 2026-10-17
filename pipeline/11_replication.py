@@ -82,7 +82,10 @@ def select_features(X: np.ndarray, y: np.ndarray, seed: int = 0) -> np.ndarray:
 
 
 def lasso_eval(X: pd.DataFrame, y: pd.Series, cultivar: pd.Series, nested: bool, seed: int = 0) -> dict:
-    X = X.loc[:, X.notna().mean() > 0.7]
+    X = X.loc[:, X.notna().mean() > 0.5]
+    if X.shape[1] == 0:
+        return dict(r2_parcela=np.nan, r2_parcela_sd=np.nan, n_selected=0.0, r2_cultivar=np.nan, n_plots=len(y),
+                    n_cultivars=cultivar.nunique(), n_features=0)
     X = X.fillna(X.median())
     X = (X - X.mean()) / X.std(ddof=0).replace(0, 1)
     Xa, ya = X.to_numpy(), y.to_numpy()
@@ -126,7 +129,18 @@ def main() -> None:
     mx.to_csv(OUTDIR / "max_correlations.csv", index=False)
     print(mx[["market_class", "target", "level", "env", "feature", "r", "n"]].round(3).to_string())
 
-    rows = []
+    ckpt = OUTDIR / "lasso_results_partial.csv"
+    rows = pd.read_csv(ckpt).to_dict("records") if ckpt.exists() else []
+    done = {(r["market_class"], r["dataset"], r["variant"]) for r in rows}
+
+    tasks = []
+
+    def run(mc, dataset, w, y, cult):
+        for nested in (False, True):
+            var = "anidada" if nested else "original"
+            if (mc, dataset, var) not in done:
+                tasks.append((mc, dataset, var, w, y, cult, nested))
+
     for mc in CLASSES:
         sub = d[d.market_class == mc]
         # (a) cada sitio-año con rasgos por vuelo
@@ -137,11 +151,7 @@ def main() -> None:
             if ok.sum() < 30:
                 continue
             w, y = w[ok], zscore_within(y[ok], pt.loc[w.index[ok], "env"])
-            for nested in (False, True):
-                r = lasso_eval(w, y, pt.loc[w.index, "entry_name"], nested)
-                rows.append(dict(market_class=mc, dataset=env, variant="anidada" if nested else "original", **r))
-                print(f"{mc} {env} {'anidada' if nested else 'original'}: R²parcela={r['r2_parcela']:.2f} "
-                      f"R²cultivar={r['r2_cultivar']:.2f} sel={r['n_selected']:.1f}")
+            run(mc, env, w, y, pt.loc[w.index, "entry_name"])
         # (b) combinado dentro de año (grilla de GDD, estandarizado dentro de sitio)
         for year, g in sub.groupby("year"):
             if g.env.nunique() < 2:
@@ -152,12 +162,20 @@ def main() -> None:
             ok = y.notna()
             w, y = w[ok], zscore_within(y[ok], pt.loc[w.index[ok], "env"])
             cult = pt.loc[w.index, "env"] + "|" + pt.loc[w.index, "entry_name"]
-            for nested in (False, True):
-                r = lasso_eval(w, y, cult, nested)
-                rows.append(dict(market_class=mc, dataset=f"{year}_combinado", variant="anidada" if nested else "original",
-                                 **r))
-                print(f"{mc} {year} combinado {'anidada' if nested else 'original'}: R²parcela={r['r2_parcela']:.2f} "
-                      f"R²cultivar={r['r2_cultivar']:.2f}")
+            run(mc, f"{year}_combinado", w, y, cult)
+    # Ejecución en paralelo (un conjunto × variante por núcleo), con checkpoint tras cada resultado
+    from joblib import Parallel, delayed
+
+    def job(t):
+        mc_, ds, var, w_, y_, c_, nested = t
+        return dict(market_class=mc_, dataset=ds, variant=var, **lasso_eval(w_, y_, c_, nested))
+    print(f"{len(tasks)} ajustes LASSO pendientes en paralelo", flush=True)
+    for k, r in enumerate(Parallel(n_jobs=min(24, max(1, len(tasks))), return_as="generator_unordered")(
+            delayed(job)(t) for t in tasks), 1):
+        rows.append(r)
+        pd.DataFrame(rows).to_csv(ckpt, index=False)
+        print(f"[{k}/{len(tasks)}] {r['market_class']} {r['dataset']} {r['variant']}: R²parcela={r['r2_parcela']:.2f} "
+              f"R²cultivar={r['r2_cultivar']:.2f} sel={r['n_selected']:.1f}", flush=True)
     las = pd.DataFrame(rows)
     las.to_csv(OUTDIR / "lasso_results.csv", index=False)
     long = las.melt(id_vars=["market_class", "dataset", "variant"], value_vars=["r2_parcela", "r2_cultivar"],

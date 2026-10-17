@@ -111,18 +111,18 @@ def main() -> None:
     c = cp[cp.trait == "canopy_cover"]
     params = [("x0", "GDD de inflexión"), ("max_rate", "Tasa máx. (/100 GDD)"), ("auc", "AUC media"),
               ("senescence_rate", "Senescencia (/100 GDD)")]
-    fig, axes = style.figure("2col", 2.4, ncols=4)
+    fig, axes = style.figure("2col", 2.6, ncols=4)
     for ax, (p, lab), letter in zip(axes, params, "abcd"):
         data = [c[c.market_class == mc][p].dropna() for mc in style.MARKET]
-        labels = [style.wrap(style.MARKET_ES[mc], 10) for mc in style.MARKET]
         bp = ax.boxplot(data, patch_artist=True, widths=0.6, showfliers=False)
         for patch, col in zip(bp["boxes"], style.MARKET.values()):
             patch.set(facecolor=col, alpha=0.6, edgecolor=style.MUTED)
         for med in bp["medians"]:
             med.set(color=style.INK)
-        ax.set_xticks(range(1, len(labels) + 1)); ax.set_xticklabels(labels, rotation=45, ha="right", fontsize=6)
+        ax.set_xticks([])
         ax.set_ylabel(lab)
         style.panel_label(ax, letter)
+    style.market_legend(fig)
     style.note(fig, "Parámetros de la curva de cobertura del dosel por parcela (logística sobre la fase creciente).")
     style.save(fig, OUTDIR / "fig_param_distributions")
 

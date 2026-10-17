@@ -1,0 +1,19 @@
+env,market_class,flight_dir,gdd,target,level,feature,r,p,n,absr
+2019_Genesee,kabuli_chickpea,Genesee_Pea_Chickpea_July05,787.4,seedyield,cultivar,canopy_area_m2,0.8775812852922028,1.7912841819007418e-08,24,0.8775812852922028
+2018_Pullman,yellow_pea,Pullman_Pea_July27,1190.7,physmatur,cultivar,canopy_area_m2,0.859410576331312,6.362721493086021e-13,41,0.859410576331312
+2017_Fairfield,green_pea,Fairfield_Pea_July24,1050.0,seedyield,cultivar,NDVI_mean,0.7916676522655599,1.1821279157972742e-09,40,0.7916676522655599
+2017_Fairfield,green_pea,Fairfield_Pea_July24,1050.0,seedyield,parcela,GNDVI_sum,0.7881900117573444,1.2288937103964383e-26,120,0.7881900117573444
+2017_Pullman,kabuli_chickpea,Chickpea_Aug07,1377.8,fiftyflowr,cultivar,NDRE_sum,0.7764097662602523,8.192305771913591e-06,24,0.7764097662602523
+2019_Genesee,kabuli_chickpea,Genesee_Pea_Chickpea_July05,787.4,seedyield,parcela,canopy_area_m2,0.7735330758885366,1.6593668421898595e-15,72,0.7735330758885366
+2018_Pullman,yellow_pea,Pullman_Pea_July 19,1044.2,fiftyflowr,cultivar,NDRE_mean,0.7639489947033667,6.2141651633513345e-09,41,0.7639489947033667
+2018_Pullman,yellow_pea,Pullman_Pea_July27,1190.7,physmatur,parcela,NDVI_sum,0.7435536986881335,5.992473953449574e-24,129,0.7435536986881335
+2017_Pullman,kabuli_chickpea,Chickpea_Aug07,1377.8,physmatur,cultivar,TVI_sum,0.7317989568646432,4.823605379653666e-05,24,0.7317989568646432
+2018_Pullman,green_pea,Pullman_Pea_July27,1190.7,fiftyflowr,cultivar,GNDVI_sum,0.6550926595115945,1.809010715457928e-08,59,0.6550926595115945
+2018_Pullman,yellow_pea,Pullman_Pea_July 19,1044.2,fiftyflowr,parcela,NDRE_mean,0.6479555208017792,1.0425202489003311e-16,129,0.6479555208017792
+2017_Pullman,kabuli_chickpea,Chickpea_Aug07,1377.8,fiftyflowr,parcela,TVI_sum,0.5999171945287111,2.5601000631625165e-08,72,0.5999171945287111
+2017_Pullman,kabuli_chickpea,Chickpea_Aug07,1377.8,physmatur,parcela,TVI_sum,0.5961081262991359,3.3008944869158e-08,72,0.5961081262991359
+2017_Pullman,yellow_pea,Pea_June05,284.3,seedyield,cultivar,NDRE_mean,-0.5842261347844412,0.00272012206407294,24,0.5842261347844412
+2018_Pullman,green_pea,Pullman_Pea_July 19,1044.2,fiftyflowr,parcela,NDRE_mean,0.5278336369404812,9.82506857868611e-15,186,0.5278336369404812
+2017_Pullman,green_pea,Pea_July28,1167.5,physmatur,parcela,GNDVI_mean,0.5185353086894673,5.640986933986296e-12,154,0.5185353086894673
+2017_Fairfield,yellow_pea,Fairfield_Pea_July24,1050.0,seedyield,parcela,NDVI_sum,0.4696037852520339,0.00010327030981651839,63,0.4696037852520339
+2018_Pullman,green_pea,Pullman_Pea_July27,1190.7,physmatur,cultivar,TVI_mean,0.46766563844380526,0.00018795083224938384,59,0.46766563844380526

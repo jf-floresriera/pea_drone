@@ -1,0 +1,165 @@
+env,trial,market_class,trait,flight_dir,gdd,r_geno_yield,coincidence_top20,n_geno
+2017_Pullman,1701,green_pea,canopy_cover,Pea_Jul07,777.8,0.17755965016863975,0.25,40
+2017_Pullman,1701,green_pea,MCARI_mean,Pea_Jul07,777.8,-0.0809423917802112,0.125,40
+2017_Pullman,1701,green_pea,NDVI_sum,Pea_Jun26,576.5,-0.07344254866478872,0.375,40
+2017_Pullman,1701B,nz_green_yellow_pea,GNDVI_mean,Pea_Jul07,777.8,-0.07986608036709772,0.25,19
+2017_Pullman,1701B,nz_green_yellow_pea,canopy_cover,Pea_July21,1030.7,0.1347750636658439,0.0,19
+2017_Pullman,1701B,nz_green_yellow_pea,NDVI_mean,Pea_July21,1030.7,0.10009499778012611,0.0,19
+2017_Pullman,1701B,nz_green_yellow_pea,CIrededge_mean,Pea_July21,1030.7,,0.0,19
+2017_Pullman,1701B,nz_green_yellow_pea,canopy_cover,Pea_July28,1167.5,,0.0,19
+2017_Pullman,1701B,nz_green_yellow_pea,canopy_cover,Pea_June05,284.3,-0.09160188024131628,0.25,19
+2017_Pullman,1701B,nz_green_yellow_pea,CIrededge_mean,Pea_June05,284.3,0.06916630602427307,0.25,19
+2017_Pullman,1701B,nz_green_yellow_pea,NDVI_sum,Pea_June05,284.3,-0.07985453758595323,0.25,19
+2018_Fairfield,1802,yellow_pea,canopy_cover,Fairfield_Pea_Aug07,1184.7,-0.2525853442625064,0.2,23
+2018_Fairfield,1802,yellow_pea,canopy_area_m2,Fairfield_Pea_Aug07,1184.7,-0.2525980247220483,0.2,23
+2018_Fairfield,1802,yellow_pea,NDVI_mean,Fairfield_Pea_Aug07,1184.7,-0.17740155556993595,0.4,23
+2018_Fairfield,1802,yellow_pea,NDRE_mean,Fairfield_Pea_Aug07,1184.7,-0.023611197847871777,0.2,23
+2018_Fairfield,1802,yellow_pea,TVI_mean,Fairfield_Pea_Aug07,1184.7,-0.40686368350658286,0.2,23
+2018_Fairfield,1802,yellow_pea,NDVI_sum,Fairfield_Pea_Aug07,1184.7,-0.2422073409665794,0.2,23
+2018_Fairfield,1802,yellow_pea,canopy_cover,Fairfield_Pea_Jul12,690.9,0.45308976829757863,0.6,23
+2018_Fairfield,1802,yellow_pea,canopy_area_m2,Fairfield_Pea_Jul12,690.9,0.4531754333753392,0.6,23
+2018_Fairfield,1802,yellow_pea,NDVI_mean,Fairfield_Pea_Jul12,690.9,0.0828544830947745,0.2,23
+2018_Fairfield,1802,yellow_pea,GNDVI_mean,Fairfield_Pea_Jul12,690.9,-0.018335895927713324,0.4,23
+2018_Fairfield,1802,yellow_pea,NDVI_sum,Fairfield_Pea_Jul12,690.9,0.42664387782549124,0.6,23
+2018_Fairfield,1802,yellow_pea,canopy_cover,Fairfield_Pea_Jun29,497.3,0.48154224460694367,0.2,23
+2018_Fairfield,1802,yellow_pea,canopy_area_m2,Fairfield_Pea_Jun29,497.3,0.4815369739550986,0.2,23
+2018_Fairfield,1802,yellow_pea,NDVI_mean,Fairfield_Pea_Jun29,497.3,0.2230970164621031,0.4,23
+2018_Fairfield,1802,yellow_pea,GNDVI_mean,Fairfield_Pea_Jun29,497.3,0.24327147210356995,0.2,23
+2018_Fairfield,1802,yellow_pea,NDVI_sum,Fairfield_Pea_Jun29,497.3,0.4576155165770602,0.4,23
+2018_Pullman,1802,yellow_pea,canopy_cover,Pullman_Pea_July 19,1044.2,-0.05155991583546527,0.4,23
+2018_Pullman,1802,yellow_pea,canopy_area_m2,Pullman_Pea_July 19,1044.2,-0.05129461693725776,0.4,23
+2018_Pullman,1802,yellow_pea,NDVI_mean,Pullman_Pea_July 19,1044.2,-0.1215335854425139,0.2,23
+2018_Pullman,1802,yellow_pea,NDRE_mean,Pullman_Pea_July 19,1044.2,-0.10019856353041619,0.2,23
+2018_Pullman,1802,yellow_pea,GNDVI_mean,Pullman_Pea_July 19,1044.2,-0.03638991883534748,0.2,23
+2018_Pullman,1802,yellow_pea,CIrededge_mean,Pullman_Pea_July 19,1044.2,-0.10858573335337691,0.2,23
+2018_Pullman,1802,yellow_pea,TVI_mean,Pullman_Pea_July 19,1044.2,-0.2419846246850332,0.4,23
+2018_Pullman,1802,yellow_pea,NDVI_sum,Pullman_Pea_July 19,1044.2,-0.0598293278769408,0.4,23
+2018_Pullman,1802,yellow_pea,canopy_cover,Pullman_Pea_July27,1190.7,-0.16982533208828032,0.0,23
+2018_Pullman,1802,yellow_pea,canopy_area_m2,Pullman_Pea_July27,1190.7,-0.1698611747729085,0.0,23
+2018_Pullman,1802,yellow_pea,TVI_mean,Pullman_Pea_July27,1190.7,-0.3034761423644422,0.2,23
+2018_Pullman,1802,yellow_pea,NDVI_sum,Pullman_Pea_July27,1190.7,-0.16549289585847338,0.0,23
+2018_Pullman,1802,yellow_pea,canopy_cover,Pullman_Pea_June22,609.9,0.16911089311612726,0.0,23
+2018_Pullman,1802,yellow_pea,MCARI_mean,Pullman_Pea_June22,609.9,-9.439832560257704e-16,0.4,23
+2018_Pullman,1802,yellow_pea,NDRE_mean,Pullman_Pea_June8,444.6,-0.09693898538013448,0.0,23
+2018_Pullman,1802,yellow_pea,GNDVI_mean,Pullman_Pea_June8,444.6,-0.18934148109146307,0.2,23
+2018_Pullman,1802,yellow_pea,NDVI_sum,Pullman_Pea_June8,444.6,0.039191070299599465,0.2,23
+2018_Pullman,1803,green_pea,NDVI_mean,Pullman_Pea_July 19,1044.2,-0.012955436824306247,0.3333333333333333,30
+2018_Pullman,1803,green_pea,NDRE_mean,Pullman_Pea_July 19,1044.2,-0.013402898203247277,0.16666666666666666,30
+2018_Pullman,1803,green_pea,GNDVI_mean,Pullman_Pea_July 19,1044.2,0.12401972396679953,0.0,30
+2018_Pullman,1803,green_pea,CIrededge_mean,Pullman_Pea_July 19,1044.2,-0.010707002047668975,0.16666666666666666,30
+2018_Pullman,1803,green_pea,TVI_mean,Pullman_Pea_July 19,1044.2,0.11618296589527492,0.0,30
+2018_Pullman,1803,green_pea,canopy_cover,Pullman_Pea_July27,1190.7,-0.04574961735242157,0.3333333333333333,30
+2018_Pullman,1803,green_pea,canopy_area_m2,Pullman_Pea_July27,1190.7,-0.04563691348912388,0.3333333333333333,30
+2018_Pullman,1803,green_pea,NDVI_mean,Pullman_Pea_July27,1190.7,-0.13593215936770364,0.6666666666666666,30
+2018_Pullman,1803,green_pea,TVI_mean,Pullman_Pea_July27,1190.7,-0.12037303252449244,0.3333333333333333,30
+2018_Pullman,1803,green_pea,NDVI_sum,Pullman_Pea_July27,1190.7,-0.06209758622343007,0.3333333333333333,30
+2018_Pullman,1803,green_pea,MCARI_mean,Pullman_Pea_July27,1190.7,-0.009417956703331964,0.3333333333333333,30
+2018_Pullman,1803,green_pea,canopy_cover,Pullman_Pea_July3,755.2,0.4608801012581869,0.3333333333333333,30
+2018_Pullman,1803,green_pea,NDRE_mean,Pullman_Pea_July3,755.2,0.44811613947065637,0.0,30
+2018_Pullman,1803,green_pea,GNDVI_mean,Pullman_Pea_July3,755.2,0.26941977321446403,0.0,30
+2018_Pullman,1803,green_pea,CIrededge_mean,Pullman_Pea_July3,755.2,0.4398151244992222,0.0,30
+2018_Pullman,1803,green_pea,MCARI_mean,Pullman_Pea_July3,755.2,-0.05634845370453324,0.0,30
+2018_Pullman,1803,green_pea,MCARI_mean,Pullman_Pea_June22,609.9,0.24722643515213488,0.3333333333333333,30
+2018_Pullman,1804,yellow_pea,NDVI_mean,Pullman_Pea_July 19,1044.2,-0.17318847013784583,0.25,20
+2018_Pullman,1804,yellow_pea,NDRE_mean,Pullman_Pea_July 19,1044.2,-0.22561840025645188,0.25,20
+2018_Pullman,1804,yellow_pea,GNDVI_mean,Pullman_Pea_July 19,1044.2,0.07296157862541587,0.25,20
+2018_Pullman,1804,yellow_pea,CIrededge_mean,Pullman_Pea_July 19,1044.2,-0.248193198049848,0.25,20
+2018_Pullman,1804,yellow_pea,TVI_mean,Pullman_Pea_July 19,1044.2,-0.02393081290644096,0.0,20
+2018_Pullman,1804,yellow_pea,NDVI_sum,Pullman_Pea_July 19,1044.2,-0.02309854982492743,0.0,20
+2018_Pullman,1804,yellow_pea,canopy_cover,Pullman_Pea_July27,1190.7,-0.3177661116976007,0.0,20
+2018_Pullman,1804,yellow_pea,canopy_area_m2,Pullman_Pea_July27,1190.7,-0.31782582757392724,0.0,20
+2018_Pullman,1804,yellow_pea,NDVI_mean,Pullman_Pea_July27,1190.7,-0.31405277723026725,0.25,20
+2018_Pullman,1804,yellow_pea,NDVI_sum,Pullman_Pea_July27,1190.7,-0.3472458029058918,0.0,20
+2018_Pullman,1804,yellow_pea,NDVI_mean,Pullman_Pea_July3,755.2,0.04833326508171989,0.25,20
+2018_Pullman,1804,yellow_pea,canopy_cover,Pullman_Pea_June22,609.9,0.4927224166802538,0.5,20
+2018_Pullman,1804,yellow_pea,canopy_area_m2,Pullman_Pea_June22,609.9,0.4919479387881227,0.5,20
+2018_Pullman,1804,yellow_pea,GNDVI_mean,Pullman_Pea_June22,609.9,0.35999614609009295,0.5,20
+2018_Pullman,1804,yellow_pea,MCARI_mean,Pullman_Pea_June22,609.9,0.43122589676991346,0.75,20
+2018_Pullman,1804,yellow_pea,TVI_mean,Pullman_Pea_June8,444.6,-0.0390633684851315,0.0,20
+2018_Pullman,1881,kabuli_chickpea,GNDVI_mean,Pullman_Chickpea_July19,1044.2,-0.19651987277897384,0.0,21
+2018_Pullman,1881,kabuli_chickpea,NDVI_sum,Pullman_Chickpea_July27,1190.7,-0.2478552793524337,0.5,21
+2018_Pullman,1881,kabuli_chickpea,canopy_cover,Pullman_Chickpea_July3,755.2,0.5358593906742944,0.75,21
+2018_Pullman,1881,kabuli_chickpea,canopy_area_m2,Pullman_Chickpea_July3,755.2,0.5357870643452687,0.75,21
+2018_Pullman,1881,kabuli_chickpea,NDVI_mean,Pullman_Chickpea_July3,755.2,0.3357549365979453,0.25,21
+2018_Pullman,1881,kabuli_chickpea,GNDVI_mean,Pullman_Chickpea_July3,755.2,0.4218463294088788,0.5,21
+2018_Pullman,1881,kabuli_chickpea,TVI_mean,Pullman_Chickpea_July3,755.2,0.477758016034943,0.5,21
+2018_Pullman,1881,kabuli_chickpea,NDVI_sum,Pullman_Chickpea_July3,755.2,0.5241470081016394,0.5,21
+2018_Pullman,1881,kabuli_chickpea,canopy_cover,Pullman_Chickpea_June22,609.9,0.5649849805654752,0.75,21
+2018_Pullman,1881,kabuli_chickpea,canopy_area_m2,Pullman_Chickpea_June22,609.9,0.564969542702701,0.75,21
+2018_Pullman,1881,kabuli_chickpea,NDVI_mean,Pullman_Chickpea_June22,609.9,0.44211968983661887,0.5,21
+2018_Pullman,1881,kabuli_chickpea,GNDVI_mean,Pullman_Chickpea_June22,609.9,0.55041300258514,0.25,21
+2018_Pullman,1881,kabuli_chickpea,CIrededge_mean,Pullman_Chickpea_June22,609.9,0.35989421032716856,0.25,21
+2018_Pullman,1881,kabuli_chickpea,TVI_mean,Pullman_Chickpea_June22,609.9,0.3065833518027709,0.25,21
+2018_Pullman,1881,kabuli_chickpea,NDVI_sum,Pullman_Chickpea_June22,609.9,0.5545965217149733,0.5,21
+2018_Pullman,1881,kabuli_chickpea,MCARI_mean,Pullman_Chickpea_June22,609.9,0.3124283519132621,0.25,21
+2018_Pullman,1883,kabuli_chickpea,canopy_cover,Pullman_Chickpea_July3,755.2,0.5482126146424865,0.7142857142857143,33
+2018_Pullman,1883,kabuli_chickpea,canopy_area_m2,Pullman_Chickpea_July3,755.2,0.5481926149236013,0.7142857142857143,33
+2018_Pullman,1883,kabuli_chickpea,NDVI_mean,Pullman_Chickpea_July3,755.2,0.4337637982385912,0.42857142857142855,33
+2018_Pullman,1883,kabuli_chickpea,GNDVI_mean,Pullman_Chickpea_July3,755.2,0.29098099461575516,0.2857142857142857,33
+2018_Pullman,1883,kabuli_chickpea,CIrededge_mean,Pullman_Chickpea_July3,755.2,0.25804518917759,0.14285714285714285,33
+2018_Pullman,1883,kabuli_chickpea,NDVI_sum,Pullman_Chickpea_July3,755.2,0.5481118846302482,0.5714285714285714,33
+2018_Pullman,1883,kabuli_chickpea,MCARI_mean,Pullman_Chickpea_July3,755.2,0.38072442798299166,0.5714285714285714,33
+2018_Pullman,1883,kabuli_chickpea,canopy_cover,Pullman_Chickpea_June22,609.9,0.5050952889139186,0.42857142857142855,33
+2018_Pullman,1883,kabuli_chickpea,canopy_area_m2,Pullman_Chickpea_June22,609.9,0.5054649788073489,0.42857142857142855,33
+2018_Pullman,1883,kabuli_chickpea,NDVI_mean,Pullman_Chickpea_June22,609.9,0.5441820236816791,0.5714285714285714,33
+2018_Pullman,1883,kabuli_chickpea,GNDVI_mean,Pullman_Chickpea_June22,609.9,0.4482041091372413,0.5714285714285714,33
+2018_Pullman,1883,kabuli_chickpea,TVI_mean,Pullman_Chickpea_June22,609.9,0.5289674924192723,0.5714285714285714,33
+2018_Pullman,1883,kabuli_chickpea,NDVI_sum,Pullman_Chickpea_June22,609.9,0.5286674533782976,0.5714285714285714,33
+2018_Pullman,1883,kabuli_chickpea,MCARI_mean,Pullman_Chickpea_June22,609.9,0.4646897235619392,0.42857142857142855,33
+2018_Pullman,1883,kabuli_chickpea,NDVI_mean,Pullman_Chickpea_June8,444.6,0.5225210412001965,0.42857142857142855,33
+2018_Pullman,1883,kabuli_chickpea,GNDVI_mean,Pullman_Chickpea_June8,444.6,0.331103125141002,0.14285714285714285,33
+2019_Fairfield,1901,green_pea,NDVI_sum,Fairfield_Pea_July12,885.7,0.02381334290181926,0.3333333333333333,29
+2019_Fairfield,1901,green_pea,CIrededge_mean,Fairfield_Pea_June10,422.4,-0.13678572236276434,0.3333333333333333,29
+2019_Fairfield,1901,green_pea,MCARI_mean,Fairfield_Pea_June10,422.4,1.2168602079667088e-15,0.6666666666666666,29
+2019_Genesee,1901,green_pea,TVI_mean,GeneseeJ_Pea_Chickpea_June18,574.3,-0.2485939153595472,0.16666666666666666,29
+2019_Genesee,1901,green_pea,GNDVI_mean,Genesee_Pea_Chickpea_July05,787.4,-0.48348763185014915,0.3333333333333333,29
+2019_Genesee,1901,green_pea,NDRE_mean,Genesee_Pea_Chickpea_July16,966.3,0.3432226790907008,0.3333333333333333,29
+2019_Genesee,1901,green_pea,MCARI_mean,Genesee_Pea_Chickpea_July16,966.3,-0.5403963260010145,0.5,29
+2019_Genesee,1901B,nz_green_yellow_pea,canopy_cover,GeneseeJ_Pea_Chickpea_June18,574.3,0.08195263310225502,0.3333333333333333,16
+2019_Genesee,1901B,nz_green_yellow_pea,canopy_area_m2,GeneseeJ_Pea_Chickpea_June18,574.3,0.08184672181913033,0.3333333333333333,16
+2019_Genesee,1901B,nz_green_yellow_pea,NDVI_mean,GeneseeJ_Pea_Chickpea_June18,574.3,0.11907703641751283,0.3333333333333333,16
+2019_Genesee,1901B,nz_green_yellow_pea,NDRE_mean,GeneseeJ_Pea_Chickpea_June18,574.3,0.2747177313337631,0.3333333333333333,16
+2019_Genesee,1901B,nz_green_yellow_pea,GNDVI_mean,GeneseeJ_Pea_Chickpea_June18,574.3,0.1519370758460759,0.3333333333333333,16
+2019_Genesee,1901B,nz_green_yellow_pea,TVI_mean,GeneseeJ_Pea_Chickpea_June18,574.3,0.08795041701714536,0.3333333333333333,16
+2019_Genesee,1901B,nz_green_yellow_pea,NDVI_sum,GeneseeJ_Pea_Chickpea_June18,574.3,0.09161858169259646,0.3333333333333333,16
+2019_Genesee,1901B,nz_green_yellow_pea,MCARI_mean,GeneseeJ_Pea_Chickpea_June18,574.3,-0.01663425534149841,0.3333333333333333,16
+2019_Genesee,1901B,nz_green_yellow_pea,canopy_cover,Genesee_Pea_Chickpea_July05,787.4,0.29191237305116874,0.3333333333333333,16
+2019_Genesee,1901B,nz_green_yellow_pea,canopy_area_m2,Genesee_Pea_Chickpea_July05,787.4,0.29176184721692,0.3333333333333333,16
+2019_Genesee,1901B,nz_green_yellow_pea,NDRE_mean,Genesee_Pea_Chickpea_July05,787.4,0.24950503975882488,0.3333333333333333,16
+2019_Genesee,1901B,nz_green_yellow_pea,GNDVI_mean,Genesee_Pea_Chickpea_July05,787.4,0.02052478809193644,0.6666666666666666,16
+2019_Genesee,1901B,nz_green_yellow_pea,CIrededge_mean,Genesee_Pea_Chickpea_July05,787.4,0.2516376096658454,0.3333333333333333,16
+2019_Genesee,1901B,nz_green_yellow_pea,NDVI_sum,Genesee_Pea_Chickpea_July05,787.4,0.2530289208783079,0.3333333333333333,16
+2019_Genesee,1901B,nz_green_yellow_pea,MCARI_mean,Genesee_Pea_Chickpea_July05,787.4,-0.11452522175509099,0.3333333333333333,16
+2019_Genesee,1981,kabuli_chickpea,canopy_cover,GeneseeJ_Pea_Chickpea_June18,574.3,0.7862759648133889,0.6,24
+2019_Genesee,1981,kabuli_chickpea,canopy_area_m2,GeneseeJ_Pea_Chickpea_June18,574.3,0.7863183286650695,0.6,24
+2019_Genesee,1981,kabuli_chickpea,NDVI_mean,GeneseeJ_Pea_Chickpea_June18,574.3,0.6946772479202237,0.4,24
+2019_Genesee,1981,kabuli_chickpea,GNDVI_mean,GeneseeJ_Pea_Chickpea_June18,574.3,0.541761085388046,0.2,24
+2019_Genesee,1981,kabuli_chickpea,TVI_mean,GeneseeJ_Pea_Chickpea_June18,574.3,0.5563985764187621,0.2,24
+2019_Genesee,1981,kabuli_chickpea,NDVI_sum,GeneseeJ_Pea_Chickpea_June18,574.3,0.7811295768301542,0.6,24
+2019_Genesee,1981,kabuli_chickpea,MCARI_mean,GeneseeJ_Pea_Chickpea_June18,574.3,0.5611292561577428,0.6,24
+2019_Genesee,1981,kabuli_chickpea,canopy_cover,Genesee_Pea_Chickpea_July05,787.4,0.8436667074858227,0.8,24
+2019_Genesee,1981,kabuli_chickpea,canopy_area_m2,Genesee_Pea_Chickpea_July05,787.4,0.8436634748005141,0.8,24
+2019_Genesee,1981,kabuli_chickpea,NDVI_mean,Genesee_Pea_Chickpea_July05,787.4,0.6353068524195652,0.4,24
+2019_Genesee,1981,kabuli_chickpea,NDRE_mean,Genesee_Pea_Chickpea_July05,787.4,0.7307633754668333,0.2,24
+2019_Genesee,1981,kabuli_chickpea,GNDVI_mean,Genesee_Pea_Chickpea_July05,787.4,0.6236531942633526,0.4,24
+2019_Genesee,1981,kabuli_chickpea,CIrededge_mean,Genesee_Pea_Chickpea_July05,787.4,0.7250286456536992,0.4,24
+2019_Genesee,1981,kabuli_chickpea,TVI_mean,Genesee_Pea_Chickpea_July05,787.4,0.6533913549696532,0.6,24
+2019_Genesee,1981,kabuli_chickpea,NDVI_sum,Genesee_Pea_Chickpea_July05,787.4,0.827402131324885,0.8,24
+2019_Genesee,1981,kabuli_chickpea,MCARI_mean,Genesee_Pea_Chickpea_July05,787.4,0.23314888152038454,0.6,24
+2019_Genesee,1981,kabuli_chickpea,canopy_cover,Genesee_Pea_Chickpea_July16,966.3,0.8730499983865666,0.6,24
+2019_Genesee,1981,kabuli_chickpea,canopy_area_m2,Genesee_Pea_Chickpea_July16,966.3,0.8730243790754179,0.6,24
+2019_Genesee,1981,kabuli_chickpea,NDVI_mean,Genesee_Pea_Chickpea_July16,966.3,0.6224078254041577,0.6,24
+2019_Genesee,1981,kabuli_chickpea,NDRE_mean,Genesee_Pea_Chickpea_July16,966.3,0.6448386954231491,0.4,24
+2019_Genesee,1981,kabuli_chickpea,GNDVI_mean,Genesee_Pea_Chickpea_July16,966.3,0.5193472504469381,0.2,24
+2019_Genesee,1981,kabuli_chickpea,TVI_mean,Genesee_Pea_Chickpea_July16,966.3,0.6382174608621527,0.4,24
+2019_Genesee,1981,kabuli_chickpea,NDVI_sum,Genesee_Pea_Chickpea_July16,966.3,0.8485232135300022,0.6,24
+2019_Pullman,1901,green_pea,NDRE_mean,Pullman_Pea_Chickpea_Advanced_June05,398.9,0.3765185630926735,0.5,29
+2019_Pullman,1901,green_pea,MCARI_mean,Pullman_Pea_Chickpea_Advanced_June05,398.9,-0.058015619738340185,0.6666666666666666,29
+2019_Pullman,1901,green_pea,canopy_area_m2,Pullman_Pea_Chickpea_Advanced_June17,569.2,0.3872317985080342,0.5,29
+2019_Pullman,1901B,nz_green_yellow_pea,canopy_area_m2,Pullman_Pea_Chickpea_Advanced_June05,398.9,0.27356655862383883,0.0,16
+2019_Pullman,1901B,nz_green_yellow_pea,MCARI_mean,Pullman_Pea_Chickpea_Advanced_June05,398.9,0.2982100667097667,0.3333333333333333,16
+2019_Pullman,1901B,nz_green_yellow_pea,NDVI_mean,Pullman_Pea_Chickpea_Advanced_June17,569.2,0.21288976121243275,0.6666666666666666,16
+2019_Pullman,1981,kabuli_chickpea,canopy_cover,Pullman_Pea_Chickpea_Advanced_June17,569.2,0.7509406931799816,0.0,24
+2019_Pullman,1981,kabuli_chickpea,canopy_area_m2,Pullman_Pea_Chickpea_Advanced_June17,569.2,0.7510395328314678,0.0,24
+2019_Pullman,1981,kabuli_chickpea,NDVI_mean,Pullman_Pea_Chickpea_Advanced_June17,569.2,0.7715323678802755,0.4,24
+2019_Pullman,1981,kabuli_chickpea,NDVI_sum,Pullman_Pea_Chickpea_Advanced_June17,569.2,0.7642399072156579,0.4,24

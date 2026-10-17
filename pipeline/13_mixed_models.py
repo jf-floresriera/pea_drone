@@ -151,6 +151,20 @@ def gxe(pt: pd.DataFrame, d: pd.DataFrame) -> None:
     pd.DataFrame(rows).to_csv(OUTDIR / "gxe.csv", index=False)
 
 
+def binned(ax, q: pd.DataFrame, col: str, color, label, offset: float) -> None:
+    """Mediana e IQR por intervalos de 200 GDD; solo intervalos con ≥3 ensayos (evita saltos por n pequeño)."""
+    b = pd.cut(q.gdd, bins=np.arange(200, 1700, 200))
+    agg = q.groupby(b, observed=True)[col].agg(["median", lambda v: v.quantile(0.25), lambda v: v.quantile(0.75),
+                                                "count"])
+    agg.columns = ["med", "q1", "q3", "n"]
+    agg = agg[agg.n >= 3]
+    if agg.empty:
+        return
+    x = np.array([iv.mid for iv in agg.index]) + offset
+    ax.errorbar(x, agg.med, yerr=[agg.med - agg.q1, agg.q3 - agg.med], fmt="-o", ms=3.5, lw=1.2, capsize=1.5,
+                color=color, label=label)
+
+
 def figures(h2: pd.DataFrame, rg: pd.DataFrame) -> None:
     u = h2[h2.flight_dir != ""]
     fig, axes = style.figure("2col", 3.0, ncols=2, sharey=True)
@@ -158,16 +172,14 @@ def figures(h2: pd.DataFrame, rg: pd.DataFrame) -> None:
                                             (axes[1], ["kabuli_chickpea", "green_chickpea"], "b", "Garbanzo")):
         s = u[u.market_class.isin(crop_classes)]
         for i, t in enumerate(["canopy_cover", "NDVI_mean", "NDRE_mean", "CIrededge_mean"]):
-            q = s[s.trait == t]
-            b = pd.cut(q.gdd, bins=np.arange(200, 1700, 200))
-            m = q.groupby(b, observed=True).h2.median()
-            ax.plot([iv.mid for iv in m.index], m.values, marker="o", color=style.CAT[i], label=UAV_ES[t])
+            binned(ax, s[s.trait == t], "h2", style.CAT[i], UAV_ES[t], (i - 1.5) * 12)
         ax.set_xlabel("Grados-día del vuelo (°C·d)")
         ax.set_ylim(0, 1)
         ax.set_title(f"({letter}) {title}", loc="left")
     axes[0].set_ylabel("Heredabilidad (H², mediana entre ensayos)")
     axes[1].legend(loc="upper left", bbox_to_anchor=(1.02, 1))
-    style.note(fig, "H² en base a medias de genotipo por ensayo; modelos mixtos con bloque y tendencias de fila/columna.")
+    style.note(fig, "H² en base a medias de genotipo por ensayo (modelos mixtos con bloque y tendencias de fila/columna). "
+                    "Mediana e intervalo intercuartílico por intervalos de 200 GDD; solo intervalos con ≥3 ensayos.")
     style.save(fig, OUTDIR / "fig_h2_by_gdd")
     if rg.empty:
         return
@@ -176,10 +188,7 @@ def figures(h2: pd.DataFrame, rg: pd.DataFrame) -> None:
                                             (axes[1], ["kabuli_chickpea", "green_chickpea"], "b", "Garbanzo")):
         s = rg[rg.market_class.isin(crop_classes)]
         for i, t in enumerate(["canopy_cover", "NDVI_mean", "NDRE_mean", "CIrededge_mean"]):
-            q = s[s.trait == t]
-            b = pd.cut(q.gdd, bins=np.arange(200, 1700, 200))
-            m = q.groupby(b, observed=True).r_geno_yield.median()
-            ax.plot([iv.mid for iv in m.index], m.values, marker="o", color=style.CAT[i], label=UAV_ES[t])
+            binned(ax, s[s.trait == t], "r_geno_yield", style.CAT[i], UAV_ES[t], (i - 1.5) * 12)
         ax.axhline(0, color=style.GRID, lw=0.8)
         ax.set_xlabel("Grados-día del vuelo (°C·d)")
         ax.set_title(f"({letter}) {title}", loc="left")
