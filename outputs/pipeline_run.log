@@ -547,3 +547,54 @@
 [13:32:24]    canopy_cover            4.0        0.920  456.163     0.253  0.640
 [13:32:24]    ajustes logísticos válidos: {'CIrededge_plotmean': 1560, 'GNDVI_plotmean': 1656, 'NDRE_plotmean': 1560, 'NDVI_plotmean': 1656, 'canopy_cover': 1597}
 [13:32:27] ✓ PASO 12 completado en 1.4 min
+[13:32:30]    ✓ subido a GitHub (paso 12)
+[13:32:30] ------------------------------------------------------------------------------
+[13:32:30] PASO 3/6 [13] Modelos mixtos: H², correlaciones, G×E · estimado 17 min · restante total ≈ 1.5 h (fin ≈ 15:03)
+[13:32:33]    2017_Fairfield 1701: 3 modelos
+[13:32:33]    2017_Fairfield 1701B: 3 modelos
+[13:32:34]    2017_Fairfield 1702: 6 modelos
+[13:32:37]    2017_Pullman 1701: 8 modelos
+[13:32:39]    2017_Pullman 1701B: 11 modelos
+[13:32:41]    2017_Pullman 1702: 7 modelos
+[13:32:43]    2017_Pullman 1703: 4 modelos
+[13:32:43]    2017_Pullman 1704: 0 modelos
+[13:32:45]    2017_Pullman 1781: 10 modelos
+[13:32:46]    2017_Pullman 1781G: 4 modelos
+[13:32:48]    2018_Fairfield 1801: 7 modelos
+[13:32:50]    2018_Fairfield 1802: 19 modelos
+[13:32:52]    2018_Fairfield 1881: 6 modelos
+[13:32:55]    2018_Genesee 1801: 18 modelos
+[13:32:57]    2018_Genesee 1881: 9 modelos
+[13:33:00]    2018_Pullman 1801: 19 modelos
+[13:33:03]    2018_Pullman 1802: 26 modelos
+[13:33:06]    2018_Pullman 1803: 26 modelos
+[13:33:08]    2018_Pullman 1804: 26 modelos
+[13:33:11]    2018_Pullman 1881: 23 modelos
+[13:33:14]    2018_Pullman 1883: 21 modelos
+[13:33:16]    2019_Fairfield 1901: 5 modelos
+[13:33:18]    2019_Fairfield 1902: 7 modelos
+[13:33:19]    2019_Fairfield 1981: 5 modelos
+[13:33:21]    2019_Genesee 1901: 7 modelos
+[13:33:22]    2019_Genesee 1901B: 16 modelos
+[13:33:25]    2019_Genesee 1981: 29 modelos
+[13:33:26]    2019_Pullman 1901: 7 modelos
+[13:33:27]    2019_Pullman 1901B: 9 modelos
+[13:33:28]    2019_Pullman 1902: 4 modelos
+[13:33:29]    2019_Pullman 1981: 9 modelos
+[13:33:48]    trait
+[13:33:48]    NDVI_plotmean:auc                0.75
+[13:33:48]    NDVI_plotmean:max_rate           0.39
+[13:33:48]    NDVI_plotmean:senescence_rate    0.66
+[13:33:48]    NDVI_plotmean:x0                 0.01
+[13:33:48]    NDVI_plotmean:ymax               0.43
+[13:33:48]    canopy_cover:auc                 0.83
+[13:33:48]    canopy_cover:max_rate            0.48
+[13:33:48]    canopy_cover:senescence_rate     0.41
+[13:33:48]    canopy_cover:x0                  0.00
+[13:33:48]    canopy_cover:ymax                0.29
+[13:33:48]    canopyht                         0.89
+[13:33:48]    fiftyflowr                       0.96
+[13:33:48]    physmatur                        0.88
+[13:33:48]    seedyield                        0.81
+[13:33:48]    vinelength                       0.86
+[13:33:48] ✓ PASO 13 completado en 1.3 min
