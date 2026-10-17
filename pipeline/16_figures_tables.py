@@ -113,6 +113,9 @@ def main() -> None:
     copy(OUT / "14_phenology" / "fig_phenology_obs_pred.png", "FigS6_phenology")
     copy(OUT / "15_models" / "fig_models_spearman.png", "FigS7_models_spearman")
     copy(OUT / "15_models" / "fig_importance_chickpea.png", "FigS8_importance_chickpea")
+    copy(OUT / "11_replication" / "fig_sensitivity_normalization.png", "FigS9_sensitivity_normalization")
+    copy(OUT / "15_models" / "fig_absolute_features.png", "FigS10_absolute_features")
+    copy(OUT / "13_mixed_models" / "fig_rg_yield_by_gdd.png", "FigS11_rg_yield")
 
     md = ["# Resumen de resultados (generado automáticamente)\n"]
     tc = pd.read_csv(OUT / "02_tabular_qc" / "trial_counts.csv", dtype={"trial": str})
@@ -139,7 +142,10 @@ def main() -> None:
                         .round(3), "Table5_models", "Mejor modelo por cultivo, variable y esquema de validación."))
     for name, path in (("Correlaciones máximas (réplica)", OUT / "11_replication" / "max_correlations.csv"),
                        ("Fenología (CV por genotipo)", OUT / "14_phenology" / "phenology_cv.csv"),
-                       ("G×E", OUT / "13_mixed_models" / "gxe.csv")):
+                       ("G×E", OUT / "13_mixed_models" / "gxe.csv"),
+                       ("Sensibilidad de la normalización (combinados)",
+                        OUT / "11_replication" / "sensitivity_combined_normalization.csv"),
+                       ("Rasgos absolutos vs estandarizados (entre ambientes)", OUT / "15_models" / "absolute_features.csv")):
         if path.exists():
             md.append(f"## {name}\n\n" + pd.read_csv(path).round(3).head(40).to_markdown(index=False) + "\n")
     (OUTDIR / "RESULTS_SUMMARY.md").write_text("\n".join(md), encoding="utf-8")
