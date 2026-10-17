@@ -306,7 +306,20 @@ retained in ≥ 75 % of runs, 3:1 split repeated four times and leave-one-cultiv
 - For 2017–2018 and Fairfield 2019 it was markedly lower, and pooled within-year models reached R² 0.17–0.28
   (published 0.82–0.89).
 - Removing information leakage (nested selection) lowered R² in most datasets, by up to ≈ 0.25.
-- [PENDING: effect of the normalisation of pooled datasets, `sensitivity_combined_normalization.csv`.]
+- **The gap in pooled models is explained by normalisation** (Supplementary Fig. S9). When features and yield were
+  standardised over the pooled dataset rather than within site, pooled-model R² rose to values close to the published
+  ones:
+
+  | Pooled dataset | Within-site standardisation | Pooled standardisation | Published |
+  |---|---|---|---|
+  | Chickpea 2018 | 0.28 | 0.82 | 0.89 |
+  | Chickpea 2019 | 0.17 | 0.60 | 0.82 |
+  | Green pea 2018 | 0.27 | 0.72 | up to 0.80 |
+  | Green pea 2019 | 0.25 | 0.75 | up to 0.80 |
+
+  Under pooled standardisation the between-site differences in yield remain in the target and are easily predicted from
+  site-level differences in canopy vigour. The high pooled R² therefore mostly reflects environment discrimination
+  rather than genotype discrimination within a trial.
 
 ### 3.5 Canopy dynamics in thermal time
 - **Curve fits.** Logistic curves fitted the growth phase of 72–76 % of plots, depending on the trait, with median
