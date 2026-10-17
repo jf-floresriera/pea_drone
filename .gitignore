@@ -11,7 +11,6 @@ PulsePlotMaps_2017-2019.pdf
 outputs/02_tabular_qc/plots_master.csv
 outputs/02_tabular_qc/yield_outliers.csv
 outputs/02_tabular_qc/trials_description.csv
-outputs/**/*.gpkg
 # Entorno
 __pycache__/
 *.pyc
