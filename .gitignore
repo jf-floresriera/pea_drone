@@ -17,3 +17,4 @@ __pycache__/
 .venv/
 .ipynb_checkpoints/
 data_ext/
+outputs/logs_runner_stdout.txt

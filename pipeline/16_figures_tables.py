@@ -43,8 +43,8 @@ def table(df: pd.DataFrame, name: str, caption: str) -> str:
 
 
 def fig_workflow() -> None:
-    fig, ax = style.figure("2col", 3.2)
-    ax.set_axis_off(); ax.set_xlim(0, 10); ax.set_ylim(0, 4)
+    fig, ax = style.figure("2col", 2.1)
+    ax.set_axis_off(); ax.set_xlim(0, 10); ax.set_ylim(0.2, 3.3)
     steps = [("Datos", "55 ortomosaicos\n5 bandas, DN\n34 Excel + croquis", style.CAT[0]),
              ("Calidad", "Inventario y QC\n(01-03)\nproblemas registrados", style.CAT[0]),
              ("Radiometría", "Línea empírica\ncon Sentinel-2\npor sectores (05)", style.CAT[1]),
@@ -55,14 +55,14 @@ def fig_workflow() -> None:
     w, gap = 1.22, 0.2
     for i, (title, body, col) in enumerate(steps):
         x = 0.1 + i * (w + gap)
-        ax.add_patch(mpatches.FancyBboxPatch((x, 1.0), w, 2.2, boxstyle="round,pad=0.02,rounding_size=0.08",
+        ax.add_patch(mpatches.FancyBboxPatch((x, 1.0), w, 2.1, boxstyle="round,pad=0.02,rounding_size=0.08",
                                              fc=col, ec="none", alpha=0.15))
-        ax.text(x + w / 2, 2.95, title, ha="center", va="center", fontsize=7.5, fontweight="bold")
-        ax.text(x + w / 2, 1.95, body, ha="center", va="center", fontsize=6.2, linespacing=1.3)
+        ax.text(x + w / 2, 2.75, title, ha="center", va="center", fontsize=7.5, fontweight="bold")
+        ax.text(x + w / 2, 1.85, body, ha="center", va="center", fontsize=5.6, linespacing=1.3)
         if i < len(steps) - 1:
-            ax.annotate("", xy=(x + w + gap - 0.02, 2.1), xytext=(x + w + 0.02, 2.1),
+            ax.annotate("", xy=(x + w + gap - 0.02, 2.05), xytext=(x + w + 0.02, 2.05),
                         arrowprops=dict(arrowstyle="-|>", color=style.MUTED, lw=1))
-    ax.text(5, 0.45, "Cada paso = script numerado en pipeline/ · salidas versionadas en outputs/ · "
+    ax.text(5, 0.6, "Cada paso = script numerado en pipeline/ · salidas versionadas en outputs/ · "
                      "github.com/jf-floresriera/pea_drone", ha="center", fontsize=6, color=style.MUTED)
     style.save(fig, FIG / "Fig2_workflow")
 
