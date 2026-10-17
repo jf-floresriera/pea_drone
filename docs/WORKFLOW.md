@@ -120,7 +120,7 @@ El panel de reflectancia (MicaSense 2017, Spectralon 99 % en 2018-19) no está e
    - Hay diferencias espectrales menores entre bandas S2 y RedEdge.
    - El desfase temporal es de hasta ±6 días.
    - La PSF de S2 se aproxima con una gaussiana.
-   - Hay pocos sectores por campo (≈10-90).
+   - Hay pocos sectores por campo (2-18 por vuelo; 442 en total).
 7. **Resultados (55/55 vuelos con escena S2, |Δt| mediano 1 d):**
    - Ajuste agrupado: R² de 0,85-0,94 (azul), 0,85-0,89 (verde), 0,87-0,96 (rojo), 0,90-0,95 (red edge)
      y 0,80-0,96 (NIR); RMSE por vuelo de 0,004-0,017.

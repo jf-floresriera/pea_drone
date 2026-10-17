@@ -1,0 +1,312 @@
+# Multi-season UAV multispectral phenotyping of dry pea and chickpea breeding trials: a reproducible re-analysis with satellite-anchored radiometric calibration, temporal canopy dynamics and cross-environment machine learning
+
+**Working draft — living document.** Sections marked **[PENDING]** depend on analyses in the queue (`docs/ROADMAP.md`).
+All numbers reported here come from the scripts in `pipeline/` and the tables in `outputs/`. All references were
+checked against bibliographic records before inclusion.
+
+**Authors:** J. E. Flores-Riera (Universidad Nacional de Colombia) — *co-authors and order to be agreed*.
+**Data:** UAV imagery and field data from Washington State University (S. Sankaran) and USDA-ARS Grain Legume
+Genetics and Physiology Research Unit (R. J. McGee, G. J. Vandemark), originally analysed by Zhang et al. (2021).
+
+---
+
+## Abstract [PENDING final results]
+**Background.** Unmanned aerial vehicle (UAV) multispectral imaging has been proposed to replace labour-intensive
+field evaluations in pulse breeding. Zhang et al. (2021) showed that canopy area and vegetation indices from a five-band
+camera correlated with seed yield and phenology of chickpea (*Cicer arietinum* L.) and dry pea (*Pisum sativum* L.)
+advanced yield trials across three seasons and three locations of the Palouse region (USA). However, their models were
+fitted within each site-year after normalisation, so it is still unknown whether these relationships transfer
+across environments.
+**Methods.** We re-analysed the same dataset from the original orthomosaics: 55 flights × 5 bands, 2017–2019, Pullman (WA),
+Fairfield (WA) and Genesee (ID), 34 trials and 2,415 plots. We built a fully reproducible open-source workflow covering:
+- data-quality auditing;
+- radiometric calibration of uncalibrated orthomosaics by sector-based cross-calibration against Sentinel-2 L2A surface
+  reflectance;
+- automatic georeferencing of plot layouts by registering the field maps to the orthomosaics;
+- extraction of calibrated spectral, textural and temporal (growing-degree-day based) traits;
+- replication of the original correlation and LASSO analyses;
+- extensions with spatially corrected mixed models (heritability, genetic correlations, G×E) and machine-learning models
+  validated across genotypes, environments and years.
+**Results.** [PENDING]
+**Conclusions.** [PENDING]
+
+**Keywords:** high-throughput phenotyping; UAV; multispectral; radiometric calibration; Sentinel-2; pulse breeding;
+*Pisum sativum*; *Cicer arietinum*; heritability; machine learning; reproducibility.
+
+---
+
+## 1. Introduction
+**Phenotyping bottleneck.** Field phenotyping is widely recognised as the main bottleneck limiting the use of
+genomic and breeding advances, and proximal and remote sensing platforms have been proposed to relieve it
+(Araus and Cairns, 2014). Low-altitude UAV imaging gives centimetre-level resolution over whole trials in minutes.
+It has been reviewed for emergence, vigour, stress and yield-potential assessment in row and field crops (Sankaran et al., 2015).
+
+**Pulse crops.** In cool-season pulses, UAV-derived indices and canopy metrics have been related to above-ground biomass
+and performance traits in pea (Quirós Vargas et al., 2019). Zhang et al. (2021) extended this to multi-season,
+multi-location advanced yield trials of chickpea and dry pea:
+- Canopy area, NDVI, SAVI and NDRE features correlated with seed yield (r up to 0.93 at cultivar level) and with days to
+  flowering and maturity.
+- LASSO models predicted yield with test R² up to 0.91 when data were pooled within a year.
+
+Marzougui et al. (2023) later combined UAV and satellite data for field-pea yield estimation with random forests
+under entry-level hold-out. Fusing features across platforms and time points gave R² up to 0.72.
+
+**Open problems.** Three issues limit the use of these results in breeding programmes:
+1. **Radiometric consistency.** Multispectral UAV data must be converted to surface reflectance before indices can be
+   compared across dates, sites and years. Standard workflows rely on reflectance panels and irradiance sensors
+   (Aasen et al., 2018).
+   - When only processed orthomosaics are archived, the panel information is lost.
+   - Image-based alternatives such as the empirical line method (Smith and Milton, 1999) and pseudo-invariant
+     normalisation (Canty and Nielsen, 2008) need in-scene references.
+   - Open satellite surface-reflectance products such as Sentinel-2 L2A (Drusch et al., 2012; Main-Knorn et al., 2017)
+     offer an external radiometric reference, but the scale mismatch (centimetres vs. 10–20 m) must be handled explicitly.
+2. **Temporal information.** Most analyses treat each flight separately. Time-series modelling of canopy development,
+   for example sigmoid growth curves fitted to UAV canopy cover and height, can produce interpretable dynamic traits such
+   as maximum growth rate, early vigour and senescence (Borra-Serrano et al., 2020).
+3. **Genetic and statistical rigour.** Breeding decisions rely on genotype means corrected for field heterogeneity.
+   - Spatial mixed models with P-splines (Rodríguez-Álvarez et al., 2018) and heritability definitions suited to
+     unbalanced trials (Cullis et al., 2006; Piepho and Möhring, 2007; Holland et al., 2003) are needed to judge whether
+     a UAV trait is useful for selection.
+   - Predictive models must be validated on genotypes and environments not seen during training.
+
+**Objectives.** Using the dataset of Zhang et al. (2021) re-processed from the orthomosaics, we aimed to:
+1. audit and document the dataset and build a reproducible open workflow;
+2. derive radiometrically consistent reflectance through satellite-anchored cross-calibration;
+3. replicate the original correlation and LASSO analyses;
+4. extend them with temporal canopy-dynamics traits, spatially corrected genetic parameters and machine-learning models
+   validated across genotypes, environments and years.
+
+---
+
+## 2. Materials and Methods
+
+### 2.1 Field trials
+The trials were advanced and preliminary yield trials of the USDA-ARS pulse breeding programme, grown in 2017–2019 at
+Pullman (WA), Fairfield (WA) and Genesee (ID). The Genesee 2017 trial was lost (Zhang et al., 2021).
+- **Design:** randomised complete blocks with three replicates. Plots were 6.1 m × 1.5 m; chickpea plots were trimmed
+  after emergence (Zhang et al., 2021).
+- **Market classes (Table 1):**
+
+| Crop | Market class | Plots | Entries |
+|---|---|---|---|
+| Pea | Green pea | 1,017 | 113 |
+| Pea | Yellow pea | 549 | 68 |
+| Pea | Green-yellow pea (New Zealand) | 210 | 33 |
+| Chickpea | Kabuli chickpea | 615 | 86 |
+| Chickpea | Green chickpea | 24 | 8 |
+
+- **Totals:** 2,415 plots and 303 distinct entries (210 pea, 93 chickpea).
+- **Seed yield:** recorded for all trials. Trial means ranged from 675 to 3,600 kg ha⁻¹ and within-trial CV from 9.0 to 46.8 %.
+- **Other traits:** days to 50 % flowering, days to physiological maturity, vine length, canopy height, pod height and
+  related architecture traits, recorded at Pullman (and reported for Fairfield 2017).
+
+**Table 1.** Plots and entries by crop and market class (`outputs/02_tabular_qc/`).
+
+### 2.2 UAV data
+- **Platform and sensor:** AgBot quadcopter (ATI) with a MicaSense RedEdge camera (blue 475, green 560, red 668,
+  red-edge 717, NIR 840 nm).
+- **Flights:** 3–7 dates per site-year between early June and mid-August, flown at 25–45 m above ground.
+- **Archived product:** per-band Pix4D orthomosaics (`transparent_mosaic`) in UTM zone 11N, with ground sampling
+  distance from 1.4 to 3.3 cm (median 1.8 cm).
+- **Inventory:** 55 flights (275 band files). 34 files were empty (0 bytes), so 44 flights have all five bands
+  (Supplementary Fig. S2; `outputs/01_inventory/`).
+- **Data gaps:**
+  - Pullman 2019 has only one complete date.
+  - Chickpea at Pullman 2017 lacks the red-edge band on five dates.
+
+### 2.3 Data-quality audit
+Field spreadsheets were consolidated into a plot-level table and checked automatically (`pipeline/02_qc_tabular.py`) for:
+- plot, entry and replicate counts against the trial descriptions;
+- duplicates and missing values;
+- unit consistency;
+- date coherence and outliers;
+- entry-mean repeatability of seed yield.
+
+Every issue and the decision taken are logged (`docs/DATA_ISSUES.md`). Two examples:
+- Seed yield is labelled g ha⁻¹ but is in kg ha⁻¹.
+- At Fairfield the chickpea trials were planted in fields 2–6 km away from the pea trials, although the trial
+  descriptions give a single coordinate per site.
+
+Physiological and phenological records were used as delivered by the original investigators.
+
+### 2.4 Radiometric calibration
+**Diagnosis.**
+- The orthomosaics store 12-bit digital numbers scaled to 16 bits (maximum 65,520), not reflectance.
+- Values are physically implausible as reflectance. For dense canopy, the blue median was 0.27–0.32 of full scale and the
+  NIR/red ratio 2.9–3.6; bare soil gave negative NDVI.
+- No reflectance panel was visible in any mosaic. The only bright targets were ground-control-point boards, which were
+  saturated in 2018–2019.
+
+**Sector-based cross-calibration with Sentinel-2 L2A** (`pipeline/05_radiometric_calibration.py`):
+1. **Scene selection.** For each flight we selected the closest Sentinel-2 L2A scene (|Δt| ≤ 6 days) with ≥ 95 % of the
+   flight footprint classified as vegetation or bare soil by the scene classification layer. Scenes were accessed through
+   the Microsoft Planetary Computer STAC API.
+2. **Band pairing.** RedEdge bands were paired with MSI bands B02, B03, B04, B05 (20 m) and B08.
+3. **Why sectors.** A direct pixel-wise comparison is degraded by three effects: Sentinel-2 geolocation error, the
+   MSI point-spread function, and mixing of plots and alleys at 10 m. Initial pixel-wise per-flight fits gave R² ≤ 0.6,
+   with negative values for NIR.
+4. **Sector procedure.**
+   - UAV digital numbers were aggregated to 2 m.
+   - They were convolved with a Gaussian approximation of the Sentinel-2 PSF (σ = 4 m for 10 m bands, 8 m for B05).
+   - They were averaged over 20 m sectors aligned with the Sentinel-2 grid.
+   - The UAV–Sentinel-2 offset was searched within ±20 m by maximising the joint NIR/red correlation.
+   - Only homogeneous sectors were kept: full UAV coverage, clear-sky classification in the whole sector, and within-sector
+     NIR coefficient of variation ≤ 0.25.
+   - Sectors were stratified by Sentinel-2 NDVI into soil, mixed and canopy strata.
+5. **Calibration model.** Fitted per band and year by robust (Huber) regression:
+   ρ_S2 = b(year, band) + g(flight, band) · DN.
+   - The offset b represents the sensor/processing dark level shared by all flights of a season.
+   - The gain g absorbs exposure and illumination differences between flights.
+   - Pooling dates spans the full reflectance range, from bare soil in June to closed canopy in July, which identifies
+     the offset even for early, low-contrast flights.
+
+### 2.5 Plot-layout digitisation and georeferencing
+The authors' field maps (13 pages) are vector tables overlaid on screenshots of the rotated orthomosaics.
+- **Digitisation.** Cells were extracted with their vector fill colours; the colour identifies the trial through the
+  coloured side labels. Rows and columns were obtained by clustering cell coordinates (`pipeline/06_parse_plot_maps.py`).
+- **Corrections.** Four documented typing errors were corrected. A row whose order the authors had highlighted as a
+  planting change was kept as drawn.
+- **Georeferencing** (`pipeline/07_georef_plot_grid.py`):
+  1. The embedded screenshot was registered to the red-band orthomosaic by normalised cross-correlation, searching rotation
+     (around the plot-rotation angle in the trial description and its mirrored and 180° alternatives), scale and aspect
+     ratio, coarse-to-fine.
+  2. Correlations were evaluated only where ≥ 97 % of the template overlapped valid data.
+  3. The composed transformation maps every cell to UTM coordinates.
+- **Plot polygons.** Centred on each cell and oriented along the grid axes, with 80 % of the inter-column and 70 % of the
+  inter-row spacing to exclude borders and alleys.
+- **Refinement** (`pipeline/07b_check_plot_grid.py`). An affine refinement (translation, rotation and anisotropic scale)
+  maximised the contrast between vegetation fraction inside the polygons and in a 0.4–0.5 m surrounding ring.
+
+### 2.6 Trait extraction [PENDING]
+For each plot and date, calibrated reflectance is summarised after soil and flower masking:
+- canopy cover;
+- the indices used by Zhang et al. (2021): NDVI (Rouse et al., 1974), GNDVI (Gitelson et al., 1996), SAVI (Huete, 1988),
+  NDRE (Barnes et al., 2000) and TVI (Broge and Leblanc, 2001);
+- additional indices: OSAVI (Rondeaux et al., 1996), EVI2 (Jiang et al., 2008), MCARI (Daughtry et al., 2000) and the
+  green and red-edge chlorophyll indices (Gitelson et al., 2003);
+- within-plot percentiles;
+- GLCM texture (Haralick et al., 1973).
+
+Canopy segmentation is benchmarked as: SAVI threshold (replication) vs. Otsu (1979) vs. a supervised classifier including
+a pea-flower class. Thermal time is computed as growing degree days with a 3 °C base, as in Zhang et al. (2021), from
+daily gridded weather.
+
+### 2.7 Replication analysis [PENDING]
+Pearson correlations between traits and seed yield, days to flowering and days to maturity are computed at plot and
+cultivar level. LASSO yield models are fitted with the original settings: α = 1, 5-fold × 3 cross-validation, features
+retained in ≥ 75 % of runs, 3:1 split repeated four times and leave-one-cultivar-out (Tibshirani, 1996; Zhang et al., 2021).
+
+### 2.8 Temporal and genetic analyses [PENDING]
+- **Growth curves.** Logistic and P-spline curves are fitted per plot to canopy cover and indices against growing degree
+  days. Parameters: maximum, maximum rate, inflection, area under the curve and senescence rate (cf. Borra-Serrano et al., 2020).
+- **Mixed models.** Spatial mixed models (SpATS; Rodríguez-Álvarez et al., 2018) provide genotype BLUEs/BLUPs and
+  generalised heritability (Cullis et al., 2006; Piepho and Möhring, 2007).
+- **Downstream analyses.** Genetic correlations with seed yield; multi-environment G×E; coincidence of selection between
+  UAV-based and yield-based rankings.
+
+### 2.9 Machine learning [PENDING]
+- **Models:** LASSO, elastic net, PLSR, random forests (Breiman, 2001), XGBoost (Chen and Guestrin, 2016), temporal
+  convolutional/recurrent networks, and CNNs on multi-temporal plot image chips.
+- **Validation schemes:** random-plot, leave-genotype-out, leave-environment-out and forward-in-time.
+- **Interpretation:** SHAP values (Lundberg and Lee, 2017) and permutation importance (`docs/MODELING_PLAN.md`).
+
+### 2.10 Software and reproducibility
+- Analyses run in Python 3.10 (rasterio, GeoPandas, scikit-learn, OpenCV, PyMuPDF, pystac-client) with versions pinned
+  in `requirements.txt`.
+- Each step is a numbered script whose outputs are versioned.
+- Code: https://github.com/jf-floresriera/pea_drone
+
+---
+
+## 3. Results (partial)
+
+### 3.1 Dataset audit
+- **Completeness.** 241 of 275 band files were readable; 44 of 55 flights have all five bands.
+- **Repeatability.** Entry-mean repeatability of seed yield ranged from 0.17 to 0.94 among trials (median 0.72).
+  Trials with low repeatability are expected to limit any trait–yield association.
+- **Logged issues.** Eight field-data and seven image issues; the full list is in `docs/DATA_ISSUES.md`.
+
+### 3.2 Radiometric calibration
+- **Coverage.** All 55 flights were matched to a clear Sentinel-2 L2A scene (median |Δt| = 1 day, maximum 6).
+- **Sectors.** 442 valid 20 m sectors were obtained (2–18 per flight).
+- **Geolocation offsets.** Non-zero UAV–Sentinel-2 offsets (10–28 m) were found in 64 % of flights, which confirms that
+  geolocation mismatch is a major error source in direct pixel comparisons.
+- **Fit quality.** The pooled model gave R² of 0.80–0.96 per band and year, with median per-flight RMSE of 0.004–0.017
+  reflectance units (Table 2). Free per-flight fits on the same sectors had median R² of only 0.05–0.65 because of the
+  narrow reflectance range inside each ~1 ha field.
+- **Physical plausibility.** Calibrated soil and NIR values were plausible: soil median NDVI 0.30, red 0.14, NIR 0.27.
+  Canopy contrast remained compressed: median canopy NDVI 0.56, red 0.09.
+- **Interpretation.** The archived orthomosaics are not linear in radiance, most likely because of colour balancing
+  during mosaicking. The calibration therefore harmonises scale across dates, sites and years at plot and field level,
+  but absolute reflectance of pure canopy pixels should be interpreted with caution.
+
+**Table 2.** Pooled cross-calibration fit (`outputs/05_radiometric/calibration_coefficients.csv`).
+
+| Year | Blue | Green | Red | Red edge | NIR |
+|---|---|---|---|---|---|
+| 2017 R² | 0.885 | 0.868 | 0.866 | 0.953 | 0.795 |
+| 2018 R² | 0.849 | 0.888 | 0.895 | 0.901 | 0.799 |
+| 2019 R² | 0.938 | 0.852 | 0.957 | 0.904 | 0.964 |
+
+### 3.3 Plot-layout digitisation
+After four documented corrections, the digitised maps matched the field records exactly for all 34 trials (2,415 plots).
+Georeferencing accuracy: [PENDING final values of the inside/ring vegetation contrast per field].
+
+### 3.4–3.7 Replication, temporal traits, genetic parameters and machine learning [PENDING]
+
+---
+
+## 4. Discussion (outline) [PENDING]
+1. **Archived orthomosaics as a reusable resource.** What can and cannot be recovered without raw imagery and panel data.
+   Satellite anchoring as a pragmatic solution, and its limits: non-linearity, PSF approximation and temporal mismatch.
+2. **Replication outcome.** Agreement and disagreement with Zhang et al. (2021), and the effect of radiometric harmonisation.
+3. **Temporal traits and heritability.** Which traits are heritable and genetically correlated with yield, and at which
+   thermal time.
+4. **Transferability.** Performance across genotypes, environments and years versus within-environment results, and
+   implications for operational selection.
+5. **Limitations.**
+   - Missing 2019 Pullman imagery.
+   - Phenology recorded only at Pullman.
+   - Small number of environments.
+   - The archived products were not radiometric products.
+
+---
+
+## Data availability
+Code and derived tables: https://github.com/jf-floresriera/pea_drone. Field data and imagery belong to WSU/USDA-ARS and
+are used with permission; users must cite Zhang et al. (2021). [Repository/DOI for derived plot-level data: PENDING
+authors' agreement.]
+
+## References
+*(Checked against bibliographic records — journal, volume, pages and DOI.)*
+
+- Aasen, H., Honkavaara, E., Lucieer, A., Zarco-Tejada, P. J. (2018). Quantitative remote sensing at ultra-high resolution with UAV spectroscopy: a review of sensor technology, measurement procedures, and data correction workflows. *Remote Sensing* 10(7), 1091. https://doi.org/10.3390/rs10071091
+- Araus, J. L., Cairns, J. E. (2014). Field high-throughput phenotyping: the new crop breeding frontier. *Trends in Plant Science* 19(1), 52–61.
+- Barnes, E. M., et al. (2000). Coincident detection of crop water stress, nitrogen status and canopy density using ground-based multispectral data. *Proceedings of the 5th International Conference on Precision Agriculture*, Bloomington, MN, USA.
+- Borra-Serrano, I., et al. (2020). Closing the phenotyping gap: high resolution UAV time series for soybean growth analysis provides objective data from field trials. *Remote Sensing* 12(10), 1644. https://doi.org/10.3390/rs12101644
+- Breiman, L. (2001). Random forests. *Machine Learning* 45, 5–32.
+- Broge, N. H., Leblanc, E. (2001). Comparing prediction power and stability of broadband and hyperspectral vegetation indices for estimation of green leaf area index and canopy chlorophyll density. *Remote Sensing of Environment* 76, 156–172.
+- Canty, M. J., Nielsen, A. A. (2008). Automatic radiometric normalization of multitemporal satellite imagery with the iteratively re-weighted MAD transformation. *Remote Sensing of Environment* 112(3), 1025–1036. https://doi.org/10.1016/j.rse.2007.07.013
+- Chen, T., Guestrin, C. (2016). XGBoost: a scalable tree boosting system. *Proceedings of the 22nd ACM SIGKDD*, 785–794.
+- Cullis, B. R., Smith, A. B., Coombes, N. E. (2006). On the design of early generation variety trials with correlated data. *Journal of Agricultural, Biological, and Environmental Statistics* 11(4), 381–393. https://doi.org/10.1198/108571106X154443
+- Daughtry, C. S. T., et al. (2000). Estimating corn leaf chlorophyll concentration from leaf and canopy reflectance. *Remote Sensing of Environment* 74, 229–239.
+- Drusch, M., et al. (2012). Sentinel-2: ESA's optical high-resolution mission for GMES operational services. *Remote Sensing of Environment* 120, 25–36. https://doi.org/10.1016/j.rse.2011.11.026
+- Gitelson, A. A., Kaufman, Y. J., Merzlyak, M. N. (1996). Use of a green channel in remote sensing of global vegetation from EOS-MODIS. *Remote Sensing of Environment* 58, 289–298.
+- Gitelson, A. A., Gritz, Y., Merzlyak, M. N. (2003). Relationships between leaf chlorophyll content and spectral reflectance and algorithms for non-destructive chlorophyll assessment in higher plant leaves. *Journal of Plant Physiology* 160, 271–282.
+- Haralick, R. M., Shanmugam, K., Dinstein, I. (1973). Textural features for image classification. *IEEE Transactions on Systems, Man, and Cybernetics* SMC-3(6), 610–621.
+- Holland, J. B., Nyquist, W. E., Cervantes-Martínez, C. T. (2003). Estimating and interpreting heritability for plant breeding: an update. *Plant Breeding Reviews* 22, 9ff. *(volume dated 2002 by the publisher; verify year and pages at citation)*
+- Huete, A. R. (1988). A soil-adjusted vegetation index (SAVI). *Remote Sensing of Environment* 25, 295–309.
+- Jiang, Z., Huete, A. R., Didan, K., Miura, T. (2008). Development of a two-band enhanced vegetation index without a blue band. *Remote Sensing of Environment* 112, 3833–3845.
+- Lundberg, S. M., Lee, S.-I. (2017). A unified approach to interpreting model predictions. *Advances in Neural Information Processing Systems* 30.
+- Main-Knorn, M., Pflug, B., Louis, J., Debaecker, V., Müller-Wilm, U., Gascon, F. (2017). Sen2Cor for Sentinel-2. *Proc. SPIE* 10427, 1042704. https://doi.org/10.1117/12.2278218
+- Marzougui, A., McGee, R. J., Van Vleet, S., Sankaran, S. (2023). Remote sensing for field pea yield estimation: a study of multi-scale data fusion approaches in phenomics. *Frontiers in Plant Science* 14, 1111575. https://doi.org/10.3389/fpls.2023.1111575
+- Otsu, N. (1979). A threshold selection method from gray-level histograms. *IEEE Transactions on Systems, Man, and Cybernetics* 9(1), 62–66.
+- Piepho, H.-P., Möhring, J. (2007). Computing heritability and selection response from unbalanced plant breeding trials. *Genetics* 177, 1881–1888.
+- Quirós Vargas, J. J., Zhang, C., Smitchger, J. A., McGee, R. J., Sankaran, S. (2019). Phenotyping of plant biomass and performance traits using remote sensing techniques in pea (*Pisum sativum*, L.). *Sensors* 19(9), 2031. https://doi.org/10.3390/s19092031
+- Rodríguez-Álvarez, M. X., Boer, M. P., van Eeuwijk, F. A., Eilers, P. H. C. (2018). Correcting for spatial heterogeneity in plant breeding experiments with P-splines. *Spatial Statistics* 23, 52–71. https://doi.org/10.1016/j.spasta.2017.10.003
+- Rondeaux, G., Steven, M., Baret, F. (1996). Optimization of soil-adjusted vegetation indices. *Remote Sensing of Environment* 55, 95–107.
+- Rouse, J. W., Haas, R. H., Schell, J. A., Deering, D. W. (1974). Monitoring vegetation systems in the Great Plains with ERTS. *Third ERTS Symposium*, NASA SP-351, 309–317.
+- Sankaran, S., et al. (2015). Low-altitude, high-resolution aerial imaging systems for row and field crop phenotyping: a review. *European Journal of Agronomy* 70, 112–123. https://doi.org/10.1016/j.eja.2015.07.004
+- Smith, G. M., Milton, E. J. (1999). The use of the empirical line method to calibrate remotely sensed data to reflectance. *International Journal of Remote Sensing* 20, 2653–2662.
+- Tibshirani, R. (1996). Regression shrinkage and selection via the lasso. *Journal of the Royal Statistical Society: Series B* 58(1), 267–288.
+- Zhang, C., McGee, R. J., Vandemark, G. J., Sankaran, S. (2021). Crop performance evaluation of chickpea and dry pea breeding lines across seasons and locations using phenomics data. *Frontiers in Plant Science* 12, 640259. https://doi.org/10.3389/fpls.2021.640259
