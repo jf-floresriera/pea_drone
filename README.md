@@ -46,6 +46,8 @@ python pipeline/01_inventory_images.py
 python pipeline/02_qc_tabular.py
 python pipeline/03_spectral_histograms.py
 python pipeline/04_context_maps.py   # requiere data_ext/ (Natural Earth + US Census, ver cabecera del script)
+python pipeline/05_radiometric_calibration.py   # luego 06 y 07 (ver docs/WORKFLOW.md)
+python pipeline/run_pipeline.py --from 07b   # resto en secuencia (07b → 16) con log y ETA
 ```
 Los datos crudos (ortomosaicos `Images20NN/`, `20NNPulseDataset.xlsx`, `PulsePlotMaps_2017-2019.pdf`) no se versionan.
 Se colocan en la raíz del repositorio con la misma estructura de carpetas.
@@ -55,9 +57,9 @@ Se colocan en la raíz del repositorio con la misma estructura de carpetas.
 |---|---|---|
 | 1 | Inventario y QC (imágenes, campo, respuesta espectral) | ✅ |
 | 1b | Mapas de contexto (localización, campos, calendario) | ✅ |
-| 2 | Calibración radiométrica ✅, croquis ✅, grilla georreferenciada 🔄, corregistro y segmentación ⏳ | en curso |
-| 3-6 | Rasgos, réplica, temporal y genética, ML/DL | pendiente |
-| 7 | Manuscrito | pendiente |
+| 2 | Calibración radiométrica, croquis, grilla georreferenciada, corregistro | ✅ |
+| 3-6 | Rasgos, réplica, temporal y genética, ML/DL | ✅ |
+| 7 | Manuscrito (`docs/MANUSCRIPT.md`) + figuras y tablas (`outputs/16_manuscript/`) | ✅ borrador completo |
 
 ## Créditos de datos
 Ensayos e imágenes: R. J. McGee, G. J. Vandemark (USDA-ARS Grain Legume Genetics and Physiology Research Unit),

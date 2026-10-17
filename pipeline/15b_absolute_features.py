@@ -78,8 +78,8 @@ def main() -> None:
         ax.set_title(f"({letter}) {'Arveja' if crop == 'pea' else 'Garbanzo'}", loc="left")
     axes[0].set_ylabel("RMSE (kg/ha), dejar-un-ambiente-fuera")
     style.note(fig, "Random Forest con rasgos en la grilla de GDD: z = estandarizados dentro de ambiente; abs = "
-                    "reflectancia calibrada absoluta (calibración Sentinel-2); media = sin imágenes. Cada punto es un "
-                    "ambiente de prueba.")
+                    "reflectancia calibrada absoluta (calibración Sentinel-2); media = sin imágenes. Cada caja resume "
+                    "los ambientes de prueba (dejar-un-ambiente-fuera).")
     style.save(fig, OUTDIR / "fig_absolute_features")
 
 
