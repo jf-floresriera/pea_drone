@@ -252,7 +252,7 @@ def long_pairs(sec: pd.DataFrame) -> pd.DataFrame:
     return pd.concat(out, ignore_index=True)
 
 
-def fit_pooled(pr: pd.DataFrame, min_n: int = 4) -> pd.DataFrame:
+def fit_pooled(pr: pd.DataFrame, min_n: int = 4) -> pd.DataFrame:  # noqa: C901
     """ρ = b(año, banda) + g(vuelo, banda)·DN sobre sectores; offset común = nivel de negro del sensor."""
     out = []
     for (year, band), g in pr.groupby(["year", "band"]):
@@ -274,7 +274,53 @@ def fit_pooled(pr: pd.DataFrame, min_n: int = 4) -> pd.DataFrame:
                             offset=hub.intercept_, gain=hub.coef_[i] / 65520.0, r2_pooled=r2,
                             rmse_flight=float(np.sqrt(((y[m] - pred[m]) ** 2).mean())), n_sectors=int(m.sum()),
                             rho_range_s2=float(np.ptp(y[m]))))
-    return pd.DataFrame(out)
+    res = pd.DataFrame(out).assign(method="M2")
+    # M2b: vuelos con 1-3 sectores (campos pequeños, p. ej. garbanzo Fairfield 2019): offset fijo del año y banda,
+    # ganancia por mínimos cuadrados con ese offset: g = Σ(ρ−b)·DN / ΣDN²
+    extra = []
+    for (f, band), g in pr.groupby(["flight_dir", "band"]):
+        if ((res.flight_dir == f) & (res.band == band)).any() or len(g) < 1:
+            continue
+        yr = g.year.iloc[0]
+        b = res[(res.year == yr) & (res.band == band)].offset
+        if b.empty:
+            continue
+        b = float(b.iloc[0]); x, y = g.dn.to_numpy(), g.rho.to_numpy()
+        gain = float(((y - b) * x).sum() / (x * x).sum())
+        extra.append(dict(year=yr, band=band, flight_dir=f, date=g.date.iloc[0], site=g.site.iloc[0],
+                          crop=g.crop.iloc[0], offset=b, gain=gain, r2_pooled=np.nan,
+                          rmse_flight=float(np.sqrt(((y - (b + gain * x)) ** 2).mean())), n_sectors=len(g),
+                          rho_range_s2=float(np.ptp(y)), method="M2b_offset_fijo"))
+    return pd.concat([res, pd.DataFrame(extra)], ignore_index=True)
+
+
+def fit_origin(pr: pd.DataFrame) -> pd.DataFrame:
+    """M3: ρ = g(vuelo, banda)·DN, mínimos cuadrados por el origen sobre los sectores del vuelo.
+    Evita el sesgo de atenuación del modelo con offset común (el rango de ρ dentro de un campo es estrecho y el DN es
+    ruidoso, lo que aplasta la pendiente) y conserva el contraste relativo entre parcelas dentro del vuelo."""
+    out = []
+    for (f, band), g in pr.groupby(["flight_dir", "band"]):
+        x, y = g.dn.to_numpy(), g.rho.to_numpy()
+        gain = float((x * y).sum() / (x * x).sum())
+        out.append(dict(year=g.year.iloc[0], band=band, flight_dir=f, date=g.date.iloc[0], site=g.site.iloc[0],
+                        crop=g.crop.iloc[0], offset=0.0, gain=gain,
+                        rmse_flight=float(np.sqrt(((y - gain * x) ** 2).mean())), n_sectors=len(g),
+                        rho_range_s2=float(np.ptp(y)), method="M3_origen"))
+    res = pd.DataFrame(out)
+    for (yr, band), g in res.groupby(["year", "band"]):  # R² agrupado comparable con M2
+        sub = pr[(pr.year == yr) & (pr.band == band)].merge(g[["flight_dir", "gain"]], on="flight_dir")
+        pred = sub.gain * sub.dn
+        res.loc[g.index, "r2_pooled"] = 1 - ((sub.rho - pred) ** 2).sum() / ((sub.rho - sub.rho.mean()) ** 2).sum()
+    return res
+
+
+def plaus_score(w: pd.DataFrame) -> pd.Series:
+    """Puntaje de plausibilidad física por vuelo (menor = mejor): distancia a rangos esperados de dosel y suelo."""
+    veg, soil = w[w.cls == "vegetation"].set_index("date"), w[w.cls == "soil"].set_index("date")
+    pen = (veg.NDVI.clip(upper=0.85).rsub(0.85)                       # dosel: NDVI ≥ 0.85 en la mediana densa
+           + (soil.NDVI - 0.25).clip(lower=0) + (0.05 - soil.NDVI).clip(lower=0)   # suelo: 0.05-0.25
+           + (veg.red - 0.08).clip(lower=0) * 5)                       # dosel: rojo ≤ 0.08
+    return pen
 
 
 def fit_per_flight(pr: pd.DataFrame) -> pd.DataFrame:
@@ -327,7 +373,7 @@ def scatter_fig(pr: pd.DataFrame, pooled: pd.DataFrame, year: int):
         ax.spines[["top", "right"]].set_visible(False)
     axes[0, 0].set_ylabel("ρ Sentinel-2 L2A (sector 20 m)", fontsize=6)
     axes[0, -1].legend(fontsize=6, frameon=False, markerscale=1.5)
-    fig.suptitle(f"Calibración UAV→S2 por sectores, {year} (offset común + ganancia por vuelo)", fontsize=7,
+    fig.suptitle(f"Calibración UAV→S2 por sectores, {year} ({pooled.method.iloc[0]})", fontsize=7,
                  x=0.01, ha="left", color=INK)
     fig.savefig(OUTDIR / "scatter" / f"pooled_{year}.png", dpi=150, bbox_inches="tight"); plt.close(fig)
 
@@ -356,12 +402,23 @@ def main() -> None:
 
     sec = pd.concat(secs, ignore_index=True)
     pr = long_pairs(sec)
-    pooled = fit_pooled(pr)
     m1 = fit_per_flight(pr)
-    pooled = pooled.merge(m1, on=["flight_dir", "band"], how="left")
-    pooled.to_csv(OUTDIR / "calibration_coefficients.csv", index=False)
-    plaus = plausibility(pooled)
+    pooled = fit_pooled(pr).merge(m1, on=["flight_dir", "band"], how="left")
+    origin = fit_origin(pr).merge(m1, on=["flight_dir", "band"], how="left")
+    cand = {"M2": pooled, "M3": origin}
+    plaus_all = []
+    for name, co_ in cand.items():
+        w = plausibility(co_).assign(model=name)
+        plaus_all.append(w)
+    plaus = pd.concat(plaus_all, ignore_index=True)
     plaus.to_csv(OUTDIR / "plausibility.csv", index=False)
+    score = (plaus.groupby("model").apply(lambda w: plaus_score(w).median()))
+    best = score.idxmin()
+    print("Plausibilidad física (mediana de penalización, menor = mejor):", score.round(3).to_dict(), "→", best)
+    pd.concat([c.assign(selected=(k == best)) for k, c in cand.items()], ignore_index=True).to_csv(
+        OUTDIR / "calibration_candidates.csv", index=False)
+    cand[best].to_csv(OUTDIR / "calibration_coefficients.csv", index=False)
+    pooled = cand[best]
     for y in sorted(pr.year.unique()):
         scatter_fig(pr, pooled, y)
 
@@ -378,8 +435,8 @@ def main() -> None:
                                                       n=("n_sectors", "sum")).round(4).to_markdown() + "\n\n")
         fh.write("## Plausibilidad física (medianas de dosel/suelo de la Fase 1c tras calibrar)\n\n")
         fh.write(plaus.round(3).to_markdown(index=False) + "\n")
-    print(pooled.groupby(["year", "band"])[["offset", "r2_pooled", "rmse_flight", "r2_m1"]].median().round(3))
-    print(plaus.groupby("cls")[["blue", "red", "nir", "NDVI"]].describe().round(3).T)
+    print(pooled.groupby(["year", "band"])[["offset", "r2_pooled", "rmse_flight"]].median().round(3))
+    print(plaus.groupby(["model", "cls"])[["blue", "green", "red", "red edge", "nir", "NDVI"]].median().round(3))
 
 
 if __name__ == "__main__":
