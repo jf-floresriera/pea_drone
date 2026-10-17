@@ -25,9 +25,17 @@ pipeline/            scripts numerados, uno por paso (ejecutar en orden)
   02_qc_tabular.py          consolidación y QC de datos de campo
   03_spectral_histograms.py histogramas y firmas espectrales (DN sin calibrar)
   04_context_maps.py        mapas de localización, ensayos por campo y calendario de vuelos
+  05_radiometric_calibration.py  calibración cruzada UAV→Sentinel-2 L2A por sectores
+  06_parse_plot_maps.py     digitalización de los croquis (celdas, ensayo, fila/columna)
+  07_georef_plot_grid.py    georreferenciación de la grilla (registro captura↔mosaico)
+  07b_check_plot_grid.py    verificación y refinamiento afín de la grilla
 docs/
-  WORKFLOW.md        hoja de ruta metodológica completa (fases 0-7)
-  DATA_ISSUES.md     registro de problemas de datos y decisiones tomadas
+  WORKFLOW.md            hoja de ruta metodológica completa (fases 0-7)
+  ROADMAP.md             cola de trabajo: hecho / en curso / pendiente
+  DATA_ISSUES.md         registro de problemas de datos y decisiones tomadas
+  RADIOMETRIC_METHODS.md comparación de métodos de calibración radiométrica
+  MODELING_PLAN.md       para qué y cómo se entrenan los modelos de ML/DL
+  MANUSCRIPT.md          borrador vivo del artículo (inglés), con referencias verificadas
 outputs/             resultados de cada paso (tablas, figuras, reportes)
 ```
 
@@ -47,7 +55,7 @@ Se colocan en la raíz del repositorio con la misma estructura de carpetas.
 |---|---|---|
 | 1 | Inventario y QC (imágenes, campo, respuesta espectral) | ✅ |
 | 1b | Mapas de contexto (localización, campos, calendario) | ✅ |
-| 2 | Calibración radiométrica, corregistro, grilla de parcelas, segmentación | en curso |
+| 2 | Calibración radiométrica ✅, croquis ✅, grilla georreferenciada 🔄, corregistro y segmentación ⏳ | en curso |
 | 3-6 | Rasgos, réplica, temporal y genética, ML/DL | pendiente |
 | 7 | Manuscrito | pendiente |
 
