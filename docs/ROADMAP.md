@@ -1,64 +1,84 @@
 # Cola de trabajo (roadmap)
 
-Estado al 2026-10-17 (pipeline completo). ✅ hecho · 🔄 en curso · ⏳ en cola · 🔒 depende de los autores (WSU/USDA-ARS).
-Cada paso es un script numerado en `pipeline/` con salidas en `outputs/` y se sube a GitHub al completarse.
+**Autor:** Jesús Enrique Flores Riera — candidato a Maestría en Geomática, Universidad Nacional de Colombia
+(jfloresr@unal.edu.co).
+
+Estado al **2026-10-19**: pipeline completo (01 → 16) y borrador del artículo completo.
+✅ hecho · ⏳ pendiente · 🔒 depende de los autores de los datos (WSU/USDA-ARS) · ➕ extensión opcional.
+Cada paso es un script numerado en `pipeline/` con salidas en `outputs/`.
 
 ## Fase 1 - Inventario y calidad ✅
-- ✅ Inventario de 275 ortomosaicos (`01`), QC de datos de campo (`02`), respuesta espectral sin calibrar (`03`)
+- ✅ Inventario de 275 ortomosaicos (`01`); los 34 archivos vacíos se descartaron
+- ✅ QC de los datos de campo (`02`) y respuesta espectral sin calibrar (`03`)
 - ✅ Mapas de contexto: localización, campos y calendario de vuelos (`04`)
 - ✅ Registro de problemas de datos y decisiones (`docs/DATA_ISSUES.md`)
 
-## Fase 2 - Preprocesamiento geomático
-- ✅ 2.2 Calibración radiométrica cruzada con Sentinel-2 por sectores (`05`), 55/55 vuelos, R² 0,80-0,96
-- ✅ 2.4a Digitalización de croquis: 34/34 ensayos, 2415 parcelas, validado 1:1 con el Excel (`06`)
-- ✅ 2.4b Georreferenciación de la grilla registrando la captura del croquis contra el mosaico (`07`)
-- ✅ 2.4c Verificación y refinamiento afín de la grilla (contraste vegetación dentro/calle) (`07b`)
-- ✅ 2.3 Corregistro multitemporal (`09`; refinamiento por vuelo en los ejes de la grilla, 4 vuelos ambiguos excluidos)
-- ✅ 2.5 Máscara de dosel por Otsu sobre SAVI calibrado (`10`) · ⏳ opcional: clasificador con clase flor de arveja
-- 🔒 Calibración de referencia con panel sobre imágenes crudas (requiere crudos + panel)
+## Fase 2 - Preprocesamiento geomático ✅
+- ✅ Calibración radiométrica cruzada con Sentinel-2 L2A por sectores (`05`), en 55/55 vuelos
+  - Modelo adoptado: ganancia por el origen (M3), elegido por plausibilidad física
+  - R² agrupado de 0,59-0,96 (el verde de 2017 no se ajusta)
+- ✅ Digitalización de croquis (`06`): 34/34 ensayos y 2415 parcelas, validados 1:1 con el Excel
+- ✅ Georreferenciación de la grilla (`07`) y refinamiento afín con prior físico (`07b`)
+- ✅ Corregistro multitemporal (`09`): refinamiento por vuelo en los ejes de la grilla; 4 vuelos ambiguos excluidos
+- ✅ Máscara de dosel por Otsu sobre SAVI calibrado (en `10`)
+- 🔒 Calibración de referencia con panel sobre imágenes crudas (requiere los crudos y el panel)
 
-## Fase 3 - Rasgos por parcela y fecha ✅ (`08_weather_gdd.py`, `10_features.py`; 8079 parcela × vuelo)
-- Reflectancia calibrada (coeficientes de `05`) en cada polígono con recorte de bordes
-- Índices de la réplica: NDVI, GNDVI, SAVI, NDRE, TVI (media y suma); cobertura del dosel
-- Índices nuevos: CIred-edge, CIgreen, OSAVI, EVI2, MCARI, MTCI aproximado, NDRE/NDVI; percentiles y CV
-- Textura GLCM sobre NIR y NDVI; fracción de flor (arveja)
-- Grados-día acumulados (base 3 °C) con datos diarios de gridMET/Daymet por sitio (`10a_weather.py`)
-- Tabla larga `plot_date_features.parquet` (parcela × fecha × rasgo) + tabla ancha por parcela
+## Fase 3 - Rasgos por parcela y fecha ✅
+- ✅ Clima diario Daymet V4 y grados-día con base 3 °C (`08`)
+- ✅ Rasgos por parcela y vuelo (`10`): 8079 registros, 2172 parcelas y 46 vuelos
+  - Índices: NDVI, GNDVI, SAVI, NDRE, TVI, OSAVI, EVI2, MCARI, CIgreen, CIred-edge y MTCI
+  - Cobertura y área de dosel
+  - Percentiles y CV
+  - Textura GLCM del NIR
 
-## Fase 4 - Réplica de Zhang et al. (2021) ✅ (`11`; `11b` sensibilidad de la normalización)
-- Correlaciones de Pearson parcela a parcela y por cultivar (media de 3 rep.) con rendimiento, días a floración y madurez
-- LASSO (α = 1, CV 5 × 3, rasgos seleccionados en ≥75 % de corridas, partición 3:1 × 4, LOO por cultivar)
-- Tabla comparativa contra los valores publicados
+## Fase 4 - Réplica de Zhang et al. (2021) ✅
+- ✅ Correlaciones por parcela y por cultivar; LASSO en versión original y anidada, sin fuga (`11`)
+- ✅ Sensibilidad a la normalización de los conjuntos combinados (`11b`)
 
-## Fase 5 - Más allá de la réplica ✅ (`12`, `13`, `14`)
-- `12_temporal.py`: curvas logísticas o P-splines de cobertura e índices contra grados-día; parámetros
-  (máximo, tasa, inflexión, AUC, senescencia)
-- `13_mixed_models.py`: modelos mixtos con efectos espaciales (SpATS) → BLUEs/BLUPs, H² de Cullis por fecha y por
-  parámetro de curva, correlaciones genéticas con el rendimiento, G×E multiambiente, coincidencia de selección
-- `14_phenology.py`: fecha de 50 % de floración (fracción de flor) y madurez (senescencia) desde el aire, validadas
-  con `fiftyflowr` y `physmatur`
-- Análisis por material: arveja verde, amarilla, NZ verde-amarilla, garbanzo kabuli y verde
+## Fase 5 - Más allá de la réplica ✅
+- ✅ Curvas logísticas en grados-día y parámetros: inflexión, tasa, AUC, máximo y senescencia (`12`)
+- ✅ Modelos mixtos (`13`):
+  - bloque y tendencias de fila/columna;
+  - H² en base a medias de genotipo;
+  - correlación entre valores genotípicos y rendimiento;
+  - coincidencia de selección;
+  - G×E.
+- ✅ Fenología desde el aire, con CV agrupada por genotipo (`14`)
 
-## Fase 6 - Modelos de ML/DL ✅ (`15`; `15b` rasgos absolutos vs estandarizados)
-- Línea base: LASSO, Elastic Net, PLSR · Árboles: RF, XGBoost · Temporal: 1D-CNN / LSTM / TempCNN ·
-  Imagen: CNN multitemporal sobre recortes de parcela
-- Validación: parcela aleatoria → genotipo excluido → ambiente (sitio-año) excluido → año futuro
-- Interpretabilidad (SHAP/permutación) y costo computacional (CodeCarbon)
+## Fase 6 - Machine Learning / Deep Learning ✅
+- ✅ LASSO, Elastic Net, PLSR, Random Forest, XGBoost y TempCNN con 4 esquemas de validación (`15`)
+- ✅ Importancia por permutación y TreeSHAP (API nativa de XGBoost); tiempos de cómputo
+- ✅ Rasgos absolutos calibrados vs. estandarizados para predecir entre ambientes (`15b`)
 
-## Fase 7 - Manuscrito ⏳
-- ✅ Borrador completo en `docs/MANUSCRIPT.md` (resumen, introducción, métodos, resultados, discusión, conclusiones)
-- ✅ Figuras (22) y tablas (5) en `outputs/16_manuscript/` (`16`)
-- ⏳ Revisión por coautores, formato de la revista, Zenodo con DOI
+## Fase 7 - Manuscrito
+- ✅ Borrador completo en inglés en `docs/MANUSCRIPT.md`, con 31 referencias verificadas
+- ✅ 22 figuras y 5 tablas en `outputs/16_manuscript/`, más `RESULTS_SUMMARY.md` (`16`)
 
-## Pendiente de los autores 🔒
-1. Los 34 `.tif` vacíos (Pullman 2019 completo; red edge de garbanzo Pullman 2017)
-2. Imágenes crudas de la cámara y fotos del panel de reflectancia (y su certificado de reflectancia)
+## ⏳ Pendiente al 2026-10-19
+**Del autor (decisiones y gestión):**
+1. Subir a GitHub el historial reescrito, sin coautoría automática. Ya está aplicado localmente; falta el
+   `git push --force-with-lease` (ver "Mantenimiento del repositorio" en el README).
+2. Leer y revisar el manuscrito completo: redacción, énfasis de la discusión y título.
+3. Definir la autoría final (director de tesis y, si corresponde, los proveedores de los datos) y la revista
+   (propuesta: *Frontiers in Plant Science*).
+4. Decidir si los datos de campo (Excel y croquis) se publican en el repositorio o en Zenodo. Requiere la autorización
+   escrita de WSU/USDA-ARS (ver 🔒).
+5. Si se necesita para la tesis: versión en español del manuscrito.
+
+**Técnico (antes del envío):**
+6. Adaptar el manuscrito a la plantilla de la revista (límite de palabras, figuras en TIFF/EPS a 300-600 dpi,
+   declaraciones de contribución, financiación y conflictos de interés).
+7. Análisis de sensibilidad excluyendo los campos de confianza media (GRID-02: Pullman 2017 arveja y Genesee 2018).
+8. Depositar código y tablas derivadas en Zenodo con DOI y citarlo en *Data availability*.
+
+## 🔒 Pendiente de los autores de los datos
+1. Los 34 `.tif` vacíos (Pullman 2019; red edge del garbanzo de Pullman 2017)
+2. Imágenes crudas de la cámara y fotos del panel de reflectancia (con su certificado)
 3. Reportes de procesamiento de Pix4D (GCP, RMS, calibración de cámara)
 4. Opcional: metadatos de genotipos (tipo de hoja, pedigrí, marcadores)
-5. Autorización explícita para publicar los datos de campo en un repositorio público (Zenodo/GitHub)
+5. Autorización explícita para publicar los datos de campo
 
-## Extensiones opcionales (no bloquean el artículo)
-- Modelos espaciales con P-splines (SpATS, R) y H² de Cullis
-- Detección de flores de arveja a alta resolución para fenología
+## ➕ Extensiones opcionales (no bloquean el artículo)
+- Modelos espaciales con P-splines (SpATS, en R) y H² de Cullis
+- Detección de flores de arveja a alta resolución para mejorar la fenología
 - CNN sobre recortes de imagen por parcela
-- Análisis de sensibilidad excluyendo los campos de confianza media (GRID-02)

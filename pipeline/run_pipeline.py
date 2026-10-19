@@ -52,8 +52,7 @@ def pid_alive(pid: int) -> bool:
 
 def git_push(step_id: str, desc: str, minutes: float) -> None:
     cmds = [["git", "add", "pipeline", "docs", "outputs", "README.md", "requirements.txt"],
-            ["git", "commit", "-q", "-m", f"Pipeline: paso {step_id} completado - {desc} ({minutes:.0f} min)\n\n"
-             "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"],
+            ["git", "commit", "-q", "-m", f"Pipeline: paso {step_id} completado - {desc} ({minutes:.0f} min)"],
             ["git", "push", "-q"]]
     for c in cmds:
         r = subprocess.run(c, cwd=ROOT, capture_output=True, text=True)
