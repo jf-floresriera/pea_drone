@@ -4,7 +4,8 @@
 All numbers reported here come from the scripts in `pipeline/` and the tables in `outputs/`. All references were
 checked against bibliographic records before inclusion.
 
-**Authors:** J. E. Flores-Riera (Universidad Nacional de Colombia) — *co-authors and order to be agreed*.
+**Author:** Jesús Enrique Flores Riera — MSc candidate in Geomatics, Universidad Nacional de Colombia
+(jfloresr@unal.edu.co). *Sole author at present; any co-authorship (thesis advisor, data providers) to be agreed.*
 **Data:** UAV imagery and field data from Washington State University (S. Sankaran) and USDA-ARS Grain Legume
 Genetics and Physiology Research Unit (R. J. McGee, G. J. Vandemark), originally analysed by Zhang et al. (2021).
 

@@ -61,6 +61,33 @@ Se colocan en la raíz del repositorio con la misma estructura de carpetas.
 | 3-6 | Rasgos, réplica, temporal y genética, ML/DL | ✅ |
 | 7 | Manuscrito (`docs/MANUSCRIPT.md`) + figuras y tablas (`outputs/16_manuscript/`) | ✅ borrador completo |
 
+## Autor
+**Jesús Enrique Flores Riera** — candidato a Maestría en Geomática, Universidad Nacional de Colombia
+(jfloresr@unal.edu.co). Autor único del análisis, el código y la documentación de este repositorio.
+
 ## Créditos de datos
-Ensayos e imágenes: R. J. McGee, G. J. Vandemark (USDA-ARS Grain Legume Genetics and Physiology Research Unit),
-S. Sankaran y C. Zhang (WSU Biological Systems Engineering). Análisis de este repositorio: J. E. Flores-Riera (UNAL).
+Los ensayos y las imágenes no son del autor: pertenecen a R. J. McGee y G. J. Vandemark (USDA-ARS Grain Legume
+Genetics and Physiology Research Unit) y a S. Sankaran y C. Zhang (WSU Biological Systems Engineering). Se usan con
+autorización, citando el artículo original:
+
+> Zhang, C., McGee, R. J., Vandemark, G. J., & Sankaran, S. (2021). Crop performance evaluation of chickpea and dry pea
+> breeding lines across seasons and locations using phenomics data. *Frontiers in Plant Science*, 12, 640259.
+> https://doi.org/10.3389/fpls.2021.640259
+
+## Mantenimiento del repositorio
+**Autoría de los commits.** Todos los commits figuran a nombre de Jesús Enrique Flores Riera
+<jfloresr@unal.edu.co>, sin líneas de coautoría. Configuración local usada:
+```bash
+git config user.name  "Jesús Enrique Flores Riera"
+git config user.email "jfloresr@unal.edu.co"
+```
+
+**Historial reescrito (2026-10-19).** Las líneas `Co-Authored-By` de los commits anteriores se quitaron con
+`git filter-branch`. El contenido de los archivos no cambió: solo cambiaron los mensajes y los autores. El historial
+previo queda respaldado en la etiqueta local `backup-antes-de-reescribir-2026-10-19`. Para publicarlo en GitHub
+(reemplaza el historial remoto; hacerlo una sola vez):
+```bash
+git diff backup-antes-de-reescribir-2026-10-19 main --stat   # debe salir vacío (mismo contenido)
+git push --force-with-lease origin main
+```
+Si algo sale mal, se recupera con `git reset --hard backup-antes-de-reescribir-2026-10-19`.
