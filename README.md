@@ -61,6 +61,35 @@ Se colocan en la raíz del repositorio con la misma estructura de carpetas.
 | 3-6 | Rasgos, réplica, temporal y genética, ML/DL | ✅ |
 | 7 | Manuscrito (`docs/MANUSCRIPT.md`) + figuras y tablas (`outputs/16_manuscript/`) | ✅ borrador completo |
 
+## Trabajo pendiente
+Actualizado al 2026-10-19. El detalle completo está en [`docs/ROADMAP.md`](docs/ROADMAP.md).
+
+**Decisiones del autor**
+- [ ] Revisar el manuscrito completo (`docs/MANUSCRIPT.md`): redacción, título y énfasis de la discusión
+- [ ] Definir la autoría final: director de tesis y, si corresponde, coautoría de los proveedores de los datos
+      (S. Sankaran, R. J. McGee, G. J. Vandemark)
+- [ ] Elegir la revista (propuesta: *Frontiers in Plant Science*)
+- [ ] Versión en español del manuscrito, si la requiere la tesis de maestría
+
+**Gestiones con los autores de los datos (WSU/USDA-ARS)**
+- [ ] Autorización escrita para publicar los datos de campo (Excel y croquis de parcelas)
+- [ ] Solicitar los 34 ortomosaicos vacíos (Pullman 2019 y red edge del garbanzo de Pullman 2017)
+- [ ] Solicitar las imágenes crudas, las fotos del panel de reflectancia y los reportes de Pix4D
+
+**Trabajo técnico antes del envío**
+- [ ] Análisis de sensibilidad excluyendo los campos con grilla de confianza media
+      (Pullman 2017 arveja y Genesee 2018; `docs/DATA_ISSUES.md`, GRID-02)
+- [ ] Formato de la revista:
+  - plantilla y límite de palabras;
+  - figuras en TIFF a 300-600 dpi;
+  - declaraciones de contribución, financiación y conflicto de interés
+- [ ] Depósito del código y las tablas derivadas en Zenodo (DOI) y actualización de *Data availability*
+
+**Extensiones opcionales (no bloquean el artículo)**
+- [ ] Modelos espaciales con P-splines (SpATS, R) y heredabilidad de Cullis
+- [ ] Detección de flores de arveja a alta resolución para la fenología
+- [ ] CNN sobre recortes de imagen por parcela
+
 ## Autor
 **Jesús Enrique Flores Riera** — candidato a Maestría en Geomática, Universidad Nacional de Colombia
 (jfloresr@unal.edu.co). Autor único del análisis, el código y la documentación de este repositorio.
