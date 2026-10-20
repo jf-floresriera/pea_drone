@@ -1,0 +1,60 @@
+p1 Fairfield_Pea_July24: 240 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.457
+p2 Pea_June05: 294 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.121
+p2 Pea_Jun26: 294 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.275
+p2 Pea_Jul07: 294 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.298
+p2 Pea_July21: 294 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.285
+p2 Pea_July28: 294 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.188
+p3 Chickpea_June05: 96 parcelas, bandas=['blue', 'green', 'red', 'nir'], umbral SAVI=0.107
+p3 Chickpea_Jun26: 96 parcelas, bandas=['blue', 'green', 'red', 'nir'], umbral SAVI=0.204
+p3 Chickpea_Jul07: 96 parcelas, bandas=['blue', 'green', 'red', 'nir'], umbral SAVI=0.278
+p3 Chickpea_July21: 96 parcelas, bandas=['blue', 'red', 'nir'], umbral SAVI=0.347
+p3 Chickpea_July28: 96 parcelas, bandas=['blue', 'green', 'red', 'nir'], umbral SAVI=0.265
+p3 Chickpea_Aug07: 96 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.177
+p3 Chickpea_Aug16: excluido (corregistro AMBIGUO)
+p4 Fairfield_Pea_Jun12: excluido (corregistro AMBIGUO)
+p4 Fairfield_Pea_Jun29: 165 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.262
+p4 Fairfield_Pea_Jul12: 165 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.400
+p4 Fairfield_Pea_Jul25: 165 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.447
+p4 Fairfield_Pea_Aug07: 165 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.303
+p5 Fairfield_Chickpea_Jun12: 63 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.208
+p5 Fairfield_Chickpea_Jun29: excluido (corregistro AMBIGUO)
+p5 Fairfield_Chickpea_Jul12: 63 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.354
+p5 Fairfield_Chickpea_Jul25: 63 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.332
+p6 Genesee_Pea_Chickpea_Jun8: 159 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.272
+p6 Genesee_Pea_Chickpea_Jun26: 159 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.425
+p6 Genesee_Pea_Chickpea_Jul9: 159 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.470
+p6 Genesee_Pea_Chickpea_Jul23: 159 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.428
+p6 Genesee_Pea_Chickpea_Aug6: 159 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.385
+p7 Pullman_Pea_June8: 315 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.306
+p7 Pullman_Pea_June22: 315 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.446
+p7 Pullman_Pea_July3: 315 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.466
+p7 Pullman_Pea_July 19: 315 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.406
+p7 Pullman_Pea_July27: 315 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.298
+p8 Pullman_Chickpea_June8: 129 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.249
+p8 Pullman_Chickpea_June22: 129 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.358
+p8 Pullman_Chickpea_July3: 129 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.495
+p8 Pullman_Chickpea_July19: 129 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.446
+p8 Pullman_Chickpea_July27: 129 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.342
+p9 Fairfield_Pea_June10: 156 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.214
+p9 Fairfield_Pea_June28: 156 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.361
+p9 Fairfield_Pea_July12: 156 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.495
+p10 Fairfield_Chickpea_June10: 72 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.210
+p10 Fairfield_Chickpea_June28: 72 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.318
+p10 Fairfield_Chickpea_July12: 72 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.414
+p10 Fairfield_Chickpea_July23: 72 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.522
+p11 Genesee_Pea_Chickpea_June05: excluido (corregistro AMBIGUO)
+p11 GeneseeJ_Pea_Chickpea_June18: 207 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.377
+p11 Genesee_Pea_Chickpea_July05: 207 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.499
+p11 Genesee_Pea_Chickpea_July16: 207 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.434
+p12 Pullman_Pea_Chickpea_Advanced_June05: 276 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.200
+p12 Pullman_Pea_Chickpea_Advanced_June17: 276 parcelas, bandas=['red', 'nir'], umbral SAVI=0.275
+                plots  flights  rows
+year site                           
+2017 Fairfield    240        1   240
+     Pullman      390       11  2046
+2018 Fairfield    228        7   849
+     Genesee      159        5   795
+     Pullman      444       10  2220
+2019 Fairfield    228        7   756
+     Genesee      207        3   621
+     Pullman      276        2   552
