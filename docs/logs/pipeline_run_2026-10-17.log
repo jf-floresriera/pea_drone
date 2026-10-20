@@ -1,0 +1,670 @@
+[09:53:35] ==============================================================================
+[09:53:35] PIPELINE pea_drone · 9 pasos · estimado 5.0 h
+[09:53:35]    07b → 09 → 10 → 11 → 12 → 13 → 14 → 15 → 16
+[09:53:35] Esperando a que termine el proceso 74940 (registro de la grilla, paso 07)...
+[09:54:06]    07 sigue en ejecución (1 min de espera)
+[09:54:37]    07 sigue en ejecución (1 min de espera)
+[09:55:07]    07 sigue en ejecución (2 min de espera)
+[09:55:38]    07 sigue en ejecución (2 min de espera)
+[09:56:08]    07 sigue en ejecución (3 min de espera)
+[09:56:39]    07 sigue en ejecución (3 min de espera)
+[09:57:09]    07 sigue en ejecución (4 min de espera)
+[09:57:40]    07 sigue en ejecución (4 min de espera)
+[09:58:11]    07 sigue en ejecución (5 min de espera)
+[09:58:41]    07 sigue en ejecución (5 min de espera)
+[09:59:12]    07 sigue en ejecución (6 min de espera)
+[09:59:42]    07 sigue en ejecución (6 min de espera)
+[10:00:13]    07 sigue en ejecución (7 min de espera)
+[10:00:43]    07 sigue en ejecución (7 min de espera)
+[10:01:14]    07 sigue en ejecución (8 min de espera)
+[10:01:45]    07 sigue en ejecución (8 min de espera)
+[10:02:15]    07 sigue en ejecución (9 min de espera)
+[10:02:46]    07 sigue en ejecución (9 min de espera)
+[10:03:16]    07 sigue en ejecución (10 min de espera)
+[10:03:47]    07 sigue en ejecución (10 min de espera)
+[10:04:17]    07 sigue en ejecución (11 min de espera)
+[10:04:48]    07 sigue en ejecución (11 min de espera)
+[10:05:19]    07 sigue en ejecución (12 min de espera)
+[10:05:49]    07 sigue en ejecución (12 min de espera)
+[10:06:20]    07 sigue en ejecución (13 min de espera)
+[10:06:50]    07 sigue en ejecución (13 min de espera)
+[10:07:21]    07 sigue en ejecución (14 min de espera)
+[10:07:51]    07 sigue en ejecución (14 min de espera)
+[10:08:22]    07 sigue en ejecución (15 min de espera)
+[10:08:53]    07 sigue en ejecución (15 min de espera)
+[10:09:23]    07 sigue en ejecución (16 min de espera)
+[10:09:54]    07 sigue en ejecución (16 min de espera)
+[10:10:24]    07 sigue en ejecución (17 min de espera)
+[10:10:55]    07 sigue en ejecución (17 min de espera)
+[10:11:25]    07 sigue en ejecución (18 min de espera)
+[10:11:56]    07 sigue en ejecución (18 min de espera)
+[10:12:26]    07 sigue en ejecución (19 min de espera)
+[10:12:57]    07 sigue en ejecución (19 min de espera)
+[10:13:28]    07 sigue en ejecución (20 min de espera)
+[10:13:58]    07 sigue en ejecución (20 min de espera)
+[10:14:29]    07 sigue en ejecución (21 min de espera)
+[10:14:59]    07 sigue en ejecución (21 min de espera)
+[10:15:30]    07 sigue en ejecución (22 min de espera)
+[10:16:00]    07 sigue en ejecución (22 min de espera)
+[10:16:31]    07 sigue en ejecución (23 min de espera)
+[10:17:01]    07 sigue en ejecución (23 min de espera)
+[10:17:32]    07 sigue en ejecución (24 min de espera)
+[10:18:03]    07 sigue en ejecución (24 min de espera)
+[10:18:33]    07 sigue en ejecución (25 min de espera)
+[10:19:04]    07 sigue en ejecución (25 min de espera)
+[10:19:34]    07 sigue en ejecución (26 min de espera)
+[10:20:05]    07 sigue en ejecución (26 min de espera)
+[10:20:35]    07 sigue en ejecución (27 min de espera)
+[10:21:06]    07 sigue en ejecución (28 min de espera)
+[10:21:36]    07 sigue en ejecución (28 min de espera)
+[10:22:07]    07 sigue en ejecución (29 min de espera)
+[10:22:38]    07 sigue en ejecución (29 min de espera)
+[10:23:08]    07 sigue en ejecución (30 min de espera)
+[10:23:39]    07 sigue en ejecución (30 min de espera)
+[10:24:09]    07 sigue en ejecución (31 min de espera)
+[10:24:40]    07 sigue en ejecución (31 min de espera)
+[10:25:11]    07 sigue en ejecución (32 min de espera)
+[10:25:41]    07 sigue en ejecución (32 min de espera)
+[10:26:12]    07 sigue en ejecución (33 min de espera)
+[10:26:42]    07 sigue en ejecución (33 min de espera)
+[10:27:13]    07 sigue en ejecución (34 min de espera)
+[10:27:43]    07 sigue en ejecución (34 min de espera)
+[10:28:14]    07 sigue en ejecución (35 min de espera)
+[10:28:45]    07 sigue en ejecución (35 min de espera)
+[10:29:15]    07 sigue en ejecución (36 min de espera)
+[10:29:46]    07 sigue en ejecución (36 min de espera)
+[10:30:16]    07 sigue en ejecución (37 min de espera)
+[10:30:47]    07 sigue en ejecución (37 min de espera)
+[10:31:17]    07 sigue en ejecución (38 min de espera)
+[10:31:48]    07 sigue en ejecución (38 min de espera)
+[10:32:18]    07 sigue en ejecución (39 min de espera)
+[10:32:49]    07 sigue en ejecución (39 min de espera)
+[10:33:20]    07 sigue en ejecución (40 min de espera)
+[10:33:50]    07 sigue en ejecución (40 min de espera)
+[10:34:21]    07 sigue en ejecución (41 min de espera)
+[10:34:51]    07 sigue en ejecución (41 min de espera)
+[10:35:22]    07 sigue en ejecución (42 min de espera)
+[10:35:53]    07 sigue en ejecución (42 min de espera)
+[10:36:23]    07 sigue en ejecución (43 min de espera)
+[10:36:54]    07 sigue en ejecución (43 min de espera)
+[10:37:24]    07 sigue en ejecución (44 min de espera)
+[10:37:55]    07 sigue en ejecución (44 min de espera)
+[10:38:25]    07 sigue en ejecución (45 min de espera)
+[10:38:56]    07 sigue en ejecución (45 min de espera)
+[10:39:26]    07 sigue en ejecución (46 min de espera)
+[10:39:57]    07 sigue en ejecución (46 min de espera)
+[10:40:28]    07 sigue en ejecución (47 min de espera)
+[10:40:58]    07 sigue en ejecución (47 min de espera)
+[10:41:29]    07 sigue en ejecución (48 min de espera)
+[10:41:59]    07 sigue en ejecución (48 min de espera)
+[10:42:30]    07 sigue en ejecución (49 min de espera)
+[10:43:00]    07 sigue en ejecución (49 min de espera)
+[10:43:31]    07 sigue en ejecución (50 min de espera)
+[10:44:01]    07 sigue en ejecución (50 min de espera)
+[10:44:32]    07 sigue en ejecución (51 min de espera)
+[10:45:02]    07 sigue en ejecución (51 min de espera)
+[10:45:33]    07 sigue en ejecución (52 min de espera)
+[10:46:04]    07 sigue en ejecución (52 min de espera)
+[10:46:34]    07 sigue en ejecución (53 min de espera)
+[10:47:05]    07 sigue en ejecución (53 min de espera)
+[10:47:35]    07 sigue en ejecución (54 min de espera)
+[10:48:06]    07 sigue en ejecución (55 min de espera)
+[10:48:36]    07 sigue en ejecución (55 min de espera)
+[10:49:07]    07 sigue en ejecución (56 min de espera)
+[10:49:38]    07 sigue en ejecución (56 min de espera)
+[10:50:08]    07 sigue en ejecución (57 min de espera)
+[10:50:39]    07 sigue en ejecución (57 min de espera)
+[10:51:09]    07 sigue en ejecución (58 min de espera)
+[10:51:40]    07 sigue en ejecución (58 min de espera)
+[10:52:10]    07 sigue en ejecución (59 min de espera)
+[10:52:41]    07 sigue en ejecución (59 min de espera)
+[10:53:12]    07 sigue en ejecución (60 min de espera)
+[10:53:42]    07 sigue en ejecución (60 min de espera)
+[10:54:13]    07 sigue en ejecución (61 min de espera)
+[10:54:43]    07 sigue en ejecución (61 min de espera)
+[10:55:14]    07 sigue en ejecución (62 min de espera)
+[10:55:44]    07 sigue en ejecución (62 min de espera)
+[10:56:15]    07 sigue en ejecución (63 min de espera)
+[10:56:46]    07 sigue en ejecución (63 min de espera)
+[10:57:16]    07 sigue en ejecución (64 min de espera)
+[10:57:47]    07 sigue en ejecución (64 min de espera)
+[10:58:17]    07 sigue en ejecución (65 min de espera)
+[10:58:18]    07 terminó.
+[10:59:24] ==============================================================================
+[10:59:24] PIPELINE pea_drone · 9 pasos · estimado 5.0 h
+[10:59:24]    07b → 09 → 10 → 11 → 12 → 13 → 14 → 15 → 16
+[10:59:24] ------------------------------------------------------------------------------
+[10:59:24] PASO 1/9 [07b] Verificación y refinamiento afín de la grilla · estimado 25 min · restante total ≈ 5.0 h (fin ≈ 16:02)
+[10:59:27]    espaciamiento nominal (mediana de campos): 6.12 × 1.96 m
+[10:59:36]    pág 1 2017 Fairfield: contraste 0.42 → 0.55 (dentro 0.90, anillo 0.35) t=(+0.24,-0.01) m rot=+0.06° sx=0.988 sy=0.995 → espaciamiento 6.16 × 2.01 m
+[10:59:39]       prior físico: espaciamiento 6.07×1.27 m → escala inicial (1.00, 1.54)
+[10:59:48]    pág 2 2017 Pullman: contraste 0.01 → 0.08 (dentro 0.24, anillo 0.16) t=(-0.03,-0.10) m rot=-0.10° sx=1.013 sy=1.618 → espaciamiento 6.14 × 2.06 m
+[10:59:55]    pág 3 2017 Pullman: contraste 0.27 → 0.31 (dentro 0.86, anillo 0.56) t=(+0.20,-0.01) m rot=-0.44° sx=1.000 sy=1.011 → espaciamiento 6.12 × 1.99 m
+[11:00:06]    pág 4 2018 Fairfield: contraste 0.22 → 0.24 (dentro 0.59, anillo 0.35) t=(-0.15,+0.20) m rot=+0.00° sx=1.000 sy=1.000 → espaciamiento 6.09 × 1.92 m
+[11:00:13]    pág 5 2018 Fairfield: contraste 0.39 → 0.57 (dentro 0.75, anillo 0.18) t=(+0.24,-0.10) m rot=-0.01° sx=1.005 sy=1.002 → espaciamiento 6.10 × 2.04 m
+[11:00:23]    pág 6 2018 Genesee: contraste 0.15 → 0.16 (dentro 0.69, anillo 0.52) t=(+0.66,+0.79) m rot=+0.01° sx=1.020 sy=0.904 → espaciamiento 6.29 × 1.87 m
+[11:00:37]    pág 7 2018 Pullman: contraste 0.56 → 0.67 (dentro 0.92, anillo 0.25) t=(+0.04,-0.09) m rot=-0.14° sx=1.002 sy=1.010 → espaciamiento 6.07 × 1.96 m
+[11:00:47]    pág 8 2018 Pullman: contraste 0.43 → 0.54 (dentro 0.94, anillo 0.40) t=(-0.19,-0.18) m rot=+0.44° sx=1.000 sy=0.985 → espaciamiento 6.13 × 1.92 m
+[11:00:50]       prior físico: espaciamiento 6.19×1.01 m → escala inicial (1.00, 1.93)
+[11:00:57]    pág 9 2019 Fairfield: contraste 0.29 → 0.63 (dentro 0.91, anillo 0.28) t=(-0.11,+0.88) m rot=+0.21° sx=1.001 sy=1.978 → espaciamiento 6.19 × 2.01 m
+[11:01:05]    pág 10 2019 Fairfield: contraste 0.47 → 0.46 (dentro 0.89, anillo 0.42) t=(+0.11,-0.10) m rot=-0.23° sx=1.002 sy=1.014 → espaciamiento 6.19 × 1.98 m
+[11:01:15]    pág 11 2019 Genesee: contraste 0.44 → 0.64 (dentro 0.95, anillo 0.30) t=(-0.15,+0.15) m rot=-0.17° sx=1.020 sy=0.987 → espaciamiento 6.10 × 1.98 m
+[11:01:29]    pág 12 2019 Pullman: contraste 0.42 → 0.43 (dentro 0.54, anillo 0.11) t=(+0.00,-0.01) m rot=+0.02° sx=0.997 sy=0.995 → espaciamiento 6.20 × 1.98 m
+[11:01:29]    Traceback (most recent call last):
+[11:01:29]      File "C:\Trabajo_eterno\drone_images\pipeline\07b_check_plot_grid.py", line 225, in <module>
+[11:01:29]        main()
+[11:01:29]      File "C:\Trabajo_eterno\drone_images\pipeline\07b_check_plot_grid.py", line 195, in main
+[11:01:29]        cir = np.dstack([st(nir), st(red), st(green)]); cir[~np.isfinite(nir)] = 1
+[11:01:29]      File "C:\Trabajo_eterno\drone_images\pipeline\07b_check_plot_grid.py", line 194, in st
+[11:01:29]        lo, hi = np.nanpercentile(a, [2, 98]); return np.clip((a - lo) / (hi - lo), 0, 1)
+[11:01:29]      File "C:\Users\JesúsEnriqueFloresRi\AppData\Local\Programs\Python\Python310\lib\site-packages\numpy\lib\_nanfunctions_impl.py", line 1409, in nanpercentile
+[11:01:29]        return _nanquantile_unchecked(
+[11:01:29]      File "C:\Users\JesúsEnriqueFloresRi\AppData\Local\Programs\Python\Python310\lib\site-packages\numpy\lib\_nanfunctions_impl.py", line 1620, in _nanquantile_unchecked
+[11:01:29]        return fnb._ureduce(a,
+[11:01:29]      File "C:\Users\JesúsEnriqueFloresRi\AppData\Local\Programs\Python\Python310\lib\site-packages\numpy\lib\_function_base_impl.py", line 3894, in _ureduce
+[11:01:29]        r = func(a, **kwargs)
+[11:01:29]      File "C:\Users\JesúsEnriqueFloresRi\AppData\Local\Programs\Python\Python310\lib\site-packages\numpy\lib\_nanfunctions_impl.py", line 1648, in _nanquantile_ureduce_func
+[11:01:29]        result = _nanquantile_1d(part, q, overwrite_input, method, weights=wgt)
+[11:01:29]      File "C:\Users\JesúsEnriqueFloresRi\AppData\Local\Programs\Python\Python310\lib\site-packages\numpy\lib\_nanfunctions_impl.py", line 1700, in _nanquantile_1d
+[11:01:29]        return fnb._quantile_unchecked(
+[11:01:29]      File "C:\Users\JesúsEnriqueFloresRi\AppData\Local\Programs\Python\Python310\lib\site-packages\numpy\lib\_function_base_impl.py", line 4550, in _quantile_unchecked
+[11:01:29]        return _ureduce(a,
+[11:01:29]      File "C:\Users\JesúsEnriqueFloresRi\AppData\Local\Programs\Python\Python310\lib\site-packages\numpy\lib\_function_base_impl.py", line 3894, in _ureduce
+[11:01:29]        r = func(a, **kwargs)
+[11:01:29]      File "C:\Users\JesúsEnriqueFloresRi\AppData\Local\Programs\Python\Python310\lib\site-packages\numpy\lib\_function_base_impl.py", line 4727, in _quantile_ureduce_func
+[11:01:29]        result = _quantile(arr,
+[11:01:29]      File "C:\Users\JesúsEnriqueFloresRi\AppData\Local\Programs\Python\Python310\lib\site-packages\numpy\lib\_function_base_impl.py", line 4859, in _quantile
+[11:01:29]        result = _lerp(previous,
+[11:01:29]      File "C:\Users\JesúsEnriqueFloresRi\AppData\Local\Programs\Python\Python310\lib\site-packages\numpy\lib\_function_base_impl.py", line 4653, in _lerp
+[11:01:29]        diff_b_a = subtract(b, a)
+[11:01:29]    TypeError: unsupported operand type(s) for -: 'NoneType' and 'NoneType'
+[11:01:29] ✗ PASO 07b FALLÓ tras 2.1 min (ver outputs/logs/07b.log). Pipeline detenido.
+[11:01:46] ==============================================================================
+[11:01:46] PIPELINE pea_drone · 9 pasos · estimado 5.0 h
+[11:01:46]    07b → 09 → 10 → 11 → 12 → 13 → 14 → 15 → 16
+[11:01:46] ------------------------------------------------------------------------------
+[11:01:46] PASO 1/9 [07b] Verificación y refinamiento afín de la grilla · estimado 25 min · restante total ≈ 5.0 h (fin ≈ 16:04)
+[11:01:49]    espaciamiento nominal (mediana de campos): 6.12 × 1.96 m
+[11:01:57]    pág 1 2017 Fairfield: contraste 0.42 → 0.55 (dentro 0.90, anillo 0.35) t=(+0.24,-0.01) m rot=+0.06° sx=0.988 sy=0.995 → espaciamiento 6.16 × 2.01 m
+[11:01:59]       prior físico: espaciamiento 6.07×1.27 m → escala inicial (1.00, 1.54)
+[11:02:08]    pág 2 2017 Pullman: contraste 0.01 → 0.08 (dentro 0.24, anillo 0.16) t=(-0.03,-0.10) m rot=-0.10° sx=1.013 sy=1.618 → espaciamiento 6.14 × 2.06 m
+[11:02:15]    pág 3 2017 Pullman: contraste 0.27 → 0.31 (dentro 0.86, anillo 0.56) t=(+0.20,-0.01) m rot=-0.44° sx=1.000 sy=1.011 → espaciamiento 6.12 × 1.99 m
+[11:02:24]    pág 4 2018 Fairfield: contraste 0.22 → 0.24 (dentro 0.59, anillo 0.35) t=(-0.15,+0.20) m rot=+0.00° sx=1.000 sy=1.000 → espaciamiento 6.09 × 1.92 m
+[11:02:32]    pág 5 2018 Fairfield: contraste 0.39 → 0.57 (dentro 0.75, anillo 0.18) t=(+0.24,-0.10) m rot=-0.01° sx=1.005 sy=1.002 → espaciamiento 6.10 × 2.04 m
+[11:02:41]    pág 6 2018 Genesee: contraste 0.15 → 0.16 (dentro 0.69, anillo 0.52) t=(+0.66,+0.79) m rot=+0.01° sx=1.020 sy=0.904 → espaciamiento 6.29 × 1.87 m
+[11:02:55]    pág 7 2018 Pullman: contraste 0.56 → 0.67 (dentro 0.92, anillo 0.25) t=(+0.04,-0.09) m rot=-0.14° sx=1.002 sy=1.010 → espaciamiento 6.07 × 1.96 m
+[11:03:05]    pág 8 2018 Pullman: contraste 0.43 → 0.54 (dentro 0.94, anillo 0.40) t=(-0.19,-0.18) m rot=+0.44° sx=1.000 sy=0.985 → espaciamiento 6.13 × 1.92 m
+[11:03:08]       prior físico: espaciamiento 6.19×1.01 m → escala inicial (1.00, 1.93)
+[11:03:14]    pág 9 2019 Fairfield: contraste 0.29 → 0.63 (dentro 0.91, anillo 0.28) t=(-0.11,+0.88) m rot=+0.21° sx=1.001 sy=1.978 → espaciamiento 6.19 × 2.01 m
+[11:03:21]    pág 10 2019 Fairfield: contraste 0.47 → 0.46 (dentro 0.89, anillo 0.42) t=(+0.11,-0.10) m rot=-0.23° sx=1.002 sy=1.014 → espaciamiento 6.19 × 1.98 m
+[11:03:32]    pág 11 2019 Genesee: contraste 0.44 → 0.64 (dentro 0.95, anillo 0.30) t=(-0.15,+0.15) m rot=-0.17° sx=1.020 sy=0.987 → espaciamiento 6.10 × 1.98 m
+[11:03:45]    pág 12 2019 Pullman: contraste 0.42 → 0.43 (dentro 0.54, anillo 0.11) t=(+0.00,-0.01) m rot=+0.02° sx=0.997 sy=0.995 → espaciamiento 6.20 × 1.98 m
+[11:03:48] ✓ PASO 07b completado en 2.0 min
+[11:04:17]    ✓ subido a GitHub (paso 07b)
+[11:04:17] ------------------------------------------------------------------------------
+[11:04:17] PASO 2/9 [09] Corregistro multitemporal · estimado 4 min · restante total ≈ 1.4 h (fin ≈ 12:27)
+[11:04:20]    p2 Pea_June05 (red): ΔE=-18.795 ΔN=-19.500 m [SOSPECHOSO]
+[11:04:22]    p2 Pea_June05 (nir): ΔE=+15.750 ΔN=-6.145 m [SOSPECHOSO]
+[11:04:23]    p2 Pea_Jun26 (red): ΔE=+0.260 ΔN=+0.205 m [OK]
+[11:04:25]    p2 Pea_Jul07 (red): ΔE=+0.190 ΔN=+1.295 m [SOSPECHOSO]
+[11:04:26]    p2 Pea_Jul07 (nir): ΔE=+0.330 ΔN=+1.265 m [SOSPECHOSO]
+[11:04:28]    p2 Pea_July21 (red): ΔE=+0.575 ΔN=+0.200 m [OK]
+[11:04:29]    p3 Chickpea_June05 (red): ΔE=-4.215 ΔN=+7.220 m [SOSPECHOSO]
+[11:04:31]    p3 Chickpea_June05 (nir): ΔE=+0.765 ΔN=+5.165 m [SOSPECHOSO]
+[11:04:33]    p3 Chickpea_Jun26 (red): ΔE=+0.095 ΔN=-0.285 m [OK]
+[11:04:34]    p3 Chickpea_July21 (red): ΔE=-0.685 ΔN=-0.040 m [OK]
+[11:04:36]    p3 Chickpea_July28 (red): ΔE=-0.480 ΔN=-0.050 m [OK]
+[11:04:38]    p3 Chickpea_Aug07 (red): ΔE=-0.280 ΔN=+0.545 m [OK]
+[11:04:40]    p3 Chickpea_Aug16 (red): ΔE=-0.770 ΔN=-0.970 m [SOSPECHOSO]
+[11:04:42]    p3 Chickpea_Aug16 (nir): ΔE=-0.645 ΔN=-1.005 m [SOSPECHOSO]
+[11:04:45]    p4 Fairfield_Pea_Jun12 (red): ΔE=+4.640 ΔN=+2.010 m [SOSPECHOSO]
+[11:04:48]    p4 Fairfield_Pea_Jun12 (nir): ΔE=-2.740 ΔN=-0.320 m [SOSPECHOSO]
+[11:04:50]    p4 Fairfield_Pea_Jun29 (red): ΔE=-0.920 ΔN=+0.430 m [SOSPECHOSO]
+[11:04:53]    p4 Fairfield_Pea_Jun29 (nir): ΔE=-0.705 ΔN=+0.220 m [OK]
+[11:04:56]    p4 Fairfield_Pea_Jul12 (red): ΔE=-5.840 ΔN=-0.780 m [SOSPECHOSO]
+[11:04:59]    p4 Fairfield_Pea_Jul12 (nir): ΔE=-0.825 ΔN=+0.690 m [SOSPECHOSO]
+[11:05:01]    p4 Fairfield_Pea_Jul25 (red): ΔE=-0.885 ΔN=+0.830 m [SOSPECHOSO]
+[11:05:04]    p4 Fairfield_Pea_Jul25 (nir): ΔE=-0.880 ΔN=+0.855 m [SOSPECHOSO]
+[11:05:07]    p5 Fairfield_Chickpea_Jun29 (red): ΔE=+0.050 ΔN=-1.055 m [SOSPECHOSO]
+[11:05:09]    p5 Fairfield_Chickpea_Jun29 (nir): ΔE=+0.040 ΔN=-1.060 m [SOSPECHOSO]
+[11:05:12]    p5 Fairfield_Chickpea_Jul12 (red): ΔE=-0.145 ΔN=+0.140 m [OK]
+[11:05:15]    p5 Fairfield_Chickpea_Jul25 (red): ΔE=+0.350 ΔN=-0.470 m [OK]
+[11:05:17]    p6 Genesee_Pea_Chickpea_Jun8 (red): ΔE=-0.190 ΔN=+0.150 m [OK]
+[11:05:19]    p6 Genesee_Pea_Chickpea_Jun26 (red): ΔE=+0.760 ΔN=-0.215 m [OK]
+[11:05:21]    p6 Genesee_Pea_Chickpea_Jul9 (red): ΔE=-0.330 ΔN=-0.695 m [OK]
+[11:05:24]    p6 Genesee_Pea_Chickpea_Jul23 (red): ΔE=-0.085 ΔN=+0.135 m [OK]
+[11:05:27]    p7 Pullman_Pea_June8 (red): ΔE=-0.000 ΔN=-0.365 m [OK]
+[11:05:30]    p7 Pullman_Pea_July3 (red): ΔE=-0.600 ΔN=+0.050 m [OK]
+[11:05:33]    p7 Pullman_Pea_July 19 (red): ΔE=-0.225 ΔN=+0.435 m [OK]
+[11:05:37]    p7 Pullman_Pea_July27 (red): ΔE=-0.250 ΔN=-0.025 m [OK]
+[11:05:40]    p8 Pullman_Chickpea_June8 (red): ΔE=+4.985 ΔN=-12.895 m [SOSPECHOSO]
+[11:05:43]    p8 Pullman_Chickpea_June8 (nir): ΔE=-11.770 ΔN=-0.285 m [SOSPECHOSO]
+[11:05:46]    p8 Pullman_Chickpea_June22 (red): ΔE=+0.315 ΔN=+0.160 m [OK]
+[11:05:49]    p8 Pullman_Chickpea_July19 (red): ΔE=+0.255 ΔN=-1.725 m [SOSPECHOSO]
+[11:05:52]    p8 Pullman_Chickpea_July19 (nir): ΔE=+0.185 ΔN=-1.660 m [SOSPECHOSO]
+[11:05:55]    p8 Pullman_Chickpea_July27 (red): ΔE=+0.635 ΔN=-1.835 m [SOSPECHOSO]
+[11:05:58]    p8 Pullman_Chickpea_July27 (nir): ΔE=+0.410 ΔN=-1.615 m [SOSPECHOSO]
+[11:06:00]    p9 Fairfield_Pea_June10 (red): ΔE=+0.215 ΔN=-17.750 m [SOSPECHOSO]
+[11:06:03]    p9 Fairfield_Pea_June10 (nir): ΔE=+0.965 ΔN=-0.685 m [SOSPECHOSO]
+[11:06:05]    p9 Fairfield_Pea_June28 (red): ΔE=+0.290 ΔN=-0.285 m [OK]
+[11:06:06]    p10 Fairfield_Chickpea_June10 (red): ΔE=+0.005 ΔN=+0.235 m [OK]
+[11:06:08]    p10 Fairfield_Chickpea_June28 (red): ΔE=-0.150 ΔN=+0.440 m [OK]
+[11:06:09]    p10 Fairfield_Chickpea_July23 (red): ΔE=-1.460 ΔN=+0.715 m [SOSPECHOSO]
+[11:06:10]    p10 Fairfield_Chickpea_July23 (nir): ΔE=-1.435 ΔN=+0.710 m [SOSPECHOSO]
+[11:06:12]    p11 Genesee_Pea_Chickpea_June05 (red): ΔE=-10.210 ΔN=+6.520 m [SOSPECHOSO]
+[11:06:15]    p11 Genesee_Pea_Chickpea_June05 (nir): ΔE=-1.305 ΔN=-0.665 m [SOSPECHOSO]
+[11:06:17]    p11 GeneseeJ_Pea_Chickpea_June18 (red): ΔE=-18.730 ΔN=-6.655 m [SOSPECHOSO]
+[11:06:19]    p11 GeneseeJ_Pea_Chickpea_June18 (nir): ΔE=-0.660 ΔN=+0.570 m [OK]
+[11:06:22]    p11 Genesee_Pea_Chickpea_July16 (red): ΔE=-1.590 ΔN=+1.260 m [SOSPECHOSO]
+[11:06:24]    p11 Genesee_Pea_Chickpea_July16 (nir): ΔE=-1.300 ΔN=+1.540 m [SOSPECHOSO]
+[11:06:27]    p12 Pullman_Pea_Chickpea_Advanced_June05 (red): ΔE=-1.060 ΔN=-0.655 m [SOSPECHOSO]
+[11:06:30]    p12 Pullman_Pea_Chickpea_Advanced_June05 (nir): ΔE=-1.035 ΔN=-0.645 m [SOSPECHOSO]
+[11:06:30]    22 vuelos OK; desfase mediano 0.474 m, máximo 0.872 m; sospechosos: 34
+[11:06:30] ✓ PASO 09 completado en 2.2 min
+[11:06:34]    ✓ subido a GitHub (paso 09)
+[11:06:34] ------------------------------------------------------------------------------
+[11:06:34] PASO 3/9 [10] Extracción de rasgos por parcela y fecha · estimado 14 min · restante total ≈ 1.3 h (fin ≈ 12:25)
+[11:06:58]    p1 Fairfield_Pea_July24: 240 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.457
+[11:07:49] ==============================================================================
+[11:07:49] PIPELINE pea_drone · 8 pasos · estimado 4.5 h
+[11:07:49]    09 → 10 → 11 → 12 → 13 → 14 → 15 → 16
+[11:07:49] ------------------------------------------------------------------------------
+[11:07:49] PASO 1/8 [09] Corregistro multitemporal (grilla como referencia) · estimado 6 min · restante total ≈ 4.5 h (fin ≈ 15:36)
+[11:07:53]    p1 Fairfield_Pea_July24: contraste 0.69 → 0.70  desfase (+0.00, +0.00) m [REF]
+[11:07:54]    p2 Pea_June05: contraste -0.05 → 0.16  desfase (-0.57, -0.47) m [AJUSTADO]
+[11:07:55]    p2 Pea_Jun26: contraste 0.25 → 0.44  desfase (+0.30, -0.40) m [AJUSTADO]
+[11:07:55]    p2 Pea_Jul07: contraste 0.08 → 0.38  desfase (+0.22, +0.62) m [AJUSTADO]
+[11:07:56]    p2 Pea_July21: contraste 0.11 → 0.46  desfase (+0.62, -0.35) m [AJUSTADO]
+[11:07:57]    p2 Pea_July28: contraste 0.11 → 0.11  desfase (+0.00, +0.00) m [REF]
+[11:07:58]    p3 Chickpea_June05: contraste -0.03 → 0.13  desfase (+0.90, -0.75) m [AJUSTADO]
+[11:07:59]    p3 Chickpea_Jun26: contraste 0.20 → 0.24  desfase (-0.10, -0.15) m [AJUSTADO]
+[11:07:59]    p3 Chickpea_Jul07: contraste 0.37 → 0.38  desfase (+0.00, +0.00) m [REF]
+[11:08:00]    p3 Chickpea_July21: contraste 0.32 → 0.56  desfase (-0.82, +0.02) m [AJUSTADO]
+[11:08:01]    p3 Chickpea_July28: contraste -0.02 → 0.58  desfase (-0.65, -0.50) m [AJUSTADO]
+[11:08:01]    p3 Chickpea_Aug07: contraste 0.19 → 0.39  desfase (-0.67, +0.10) m [AJUSTADO]
+[11:08:02]    p3 Chickpea_Aug16: contraste 0.02 → 0.25  desfase (-0.95, +0.90) m [AJUSTADO]
+[11:08:03]    p4 Fairfield_Pea_Jun12: contraste 0.02 → 0.13  desfase (-0.85, -0.20) m [AJUSTADO]
+[11:08:04]    p4 Fairfield_Pea_Jun29: contraste 0.01 → 0.53  desfase (-0.70, +0.30) m [AJUSTADO]
+[11:08:05]    p4 Fairfield_Pea_Jul12: contraste 0.02 → 0.84  desfase (-0.60, +0.60) m [AJUSTADO]
+[11:08:06]    p4 Fairfield_Pea_Jul25: contraste -0.06 → 0.59  desfase (-0.80, +0.75) m [AJUSTADO]
+[11:08:08]    p4 Fairfield_Pea_Aug07: contraste 0.31 → 0.33  desfase (+0.00, +0.00) m [REF]
+[11:08:08]    p5 Fairfield_Chickpea_Jun12: contraste 0.70 → 0.73  desfase (-0.05, -0.03) m [REF]
+[11:08:09]    p5 Fairfield_Chickpea_Jun29: contraste -0.01 → 0.68  desfase (-0.88, +0.77) m [AJUSTADO]
+[11:08:10]    p5 Fairfield_Chickpea_Jul12: contraste 0.65 → 0.76  desfase (-0.35, -0.05) m [AJUSTADO]
+[11:08:11]    p5 Fairfield_Chickpea_Jul25: contraste 0.18 → 0.63  desfase (+0.27, -0.67) m [AJUSTADO]
+[11:08:12]    p6 Genesee_Pea_Chickpea_Jun8: contraste 0.02 → 0.08  desfase (+0.00, +0.00) m [SIN_MEJORA]
+[11:08:13]    p6 Genesee_Pea_Chickpea_Jun26: contraste 0.08 → 0.12  desfase (-0.10, -0.42) m [AJUSTADO]
+[11:08:14]    p6 Genesee_Pea_Chickpea_Jul9: contraste 0.38 → 0.39  desfase (+0.00, +0.00) m [SIN_MEJORA]
+[11:08:16]    p6 Genesee_Pea_Chickpea_Jul23: contraste 0.29 → 0.33  desfase (-0.20, +0.30) m [AJUSTADO]
+[11:08:17]    p6 Genesee_Pea_Chickpea_Aug6: contraste 0.28 → 0.28  desfase (+0.00, +0.00) m [REF]
+[11:08:18]    p7 Pullman_Pea_June8: contraste 0.19 → 0.39  desfase (+0.07, -0.67) m [AJUSTADO]
+[11:08:20]    p7 Pullman_Pea_June22: contraste 0.81 → 0.81  desfase (+0.00, +0.00) m [REF]
+[11:08:21]    p7 Pullman_Pea_July3: contraste 0.42 → 0.55  desfase (-0.30, +0.22) m [AJUSTADO]
+[11:08:23]    p7 Pullman_Pea_July 19: contraste 0.34 → 0.45  desfase (-0.20, +0.30) m [AJUSTADO]
+[11:08:24]    p7 Pullman_Pea_July27: contraste 0.18 → 0.21  desfase (-0.23, -0.10) m [AJUSTADO]
+[11:08:26]    p8 Pullman_Chickpea_June8: contraste 0.10 → 0.37  desfase (+0.30, -0.35) m [AJUSTADO]
+[11:08:27]    p8 Pullman_Chickpea_June22: contraste 0.59 → 0.73  desfase (+0.17, +0.15) m [AJUSTADO]
+[11:08:28]    p8 Pullman_Chickpea_July3: contraste 0.69 → 0.70  desfase (+0.00, +0.00) m [REF]
+[11:08:29]    p8 Pullman_Chickpea_July19: contraste 0.28 → 0.51  desfase (-0.03, +0.47) m [AJUSTADO]
+[11:08:30]    p8 Pullman_Chickpea_July27: contraste 0.20 → 0.30  desfase (+0.07, -0.50) m [AJUSTADO]
+[11:08:31]    p9 Fairfield_Pea_June10: contraste 0.02 → 0.26  desfase (+0.92, -0.32) m [AJUSTADO]
+[11:08:32]    p9 Fairfield_Pea_June28: contraste 0.24 → 0.73  desfase (+0.45, -0.32) m [AJUSTADO]
+[11:08:33]    p9 Fairfield_Pea_July12: contraste 0.81 → 0.81  desfase (+0.00, +0.00) m [REF]
+[11:08:33]    p10 Fairfield_Chickpea_June10: contraste -0.02 → 0.19  desfase (-0.05, -0.62) m [AJUSTADO]
+[11:08:34]    p10 Fairfield_Chickpea_June28: contraste -0.02 → 0.40  desfase (+0.35, +0.98) m [AJUSTADO]
+[11:08:34]    p10 Fairfield_Chickpea_July12: contraste 0.67 → 0.67  desfase (+0.00, +0.00) m [REF]
+[11:08:35]    p10 Fairfield_Chickpea_July23: contraste -0.09 → 0.34  desfase (-0.90, +1.17) m [AJUSTADO]
+[11:08:36]    p11 Genesee_Pea_Chickpea_June05: contraste -0.02 → 0.15  desfase (-0.97, -0.90) m [AJUSTADO]
+[11:08:37]    p11 GeneseeJ_Pea_Chickpea_June18: contraste 0.07 → 0.69  desfase (-0.62, +0.52) m [AJUSTADO]
+[11:08:38]    p11 Genesee_Pea_Chickpea_July05: contraste 0.81 → 0.81  desfase (+0.00, +0.00) m [REF]
+[11:08:39]    p11 Genesee_Pea_Chickpea_July16: contraste -0.06 → 0.19  desfase (-1.00, +0.85) m [AJUSTADO]
+[11:08:40]    p12 Pullman_Pea_Chickpea_Advanced_June05: contraste -0.00 → 0.24  desfase (+0.32, +0.90) m [AJUSTADO]
+[11:08:41]    p12 Pullman_Pea_Chickpea_Advanced_June17: contraste 0.55 → 0.55  desfase (+0.00, +0.00) m [REF]
+[11:08:41]    52 vuelos · ajustados 36 · desfase mediano (ajustados) 0.72 m · máx 1.48 m
+[11:08:42] ✓ PASO 09 completado en 0.9 min
+[11:08:45]    ✓ subido a GitHub (paso 09)
+[11:08:45] ------------------------------------------------------------------------------
+[11:08:45] PASO 2/8 [10] Extracción de rasgos por parcela y fecha · estimado 14 min · restante total ≈ 1.3 h (fin ≈ 12:27)
+[11:09:10]    p1 Fairfield_Pea_July24: 240 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.457
+[11:17:39] ==============================================================================
+[11:17:39] PIPELINE pea_drone · 7 pasos · estimado 4.4 h
+[11:17:39]    10 → 11 → 12 → 13 → 14 → 15 → 16
+[11:17:39] ------------------------------------------------------------------------------
+[11:17:39] PASO 1/7 [10] Extracción de rasgos por parcela y fecha · estimado 45 min · restante total ≈ 4.4 h (fin ≈ 15:40)
+[11:18:03]    p1 Fairfield_Pea_July24: 240 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.457
+[11:18:34]    p2 Pea_June05: 294 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.121
+[11:19:10]    p2 Pea_Jun26: 294 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.275
+[11:19:51]    p2 Pea_Jul07: 294 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.298
+[11:20:26]    p2 Pea_July21: 294 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.285
+[11:21:02]    p2 Pea_July28: 294 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.188
+[11:21:06]    p3 Chickpea_June05: 96 parcelas, bandas=['blue', 'green', 'red', 'nir'], umbral SAVI=0.107
+[11:21:11]    p3 Chickpea_Jun26: 96 parcelas, bandas=['blue', 'green', 'red', 'nir'], umbral SAVI=0.204
+[11:21:16]    p3 Chickpea_Jul07: 96 parcelas, bandas=['blue', 'green', 'red', 'nir'], umbral SAVI=0.278
+[11:21:19]    p3 Chickpea_July21: 96 parcelas, bandas=['blue', 'red', 'nir'], umbral SAVI=0.347
+[11:21:24]    p3 Chickpea_July28: 96 parcelas, bandas=['blue', 'green', 'red', 'nir'], umbral SAVI=0.265
+[11:21:30]    p3 Chickpea_Aug07: 96 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.177
+[11:21:30]    p3 Chickpea_Aug16: excluido (corregistro AMBIGUO)
+[11:21:30]    p4 Fairfield_Pea_Jun12: excluido (corregistro AMBIGUO)
+[11:22:11]    p4 Fairfield_Pea_Jun29: 165 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.262
+[11:23:03]    p4 Fairfield_Pea_Jul12: 165 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.400
+[11:23:50]    p4 Fairfield_Pea_Jul25: 165 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.447
+[11:24:41]    p4 Fairfield_Pea_Aug07: 165 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.303
+[11:24:53]    p5 Fairfield_Chickpea_Jun12: 63 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.208
+[11:24:53]    p5 Fairfield_Chickpea_Jun29: excluido (corregistro AMBIGUO)
+[11:25:06]    p5 Fairfield_Chickpea_Jul12: 63 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.354
+[11:25:18]    p5 Fairfield_Chickpea_Jul25: 63 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.332
+[11:26:17]    p6 Genesee_Pea_Chickpea_Jun8: 159 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.272
+[11:27:27]    p6 Genesee_Pea_Chickpea_Jun26: 159 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.425
+[11:28:27]    p6 Genesee_Pea_Chickpea_Jul9: 159 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.470
+[11:29:27]    p6 Genesee_Pea_Chickpea_Jul23: 159 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.428
+[11:30:23]    p6 Genesee_Pea_Chickpea_Aug6: 159 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.385
+[11:32:22]    p7 Pullman_Pea_June8: 315 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.306
+[11:34:19]    p7 Pullman_Pea_June22: 315 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.446
+[11:36:09]    p7 Pullman_Pea_July3: 315 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.466
+[11:38:13]    p7 Pullman_Pea_July 19: 315 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.406
+[11:39:59]    p7 Pullman_Pea_July27: 315 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.298
+[11:40:19]    p8 Pullman_Chickpea_June8: 129 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.249
+[11:40:37]    p8 Pullman_Chickpea_June22: 129 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.358
+[11:41:07]    p8 Pullman_Chickpea_July3: 129 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.495
+[11:41:25]    p8 Pullman_Chickpea_July19: 129 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.446
+[11:41:44]    p8 Pullman_Chickpea_July27: 129 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.342
+[11:42:09]    p9 Fairfield_Pea_June10: 156 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.214
+[11:42:31]    p9 Fairfield_Pea_June28: 156 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.361
+[11:42:55]    p9 Fairfield_Pea_July12: 156 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.495
+[11:43:08]    p10 Fairfield_Chickpea_June10: 72 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.210
+[11:43:20]    p10 Fairfield_Chickpea_June28: 72 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.318
+[11:43:33]    p10 Fairfield_Chickpea_July12: 72 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.414
+[11:43:44]    p10 Fairfield_Chickpea_July23: 72 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.522
+[11:43:44]    p11 Genesee_Pea_Chickpea_June05: excluido (corregistro AMBIGUO)
+[11:44:57]    p11 GeneseeJ_Pea_Chickpea_June18: 207 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.377
+[11:46:09]    p11 Genesee_Pea_Chickpea_July05: 207 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.499
+[11:47:36]    p11 Genesee_Pea_Chickpea_July16: 207 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.434
+[11:49:39]    p12 Pullman_Pea_Chickpea_Advanced_June05: 276 parcelas, bandas=['blue', 'green', 'red', 'red edge', 'nir'], umbral SAVI=0.200
+[11:51:18]    p12 Pullman_Pea_Chickpea_Advanced_June17: 276 parcelas, bandas=['red', 'nir'], umbral SAVI=0.275
+[11:51:23]                    plots  flights  rows
+[11:51:23]    year site
+[11:51:23]    2017 Fairfield    240        1   240
+[11:51:23]         Pullman      390       11  2046
+[11:51:23]    2018 Fairfield    228        7   849
+[11:51:23]         Genesee      159        5   795
+[11:51:23]         Pullman      444       10  2220
+[11:51:23]    2019 Fairfield    228        7   756
+[11:51:23]         Genesee      207        3   621
+[11:51:23]         Pullman      276        2   552
+[11:51:23] ✓ PASO 10 completado en 33.7 min
+[11:51:32]    ✓ subido a GitHub (paso 10)
+[11:51:32] ------------------------------------------------------------------------------
+[11:51:32] PASO 2/7 [11] Réplica de Zhang et al. (2021) · estimado 37 min · restante total ≈ 2.7 h (fin ≈ 14:34)
+[11:51:40]             market_class      target     level             env         feature      r    n
+[11:51:40]    2875  kabuli_chickpea   seedyield  cultivar    2019_Genesee  canopy_area_m2  0.878   24
+[11:51:40]    2347       yellow_pea   physmatur  cultivar    2018_Pullman  canopy_area_m2  0.859   41
+[11:51:40]    12          green_pea   seedyield  cultivar  2017_Fairfield       NDVI_mean  0.792   40
+[11:51:40]    4           green_pea   seedyield   parcela  2017_Fairfield       GNDVI_sum  0.788  120
+[11:51:40]    503   kabuli_chickpea  fiftyflowr  cultivar    2017_Pullman        NDRE_sum  0.776   24
+[11:51:40]    2864  kabuli_chickpea   seedyield   parcela    2019_Genesee  canopy_area_m2  0.774   72
+[11:51:40]    2266       yellow_pea  fiftyflowr  cultivar    2018_Pullman       NDRE_mean  0.764   41
+[11:51:40]    2338       yellow_pea   physmatur   parcela    2018_Pullman        NDVI_sum  0.744  129
+[11:51:40]    527   kabuli_chickpea   physmatur  cultivar    2017_Pullman         TVI_sum  0.732   24
+[11:51:40]    1669        green_pea  fiftyflowr  cultivar    2018_Pullman       GNDVI_sum  0.655   59
+[11:51:41]    2255       yellow_pea  fiftyflowr   parcela    2018_Pullman       NDRE_mean  0.648  129
+[11:51:41]    494   kabuli_chickpea  fiftyflowr   parcela    2017_Pullman         TVI_sum  0.600   72
+[11:51:41]    516   kabuli_chickpea   physmatur   parcela    2017_Pullman         TVI_sum  0.596   72
+[11:51:41]    1056       yellow_pea   seedyield  cultivar    2017_Pullman       NDRE_mean -0.584   24
+[11:51:41]    1595        green_pea  fiftyflowr   parcela    2018_Pullman       NDRE_mean  0.528  186
+[11:51:41]    311         green_pea   physmatur   parcela    2017_Pullman      GNDVI_mean  0.519  154
+[11:51:41]    68         yellow_pea   seedyield   parcela  2017_Fairfield        NDVI_sum  0.470   63
+[11:51:41]    1696        green_pea   physmatur  cultivar    2018_Pullman        TVI_mean  0.468   59
+[11:52:19]    kabuli_chickpea 2017_Pullman original: R²parcela=nan R²cultivar=0.26 sel=0.0
+[11:55:38]    kabuli_chickpea 2017_Pullman anidada: R²parcela=-0.05 R²cultivar=0.01 sel=2.5
+[11:55:54]    kabuli_chickpea 2018_Fairfield original: R²parcela=0.06 R²cultivar=nan sel=1.0
+[11:59:08]    kabuli_chickpea 2018_Fairfield anidada: R²parcela=0.06 R²cultivar=nan sel=4.5
+[11:59:43]    kabuli_chickpea 2018_Genesee original: R²parcela=-0.10 R²cultivar=0.31 sel=1.0
+[12:02:28]    kabuli_chickpea 2018_Genesee anidada: R²parcela=0.02 R²cultivar=-0.22 sel=2.0
+[12:03:09]    kabuli_chickpea 2018_Pullman original: R²parcela=0.16 R²cultivar=0.37 sel=1.0
+[12:22:03]    kabuli_chickpea 2018_Pullman anidada: R²parcela=0.19 R²cultivar=0.22 sel=1.8
+[12:22:21]    kabuli_chickpea 2019_Fairfield original: R²parcela=-0.05 R²cultivar=nan sel=2.0
+[12:25:32]    kabuli_chickpea 2019_Fairfield anidada: R²parcela=0.27 R²cultivar=-0.05 sel=5.8
+[12:25:43]    kabuli_chickpea 2019_Genesee original: R²parcela=0.69 R²cultivar=0.67 sel=7.0
+[12:28:04]    kabuli_chickpea 2019_Genesee anidada: R²parcela=0.50 R²cultivar=0.67 sel=3.8
+[12:28:14]    kabuli_chickpea 2019_Pullman original: R²parcela=0.50 R²cultivar=0.59 sel=11.0
+[12:30:12]    kabuli_chickpea 2019_Pullman anidada: R²parcela=0.34 R²cultivar=0.51 sel=6.5
+[12:30:48]    kabuli_chickpea 2018 combinado original: R²parcela=0.28 R²cultivar=0.36
+[12:56:43]    kabuli_chickpea 2018 combinado anidada: R²parcela=0.23 R²cultivar=0.32
+[12:56:43]    Traceback (most recent call last):
+[12:56:43]      File "C:\Trabajo_eterno\drone_images\pipeline\11_replication.py", line 217, in <module>
+[12:56:43]        main()
+[12:56:43]      File "C:\Trabajo_eterno\drone_images\pipeline\11_replication.py", line 156, in main
+[12:56:43]        r = lasso_eval(w, y, cult, nested)
+[12:56:43]      File "C:\Trabajo_eterno\drone_images\pipeline\11_replication.py", line 89, in lasso_eval
+[12:56:43]        sel_all = select_features(Xa, ya, seed) if not nested else None
+[12:56:43]      File "C:\Trabajo_eterno\drone_images\pipeline\11_replication.py", line 78, in select_features
+[12:56:43]        m = LassoCV(cv=5, random_state=seed, n_alphas=50, max_iter=5000).fit(X[tr], y[tr])
+[12:56:43]      File "C:\Users\JesúsEnriqueFloresRi\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\linear_model\_coordinate_descent.py", line 2191, in fit
+[12:56:43]        return super().fit(X, y, sample_weight=sample_weight, **params)
+[12:56:43]      File "C:\Users\JesúsEnriqueFloresRi\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\base.py", line 1365, in wrapper
+[12:56:43]        return fit_method(estimator, *args, **kwargs)
+[12:56:43]      File "C:\Users\JesúsEnriqueFloresRi\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\linear_model\_coordinate_descent.py", line 1677, in fit
+[12:56:43]        X, y = validate_data(
+[12:56:43]      File "C:\Users\JesúsEnriqueFloresRi\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py", line 2966, in validate_data
+[12:56:43]        X = check_array(X, input_name="X", **check_X_params)
+[12:56:43]      File "C:\Users\JesúsEnriqueFloresRi\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py", line 1137, in check_array
+[12:56:43]        raise ValueError(
+[12:56:43]    ValueError: Found array with 0 feature(s) (shape=(172, 0)) while a minimum of 1 is required by LassoCV.
+[12:56:44] ✗ PASO 11 FALLÓ tras 65.2 min (ver outputs/logs/11.log). Pipeline detenido.
+[12:57:53] ==============================================================================
+[12:57:53] PIPELINE pea_drone · 6 pasos · estimado 3.6 h
+[12:57:53]    11 → 12 → 13 → 14 → 15 → 16
+[12:57:53] ------------------------------------------------------------------------------
+[12:57:53] PASO 1/6 [11] Réplica de Zhang et al. (2021) · estimado 50 min · restante total ≈ 3.6 h (fin ≈ 16:35)
+[12:58:02]             market_class      target     level             env         feature      r    n
+[12:58:02]    2875  kabuli_chickpea   seedyield  cultivar    2019_Genesee  canopy_area_m2  0.878   24
+[12:58:02]    2347       yellow_pea   physmatur  cultivar    2018_Pullman  canopy_area_m2  0.859   41
+[12:58:02]    12          green_pea   seedyield  cultivar  2017_Fairfield       NDVI_mean  0.792   40
+[12:58:02]    4           green_pea   seedyield   parcela  2017_Fairfield       GNDVI_sum  0.788  120
+[12:58:02]    503   kabuli_chickpea  fiftyflowr  cultivar    2017_Pullman        NDRE_sum  0.776   24
+[12:58:02]    2864  kabuli_chickpea   seedyield   parcela    2019_Genesee  canopy_area_m2  0.774   72
+[12:58:02]    2266       yellow_pea  fiftyflowr  cultivar    2018_Pullman       NDRE_mean  0.764   41
+[12:58:02]    2338       yellow_pea   physmatur   parcela    2018_Pullman        NDVI_sum  0.744  129
+[12:58:02]    527   kabuli_chickpea   physmatur  cultivar    2017_Pullman         TVI_sum  0.732   24
+[12:58:02]    1669        green_pea  fiftyflowr  cultivar    2018_Pullman       GNDVI_sum  0.655   59
+[12:58:02]    2255       yellow_pea  fiftyflowr   parcela    2018_Pullman       NDRE_mean  0.648  129
+[12:58:02]    494   kabuli_chickpea  fiftyflowr   parcela    2017_Pullman         TVI_sum  0.600   72
+[12:58:02]    516   kabuli_chickpea   physmatur   parcela    2017_Pullman         TVI_sum  0.596   72
+[12:58:02]    1056       yellow_pea   seedyield  cultivar    2017_Pullman       NDRE_mean -0.584   24
+[12:58:02]    1595        green_pea  fiftyflowr   parcela    2018_Pullman       NDRE_mean  0.528  186
+[12:58:02]    311         green_pea   physmatur   parcela    2017_Pullman      GNDVI_mean  0.519  154
+[12:58:02]    68         yellow_pea   seedyield   parcela  2017_Fairfield        NDVI_sum  0.470   63
+[12:58:02]    1696        green_pea   physmatur  cultivar    2018_Pullman        TVI_mean  0.468   59
+[12:58:05]    58 ajustes LASSO pendientes en paralelo
+[12:58:20]    [1/58] green_pea 2017_Fairfield original: R²parcela=0.64 R²cultivar=0.59 sel=2.0
+[12:58:26]    [2/58] kabuli_chickpea 2019_Pullman original: R²parcela=0.50 R²cultivar=0.59 sel=11.0
+[12:58:26]    [3/58] kabuli_chickpea 2019_Genesee original: R²parcela=0.69 R²cultivar=0.67 sel=7.0
+[12:58:32]    [4/58] kabuli_chickpea 2019_combinado original: R²parcela=0.17 R²cultivar=0.43 sel=3.0
+[12:58:33]    [5/58] kabuli_chickpea 2018_Fairfield original: R²parcela=0.06 R²cultivar=nan sel=1.0
+[12:58:36]    [6/58] kabuli_chickpea 2019_Fairfield original: R²parcela=-0.05 R²cultivar=nan sel=2.0
+[12:58:44]    [7/58] green_pea 2018_Fairfield original: R²parcela=0.38 R²cultivar=0.38 sel=4.0
+[12:58:51]    [8/58] green_pea 2018_Genesee original: R²parcela=nan R²cultivar=nan sel=0.0
+[12:58:57]    [9/58] kabuli_chickpea 2018_Genesee original: R²parcela=-0.10 R²cultivar=0.31 sel=1.0
+[12:58:58]    [10/58] kabuli_chickpea 2018_combinado original: R²parcela=0.28 R²cultivar=0.36 sel=5.0
+[12:59:00]    [11/58] kabuli_chickpea 2017_Pullman original: R²parcela=nan R²cultivar=0.26 sel=0.0
+[12:59:04]    [12/58] kabuli_chickpea 2018_Pullman original: R²parcela=0.16 R²cultivar=0.37 sel=1.0
+[12:59:07]    [13/58] green_pea 2019_Genesee original: R²parcela=0.51 R²cultivar=nan sel=4.0
+[12:59:09]    [14/58] green_pea 2019_Pullman original: R²parcela=0.43 R²cultivar=-0.11 sel=6.0
+[12:59:11]    [15/58] green_pea 2018_Pullman original: R²parcela=0.27 R²cultivar=nan sel=2.0
+[12:59:14]    [16/58] green_pea 2019_Fairfield original: R²parcela=nan R²cultivar=nan sel=0.0
+[12:59:28]    [17/58] green_pea 2017_Pullman original: R²parcela=0.24 R²cultivar=nan sel=2.0
+[12:59:36]    [18/58] green_pea 2019_combinado original: R²parcela=0.25 R²cultivar=nan sel=8.0
+[12:59:37]    [19/58] yellow_pea 2017_Fairfield original: R²parcela=0.12 R²cultivar=nan sel=2.0
+[13:00:01]    [20/58] green_pea 2018_combinado original: R²parcela=0.27 R²cultivar=0.19 sel=3.0
+[13:00:29]    [21/58] yellow_pea 2017_Pullman original: R²parcela=0.08 R²cultivar=0.19 sel=3.0
+[13:00:30]    [22/58] green_pea 2017_combinado original: R²parcela=0.28 R²cultivar=nan sel=6.0
+[13:00:44]    [23/58] green_pea 2017_Fairfield anidada: R²parcela=0.61 R²cultivar=0.59 sel=4.2
+[13:00:52]    [24/58] kabuli_chickpea 2019_Pullman anidada: R²parcela=0.34 R²cultivar=0.51 sel=6.5
+[13:01:17]    [25/58] yellow_pea 2018_Fairfield original: R²parcela=nan R²cultivar=nan sel=0.0
+[13:01:25]    [26/58] kabuli_chickpea 2019_Genesee anidada: R²parcela=0.50 R²cultivar=0.67 sel=3.8
+[13:01:36]    [27/58] yellow_pea 2017_Fairfield anidada: R²parcela=-0.37 R²cultivar=nan sel=1.2
+[13:01:38]    [28/58] yellow_pea 2018_Pullman original: R²parcela=0.31 R²cultivar=0.13 sel=6.0
+[13:01:40]    [29/58] yellow_pea 2019_Fairfield original: R²parcela=0.04 R²cultivar=nan sel=1.0
+[13:01:47]    [30/58] kabuli_chickpea 2018_Genesee anidada: R²parcela=0.02 R²cultivar=-0.22 sel=2.0
+[13:01:53]    [31/58] yellow_pea 2019_Pullman original: R²parcela=0.37 R²cultivar=nan sel=4.0
+[13:02:20]    [32/58] green_pea 2019_Pullman anidada: R²parcela=0.05 R²cultivar=-0.25 sel=3.0
+[13:02:27]    [33/58] kabuli_chickpea 2019_Fairfield anidada: R²parcela=0.27 R²cultivar=-0.05 sel=5.8
+[13:02:33]    [34/58] yellow_pea 2019_combinado original: R²parcela=nan R²cultivar=nan sel=0.0
+[13:02:35]    [35/58] kabuli_chickpea 2018_Fairfield anidada: R²parcela=0.06 R²cultivar=nan sel=4.5
+[13:02:44]    [36/58] yellow_pea 2017_combinado original: R²parcela=0.09 R²cultivar=nan sel=4.0
+[13:02:44]    [37/58] kabuli_chickpea 2017_Pullman anidada: R²parcela=-0.05 R²cultivar=0.01 sel=2.5
+[13:03:05]    [38/58] yellow_pea 2018_combinado original: R²parcela=0.22 R²cultivar=0.17 sel=4.0
+[13:03:54]    [39/58] yellow_pea 2018_Fairfield anidada: R²parcela=nan R²cultivar=nan sel=0.0
+[13:05:07]    [40/58] green_pea 2018_Genesee anidada: R²parcela=-0.43 R²cultivar=nan sel=2.2
+[13:05:07]    [41/58] yellow_pea 2019_combinado anidada: R²parcela=-0.11 R²cultivar=nan sel=0.2
+[13:05:15]    [42/58] green_pea 2019_Genesee anidada: R²parcela=0.34 R²cultivar=-0.86 sel=4.5
+[13:05:30]    [43/58] yellow_pea 2019_Pullman anidada: R²parcela=0.16 R²cultivar=nan sel=3.0
+[13:05:51]    [44/58] yellow_pea 2019_Fairfield anidada: R²parcela=0.01 R²cultivar=nan sel=1.2
+[13:06:08]    [45/58] yellow_pea 2017_Pullman anidada: R²parcela=0.05 R²cultivar=-1.30 sel=2.2
+[13:06:20]    [46/58] green_pea 2018_Fairfield anidada: R²parcela=0.20 R²cultivar=-0.00 sel=7.0
+[13:07:37]    [47/58] kabuli_chickpea 2019_combinado anidada: R²parcela=0.14 R²cultivar=0.33 sel=8.2
+[13:08:19]    [48/58] yellow_pea 2017_combinado anidada: R²parcela=0.07 R²cultivar=-0.28 sel=2.5
+[13:09:06]    [49/58] green_pea 2019_Fairfield anidada: R²parcela=-0.93 R²cultivar=nan sel=0.2
+[13:14:55]    [50/58] green_pea 2019_combinado anidada: R²parcela=0.22 R²cultivar=nan sel=11.8
+[13:15:48]    [51/58] yellow_pea 2018_Pullman anidada: R²parcela=0.15 R²cultivar=-0.20 sel=4.5
+[13:16:20]    [52/58] kabuli_chickpea 2018_Pullman anidada: R²parcela=0.19 R²cultivar=0.22 sel=1.8
+[13:18:22]    [53/58] green_pea 2018_Pullman anidada: R²parcela=0.23 R²cultivar=0.01 sel=2.5
+[13:20:09]    [54/58] kabuli_chickpea 2018_combinado anidada: R²parcela=0.23 R²cultivar=0.32 sel=3.8
+[13:26:03]    [55/58] green_pea 2017_Pullman anidada: R²parcela=0.14 R²cultivar=nan sel=4.0
+[13:28:34]    [56/58] yellow_pea 2018_combinado anidada: R²parcela=0.13 R²cultivar=0.17 sel=5.2
+[13:30:02]    [57/58] green_pea 2018_combinado anidada: R²parcela=0.21 R²cultivar=0.10 sel=7.0
+[13:30:50]    [58/58] green_pea 2017_combinado anidada: R²parcela=0.17 R²cultivar=nan sel=2.5
+[13:30:55] ✓ PASO 11 completado en 33.0 min
+[13:31:00]    ✓ subido a GitHub (paso 11)
+[13:31:00] ------------------------------------------------------------------------------
+[13:31:00] PASO 2/6 [12] Curvas temporales en grados-día · estimado 7 min · restante total ≈ 1.8 h (fin ≈ 15:21)
+[13:32:24]                        n_dates  logistic_r2       x0  max_rate    auc
+[13:32:24]    trait
+[13:32:24]    CIrededge_plotmean      4.0        0.815  498.025     0.698  1.380
+[13:32:24]    GNDVI_plotmean          4.0        0.891  414.592     0.523  0.583
+[13:32:24]    NDRE_plotmean           4.0        0.883  453.392     0.187  0.389
+[13:32:24]    NDVI_plotmean           4.0        0.930  443.728     0.331  0.587
+[13:32:24]    canopy_cover            4.0        0.920  456.163     0.253  0.640
+[13:32:24]    ajustes logísticos válidos: {'CIrededge_plotmean': 1560, 'GNDVI_plotmean': 1656, 'NDRE_plotmean': 1560, 'NDVI_plotmean': 1656, 'canopy_cover': 1597}
+[13:32:27] ✓ PASO 12 completado en 1.4 min
+[13:32:30]    ✓ subido a GitHub (paso 12)
+[13:32:30] ------------------------------------------------------------------------------
+[13:32:30] PASO 3/6 [13] Modelos mixtos: H², correlaciones, G×E · estimado 17 min · restante total ≈ 1.5 h (fin ≈ 15:03)
+[13:32:33]    2017_Fairfield 1701: 3 modelos
+[13:32:33]    2017_Fairfield 1701B: 3 modelos
+[13:32:34]    2017_Fairfield 1702: 6 modelos
+[13:32:37]    2017_Pullman 1701: 8 modelos
+[13:32:39]    2017_Pullman 1701B: 11 modelos
+[13:32:41]    2017_Pullman 1702: 7 modelos
+[13:32:43]    2017_Pullman 1703: 4 modelos
+[13:32:43]    2017_Pullman 1704: 0 modelos
+[13:32:45]    2017_Pullman 1781: 10 modelos
+[13:32:46]    2017_Pullman 1781G: 4 modelos
+[13:32:48]    2018_Fairfield 1801: 7 modelos
+[13:32:50]    2018_Fairfield 1802: 19 modelos
+[13:32:52]    2018_Fairfield 1881: 6 modelos
+[13:32:55]    2018_Genesee 1801: 18 modelos
+[13:32:57]    2018_Genesee 1881: 9 modelos
+[13:33:00]    2018_Pullman 1801: 19 modelos
+[13:33:03]    2018_Pullman 1802: 26 modelos
+[13:33:06]    2018_Pullman 1803: 26 modelos
+[13:33:08]    2018_Pullman 1804: 26 modelos
+[13:33:11]    2018_Pullman 1881: 23 modelos
+[13:33:14]    2018_Pullman 1883: 21 modelos
+[13:33:16]    2019_Fairfield 1901: 5 modelos
+[13:33:18]    2019_Fairfield 1902: 7 modelos
+[13:33:19]    2019_Fairfield 1981: 5 modelos
+[13:33:21]    2019_Genesee 1901: 7 modelos
+[13:33:22]    2019_Genesee 1901B: 16 modelos
+[13:33:25]    2019_Genesee 1981: 29 modelos
+[13:33:26]    2019_Pullman 1901: 7 modelos
+[13:33:27]    2019_Pullman 1901B: 9 modelos
+[13:33:28]    2019_Pullman 1902: 4 modelos
+[13:33:29]    2019_Pullman 1981: 9 modelos
+[13:33:48]    trait
+[13:33:48]    NDVI_plotmean:auc                0.75
+[13:33:48]    NDVI_plotmean:max_rate           0.39
+[13:33:48]    NDVI_plotmean:senescence_rate    0.66
+[13:33:48]    NDVI_plotmean:x0                 0.01
+[13:33:48]    NDVI_plotmean:ymax               0.43
+[13:33:48]    canopy_cover:auc                 0.83
+[13:33:48]    canopy_cover:max_rate            0.48
+[13:33:48]    canopy_cover:senescence_rate     0.41
+[13:33:48]    canopy_cover:x0                  0.00
+[13:33:48]    canopy_cover:ymax                0.29
+[13:33:48]    canopyht                         0.89
+[13:33:48]    fiftyflowr                       0.96
+[13:33:48]    physmatur                        0.88
+[13:33:48]    seedyield                        0.81
+[13:33:48]    vinelength                       0.86
+[13:33:48] ✓ PASO 13 completado en 1.3 min
+[13:33:51]    ✓ subido a GitHub (paso 13)
+[13:33:51] ------------------------------------------------------------------------------
+[13:33:51] PASO 4/6 [14] Fenología desde el aire · estimado 2 min · restante total ≈ 0.8 h (fin ≈ 14:24)
+[13:33:57]    chickpea fiftyflowr: R² dentro de ambiente=0.16 (r=0.40) · R² absoluto=0.24 · RMSE=3.2 d · n=297
+[13:33:57]    chickpea physmatur: R² dentro de ambiente=0.02 (r=0.17) · R² absoluto=0.32 · RMSE=5.5 d · n=297
+[13:33:58]    pea fiftyflowr: R² dentro de ambiente=0.05 (r=0.21) · R² absoluto=0.19 · RMSE=3.2 d · n=1051
+[13:33:58]    pea physmatur: R² dentro de ambiente=0.02 (r=0.16) · R² absoluto=0.26 · RMSE=3.9 d · n=1053
+[13:34:00] ✓ PASO 14 completado en 0.1 min
+[13:34:03]    ✓ subido a GitHub (paso 14)
+[13:34:03] ------------------------------------------------------------------------------
+[13:34:03] PASO 5/6 [15] Machine Learning / Deep Learning · estimado 45 min · restante total ≈ 0.8 h (fin ≈ 14:20)
+[13:40:19]    [1/8] pea yield_z parcela: Elastic Net=0.11, LASSO=0.11, PLSR=0.11, Random Forest=0.23, TempCNN=0.22, XGBoost=0.22  (6.2 min)
+[13:44:03]    [1/8] pea yield_z genotipo: Elastic Net=0.10, LASSO=0.08, PLSR=0.10, Random Forest=0.23, TempCNN=0.21, XGBoost=0.23  (10.0 min)
+[13:49:15]    [1/8] pea yield_z ambiente: Elastic Net=-0.15, LASSO=-0.14, PLSR=-0.25, Random Forest=-0.05, TempCNN=-0.52, XGBoost=-0.12  (15.2 min)
+[13:49:52]    [1/8] pea yield_z año futuro: Elastic Net=0.03, LASSO=0.03, PLSR=0.02, Random Forest=0.12, TempCNN=-0.23, XGBoost=0.08  (15.8 min)
+[13:52:20]    [2/8] pea seedyield parcela: Elastic Net=-0.00, LASSO=0.34, PLSR=0.51, Random Forest=0.62, TempCNN=0.72, XGBoost=0.66  (18.3 min)
+[13:55:06]    [2/8] pea seedyield genotipo: Elastic Net=0.08, LASSO=0.60, PLSR=0.50, Random Forest=0.61, TempCNN=0.72, XGBoost=0.66  (21.0 min)
+[13:58:51]    [2/8] pea seedyield ambiente: Elastic Net=-5.18, LASSO=-6.36, PLSR=-5.82, Random Forest=-8.34, TempCNN=-4.19, XGBoost=-8.18  (24.8 min)
+[13:59:13]    [2/8] pea seedyield año futuro: Elastic Net=-1.39, LASSO=-2.60, PLSR=-1.87, Random Forest=-0.28, TempCNN=-0.13, XGBoost=-0.57  (25.1 min)
+[14:00:54]    [3/8] pea fiftyflowr parcela: Elastic Net=0.08, LASSO=0.08, PLSR=0.07, Random Forest=0.22, TempCNN=0.25, XGBoost=0.19  (26.8 min)
+[14:02:41]    [3/8] pea fiftyflowr genotipo: Elastic Net=0.02, LASSO=0.03, PLSR=0.00, Random Forest=0.16, TempCNN=0.19, XGBoost=0.13  (28.6 min)
+[14:04:17]    [3/8] pea fiftyflowr ambiente: Elastic Net=-0.96, LASSO=-0.99, PLSR=-1.18, Random Forest=-1.03, TempCNN=-0.72, XGBoost=-1.52  (30.2 min)
+[14:04:37]    [3/8] pea fiftyflowr año futuro: Elastic Net=-0.89, LASSO=-0.93, PLSR=-1.27, Random Forest=-0.37, TempCNN=-0.28, XGBoost=-0.60  (30.5 min)
+[14:05:57]    [4/8] pea physmatur parcela: Elastic Net=0.10, LASSO=0.02, PLSR=0.21, Random Forest=0.37, TempCNN=0.40, XGBoost=0.28  (31.9 min)
+[14:07:42]    [4/8] pea physmatur genotipo: Elastic Net=0.08, LASSO=0.04, PLSR=0.17, Random Forest=0.38, TempCNN=0.41, XGBoost=0.33  (33.6 min)
+[14:08:43]    [4/8] pea physmatur ambiente: Elastic Net=-1.36, LASSO=-1.39, PLSR=-1.31, Random Forest=-1.84, TempCNN=-1.36, XGBoost=-2.31  (34.6 min)
+[14:08:57]    [4/8] pea physmatur año futuro: Elastic Net=-1.86, LASSO=-2.01, PLSR=-1.60, Random Forest=-2.12, TempCNN=-1.49, XGBoost=-2.14  (34.9 min)
+[14:09:55]    [5/8] chickpea yield_z parcela: Elastic Net=0.35, LASSO=0.41, PLSR=0.28, Random Forest=0.51, TempCNN=0.49, XGBoost=0.51  (35.8 min)
+[14:10:49]    [5/8] chickpea yield_z genotipo: Elastic Net=0.32, LASSO=0.34, PLSR=0.24, Random Forest=0.49, TempCNN=0.42, XGBoost=0.49  (36.7 min)
+[14:12:06]    [5/8] chickpea yield_z ambiente: Elastic Net=-1.15, LASSO=-1.11, PLSR=-1.55, Random Forest=-1.06, TempCNN=-5.41, XGBoost=-1.11  (38.0 min)
+[14:12:14]    [5/8] chickpea yield_z año futuro: Elastic Net=-0.05, LASSO=-0.04, PLSR=-0.07, Random Forest=-0.40, TempCNN=-0.44, XGBoost=-0.71  (38.1 min)
+[14:12:46]    [6/8] chickpea seedyield parcela: Elastic Net=0.76, LASSO=0.77, PLSR=0.73, Random Forest=0.81, TempCNN=0.85, XGBoost=0.83  (38.7 min)
+[14:13:21]    [6/8] chickpea seedyield genotipo: Elastic Net=0.75, LASSO=0.75, PLSR=0.73, Random Forest=0.80, TempCNN=0.83, XGBoost=0.82  (39.3 min)
+[14:14:12]    [6/8] chickpea seedyield ambiente: Elastic Net=-9.70, LASSO=-19.76, PLSR=-9.12, Random Forest=-8.54, TempCNN=-6.68, XGBoost=-8.84  (40.1 min)
+[14:14:18]    [6/8] chickpea seedyield año futuro: Elastic Net=-0.37, LASSO=-0.59, PLSR=-0.28, Random Forest=-2.68, TempCNN=-1.39, XGBoost=-2.85  (40.2 min)
+[14:14:55]    [7/8] chickpea fiftyflowr parcela: Elastic Net=0.14, LASSO=0.14, PLSR=0.13, Random Forest=0.22, TempCNN=0.13, XGBoost=0.06  (40.8 min)
+[14:15:33]    [7/8] chickpea fiftyflowr genotipo: Elastic Net=0.16, LASSO=0.17, PLSR=0.13, Random Forest=0.24, TempCNN=0.19, XGBoost=0.10  (41.5 min)
+[14:15:57]    [7/8] chickpea fiftyflowr ambiente: Elastic Net=-0.30, LASSO=-0.25, PLSR=-0.68, Random Forest=-0.43, TempCNN=-0.28, XGBoost=-0.86  (41.9 min)
+[14:16:05]    [7/8] chickpea fiftyflowr año futuro: Elastic Net=-0.49, LASSO=-0.23, PLSR=-0.25, Random Forest=-0.27, TempCNN=-0.10, XGBoost=-0.31  (42.0 min)
+[14:16:35]    [8/8] chickpea physmatur parcela: Elastic Net=0.35, LASSO=0.34, PLSR=0.31, Random Forest=0.35, TempCNN=0.29, XGBoost=0.36  (42.5 min)
+[14:17:09]    [8/8] chickpea physmatur genotipo: Elastic Net=0.33, LASSO=0.30, PLSR=0.28, Random Forest=0.28, TempCNN=0.26, XGBoost=0.22  (43.1 min)
+[14:17:27]    [8/8] chickpea physmatur ambiente: Elastic Net=-1.97, LASSO=-2.01, PLSR=-2.15, Random Forest=-1.33, TempCNN=-1.87, XGBoost=-1.15  (43.4 min)
+[14:17:33]    [8/8] chickpea physmatur año futuro: Elastic Net=-0.64, LASSO=-0.61, PLSR=-0.69, Random Forest=-0.19, TempCNN=-0.05, XGBoost=-0.13  (43.5 min)
+[14:18:18]    Traceback (most recent call last):
+[14:18:18]      File "C:\Trabajo_eterno\drone_images\pipeline\15_models.py", line 277, in <module>
+[14:18:18]        main()
+[14:18:18]      File "C:\Trabajo_eterno\drone_images\pipeline\15_models.py", line 221, in main
+[14:18:18]        importance(pt, Xz)
+[14:18:18]      File "C:\Trabajo_eterno\drone_images\pipeline\15_models.py", line 241, in importance
+[14:18:18]        sv = shap.TreeExplainer(model[-1]).shap_values(Xi)
+[14:18:18]      File "C:\Users\JesúsEnriqueFloresRi\AppData\Local\Programs\Python\Python310\lib\site-packages\shap\explainers\_tree.py", line 278, in __init__
+[14:18:18]        self.model = TreeEnsemble(model, self.data, self.data_missing, model_output)
+[14:18:18]      File "C:\Users\JesúsEnriqueFloresRi\AppData\Local\Programs\Python\Python310\lib\site-packages\shap\explainers\_tree.py", line 1279, in __init__
+[14:18:18]        self._set_xgboost_model_attributes(
+[14:18:18]      File "C:\Users\JesúsEnriqueFloresRi\AppData\Local\Programs\Python\Python310\lib\site-packages\shap\explainers\_tree.py", line 1506, in _set_xgboost_model_attributes
+[14:18:18]        loader = XGBTreeModelLoader(self.original_model)
+[14:18:18]      File "C:\Users\JesúsEnriqueFloresRi\AppData\Local\Programs\Python\Python310\lib\site-packages\shap\explainers\_tree.py", line 2104, in __init__
+[14:18:18]        self.base_score = float(learner_model_param["base_score"])
+[14:18:18]    ValueError: could not convert string to float: '[2.856207E-1]'
+[14:18:26] ✗ PASO 15 FALLÓ tras 44.4 min (ver outputs/logs/15.log). Pipeline detenido.
+[14:21:32] ==============================================================================
+[14:21:32] PIPELINE pea_drone · 1 pasos · estimado 0.1 h
+[14:21:32]    16
+[14:21:32] ------------------------------------------------------------------------------
+[14:21:32] PASO 1/1 [16] Figuras y tablas del manuscrito · estimado 3 min · restante total ≈ 0.1 h (fin ≈ 14:24)
+[14:21:33]    Figuras: 22 · Tablas: 5
+[14:21:33] ✓ PASO 16 completado en 0.0 min
+[14:21:44]    ✓ subido a GitHub (paso 16)
+[14:21:44] ==============================================================================
+[14:21:44] PIPELINE COMPLETO en 0.0 h

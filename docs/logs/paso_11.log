@@ -1,0 +1,78 @@
+         market_class      target     level             env         feature      r    n
+2875  kabuli_chickpea   seedyield  cultivar    2019_Genesee  canopy_area_m2  0.878   24
+2347       yellow_pea   physmatur  cultivar    2018_Pullman  canopy_area_m2  0.859   41
+12          green_pea   seedyield  cultivar  2017_Fairfield       NDVI_mean  0.792   40
+4           green_pea   seedyield   parcela  2017_Fairfield       GNDVI_sum  0.788  120
+503   kabuli_chickpea  fiftyflowr  cultivar    2017_Pullman        NDRE_sum  0.776   24
+2864  kabuli_chickpea   seedyield   parcela    2019_Genesee  canopy_area_m2  0.774   72
+2266       yellow_pea  fiftyflowr  cultivar    2018_Pullman       NDRE_mean  0.764   41
+2338       yellow_pea   physmatur   parcela    2018_Pullman        NDVI_sum  0.744  129
+527   kabuli_chickpea   physmatur  cultivar    2017_Pullman         TVI_sum  0.732   24
+1669        green_pea  fiftyflowr  cultivar    2018_Pullman       GNDVI_sum  0.655   59
+2255       yellow_pea  fiftyflowr   parcela    2018_Pullman       NDRE_mean  0.648  129
+494   kabuli_chickpea  fiftyflowr   parcela    2017_Pullman         TVI_sum  0.600   72
+516   kabuli_chickpea   physmatur   parcela    2017_Pullman         TVI_sum  0.596   72
+1056       yellow_pea   seedyield  cultivar    2017_Pullman       NDRE_mean -0.584   24
+1595        green_pea  fiftyflowr   parcela    2018_Pullman       NDRE_mean  0.528  186
+311         green_pea   physmatur   parcela    2017_Pullman      GNDVI_mean  0.519  154
+68         yellow_pea   seedyield   parcela  2017_Fairfield        NDVI_sum  0.470   63
+1696        green_pea   physmatur  cultivar    2018_Pullman        TVI_mean  0.468   59
+58 ajustes LASSO pendientes en paralelo
+[1/58] green_pea 2017_Fairfield original: R²parcela=0.64 R²cultivar=0.59 sel=2.0
+[2/58] kabuli_chickpea 2019_Pullman original: R²parcela=0.50 R²cultivar=0.59 sel=11.0
+[3/58] kabuli_chickpea 2019_Genesee original: R²parcela=0.69 R²cultivar=0.67 sel=7.0
+[4/58] kabuli_chickpea 2019_combinado original: R²parcela=0.17 R²cultivar=0.43 sel=3.0
+[5/58] kabuli_chickpea 2018_Fairfield original: R²parcela=0.06 R²cultivar=nan sel=1.0
+[6/58] kabuli_chickpea 2019_Fairfield original: R²parcela=-0.05 R²cultivar=nan sel=2.0
+[7/58] green_pea 2018_Fairfield original: R²parcela=0.38 R²cultivar=0.38 sel=4.0
+[8/58] green_pea 2018_Genesee original: R²parcela=nan R²cultivar=nan sel=0.0
+[9/58] kabuli_chickpea 2018_Genesee original: R²parcela=-0.10 R²cultivar=0.31 sel=1.0
+[10/58] kabuli_chickpea 2018_combinado original: R²parcela=0.28 R²cultivar=0.36 sel=5.0
+[11/58] kabuli_chickpea 2017_Pullman original: R²parcela=nan R²cultivar=0.26 sel=0.0
+[12/58] kabuli_chickpea 2018_Pullman original: R²parcela=0.16 R²cultivar=0.37 sel=1.0
+[13/58] green_pea 2019_Genesee original: R²parcela=0.51 R²cultivar=nan sel=4.0
+[14/58] green_pea 2019_Pullman original: R²parcela=0.43 R²cultivar=-0.11 sel=6.0
+[15/58] green_pea 2018_Pullman original: R²parcela=0.27 R²cultivar=nan sel=2.0
+[16/58] green_pea 2019_Fairfield original: R²parcela=nan R²cultivar=nan sel=0.0
+[17/58] green_pea 2017_Pullman original: R²parcela=0.24 R²cultivar=nan sel=2.0
+[18/58] green_pea 2019_combinado original: R²parcela=0.25 R²cultivar=nan sel=8.0
+[19/58] yellow_pea 2017_Fairfield original: R²parcela=0.12 R²cultivar=nan sel=2.0
+[20/58] green_pea 2018_combinado original: R²parcela=0.27 R²cultivar=0.19 sel=3.0
+[21/58] yellow_pea 2017_Pullman original: R²parcela=0.08 R²cultivar=0.19 sel=3.0
+[22/58] green_pea 2017_combinado original: R²parcela=0.28 R²cultivar=nan sel=6.0
+[23/58] green_pea 2017_Fairfield anidada: R²parcela=0.61 R²cultivar=0.59 sel=4.2
+[24/58] kabuli_chickpea 2019_Pullman anidada: R²parcela=0.34 R²cultivar=0.51 sel=6.5
+[25/58] yellow_pea 2018_Fairfield original: R²parcela=nan R²cultivar=nan sel=0.0
+[26/58] kabuli_chickpea 2019_Genesee anidada: R²parcela=0.50 R²cultivar=0.67 sel=3.8
+[27/58] yellow_pea 2017_Fairfield anidada: R²parcela=-0.37 R²cultivar=nan sel=1.2
+[28/58] yellow_pea 2018_Pullman original: R²parcela=0.31 R²cultivar=0.13 sel=6.0
+[29/58] yellow_pea 2019_Fairfield original: R²parcela=0.04 R²cultivar=nan sel=1.0
+[30/58] kabuli_chickpea 2018_Genesee anidada: R²parcela=0.02 R²cultivar=-0.22 sel=2.0
+[31/58] yellow_pea 2019_Pullman original: R²parcela=0.37 R²cultivar=nan sel=4.0
+[32/58] green_pea 2019_Pullman anidada: R²parcela=0.05 R²cultivar=-0.25 sel=3.0
+[33/58] kabuli_chickpea 2019_Fairfield anidada: R²parcela=0.27 R²cultivar=-0.05 sel=5.8
+[34/58] yellow_pea 2019_combinado original: R²parcela=nan R²cultivar=nan sel=0.0
+[35/58] kabuli_chickpea 2018_Fairfield anidada: R²parcela=0.06 R²cultivar=nan sel=4.5
+[36/58] yellow_pea 2017_combinado original: R²parcela=0.09 R²cultivar=nan sel=4.0
+[37/58] kabuli_chickpea 2017_Pullman anidada: R²parcela=-0.05 R²cultivar=0.01 sel=2.5
+[38/58] yellow_pea 2018_combinado original: R²parcela=0.22 R²cultivar=0.17 sel=4.0
+[39/58] yellow_pea 2018_Fairfield anidada: R²parcela=nan R²cultivar=nan sel=0.0
+[40/58] green_pea 2018_Genesee anidada: R²parcela=-0.43 R²cultivar=nan sel=2.2
+[41/58] yellow_pea 2019_combinado anidada: R²parcela=-0.11 R²cultivar=nan sel=0.2
+[42/58] green_pea 2019_Genesee anidada: R²parcela=0.34 R²cultivar=-0.86 sel=4.5
+[43/58] yellow_pea 2019_Pullman anidada: R²parcela=0.16 R²cultivar=nan sel=3.0
+[44/58] yellow_pea 2019_Fairfield anidada: R²parcela=0.01 R²cultivar=nan sel=1.2
+[45/58] yellow_pea 2017_Pullman anidada: R²parcela=0.05 R²cultivar=-1.30 sel=2.2
+[46/58] green_pea 2018_Fairfield anidada: R²parcela=0.20 R²cultivar=-0.00 sel=7.0
+[47/58] kabuli_chickpea 2019_combinado anidada: R²parcela=0.14 R²cultivar=0.33 sel=8.2
+[48/58] yellow_pea 2017_combinado anidada: R²parcela=0.07 R²cultivar=-0.28 sel=2.5
+[49/58] green_pea 2019_Fairfield anidada: R²parcela=-0.93 R²cultivar=nan sel=0.2
+[50/58] green_pea 2019_combinado anidada: R²parcela=0.22 R²cultivar=nan sel=11.8
+[51/58] yellow_pea 2018_Pullman anidada: R²parcela=0.15 R²cultivar=-0.20 sel=4.5
+[52/58] kabuli_chickpea 2018_Pullman anidada: R²parcela=0.19 R²cultivar=0.22 sel=1.8
+[53/58] green_pea 2018_Pullman anidada: R²parcela=0.23 R²cultivar=0.01 sel=2.5
+[54/58] kabuli_chickpea 2018_combinado anidada: R²parcela=0.23 R²cultivar=0.32 sel=3.8
+[55/58] green_pea 2017_Pullman anidada: R²parcela=0.14 R²cultivar=nan sel=4.0
+[56/58] yellow_pea 2018_combinado anidada: R²parcela=0.13 R²cultivar=0.17 sel=5.2
+[57/58] green_pea 2018_combinado anidada: R²parcela=0.21 R²cultivar=0.10 sel=7.0
+[58/58] green_pea 2017_combinado anidada: R²parcela=0.17 R²cultivar=nan sel=2.5

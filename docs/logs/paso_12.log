@@ -1,0 +1,8 @@
+                    n_dates  logistic_r2       x0  max_rate    auc
+trait                                                             
+CIrededge_plotmean      4.0        0.815  498.025     0.698  1.380
+GNDVI_plotmean          4.0        0.891  414.592     0.523  0.583
+NDRE_plotmean           4.0        0.883  453.392     0.187  0.389
+NDVI_plotmean           4.0        0.930  443.728     0.331  0.587
+canopy_cover            4.0        0.920  456.163     0.253  0.640
+ajustes logísticos válidos: {'CIrededge_plotmean': 1560, 'GNDVI_plotmean': 1656, 'NDRE_plotmean': 1560, 'NDVI_plotmean': 1656, 'canopy_cover': 1597}

@@ -1,0 +1,47 @@
+2017_Fairfield 1701: 3 modelos
+2017_Fairfield 1701B: 3 modelos
+2017_Fairfield 1702: 6 modelos
+2017_Pullman 1701: 8 modelos
+2017_Pullman 1701B: 11 modelos
+2017_Pullman 1702: 7 modelos
+2017_Pullman 1703: 4 modelos
+2017_Pullman 1704: 0 modelos
+2017_Pullman 1781: 10 modelos
+2017_Pullman 1781G: 4 modelos
+2018_Fairfield 1801: 7 modelos
+2018_Fairfield 1802: 19 modelos
+2018_Fairfield 1881: 6 modelos
+2018_Genesee 1801: 18 modelos
+2018_Genesee 1881: 9 modelos
+2018_Pullman 1801: 19 modelos
+2018_Pullman 1802: 26 modelos
+2018_Pullman 1803: 26 modelos
+2018_Pullman 1804: 26 modelos
+2018_Pullman 1881: 23 modelos
+2018_Pullman 1883: 21 modelos
+2019_Fairfield 1901: 5 modelos
+2019_Fairfield 1902: 7 modelos
+2019_Fairfield 1981: 5 modelos
+2019_Genesee 1901: 7 modelos
+2019_Genesee 1901B: 16 modelos
+2019_Genesee 1981: 29 modelos
+2019_Pullman 1901: 7 modelos
+2019_Pullman 1901B: 9 modelos
+2019_Pullman 1902: 4 modelos
+2019_Pullman 1981: 9 modelos
+trait
+NDVI_plotmean:auc                0.75
+NDVI_plotmean:max_rate           0.39
+NDVI_plotmean:senescence_rate    0.66
+NDVI_plotmean:x0                 0.01
+NDVI_plotmean:ymax               0.43
+canopy_cover:auc                 0.83
+canopy_cover:max_rate            0.48
+canopy_cover:senescence_rate     0.41
+canopy_cover:x0                  0.00
+canopy_cover:ymax                0.29
+canopyht                         0.89
+fiftyflowr                       0.96
+physmatur                        0.88
+seedyield                        0.81
+vinelength                       0.86
