@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-label="pea_drone: fenotipado UAV multiespectral de arveja y garbanzo">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1f14"/>
+      <stop offset="0.55" stop-color="#123524"/>
+      <stop offset="1" stop-color="#1b4d3e"/>
+    </linearGradient>
+    <linearGradient id="ndvi" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d73027"/>
+      <stop offset="0.35" stop-color="#fee08b"/>
+      <stop offset="0.7" stop-color="#66bd63"/>
+      <stop offset="1" stop-color="#1a9850"/>
+    </linearGradient>
+    <pattern id="plots" width="40" height="22" patternUnits="userSpaceOnUse">
+      <rect x="3" y="3" width="32" height="14" rx="2" fill="#3fb950" opacity="0.10"/>
+    </pattern>
+  </defs>
+  <style>
+    .t  { font: 700 64px 'Segoe UI', Helvetica, Arial, sans-serif; fill: #f0f6fc; }
+    .s  { font: 400 22px 'Segoe UI', Helvetica, Arial, sans-serif; fill: #c9d1d9; }
+    .l  { font: 600 20px 'Segoe UI', Helvetica, Arial, sans-serif; fill: #7ee787; opacity: 0; }
+    .l1 { animation: cycle 12s infinite 0s; }
+    .l2 { animation: cycle 12s infinite 3s; }
+    .l3 { animation: cycle 12s infinite 6s; }
+    .l4 { animation: cycle 12s infinite 9s; }
+    @keyframes cycle { 0% {opacity:0; transform:translateY(8px)} 4% {opacity:1; transform:translateY(0)}
+                       22% {opacity:1} 25% {opacity:0} 100% {opacity:0} }
+    .drone { animation: fly 10s linear infinite; }
+    @keyframes fly { from {transform:translateX(-120px)} to {transform:translateX(1260px)} }
+    .scan { animation: fly 10s linear infinite; }
+    .bar { animation: grow 4s ease-in-out infinite alternate; transform-origin: 80px 0; }
+    @keyframes grow { from {transform:scaleX(0.15)} to {transform:scaleX(1)} }
+    .rotor { animation: spin 0.25s linear infinite; transform-box: fill-box; transform-origin: center; }
+    @keyframes spin { to {transform: rotate(360deg)} }
+  </style>
+  <rect width="1200" height="300" fill="url(#bg)"/>
+  <rect y="170" width="1200" height="130" fill="url(#plots)"/>
+  <g class="scan"><polygon points="60,82 30,300 90,300" fill="#7ee787" opacity="0.10"/></g>
+  <g class="drone">
+    <rect x="40" y="70" width="40" height="12" rx="4" fill="#e6edf3"/>
+    <line x1="30" y1="72" x2="90" y2="72" stroke="#e6edf3" stroke-width="3"/>
+    <ellipse class="rotor" cx="30" cy="68" rx="14" ry="3" fill="#8b949e"/>
+    <ellipse class="rotor" cx="90" cy="68" rx="14" ry="3" fill="#8b949e"/>
+    <circle cx="60" cy="86" r="4" fill="#3fb950"/>
+  </g>
+  <text x="80" y="140" class="t">pea_drone</text>
+  <text x="82" y="178" class="s">Fenotipado UAV multiespectral de arveja y garbanzo · 2017–2019 · Palouse (WA/ID)</text>
+  <text x="82" y="222" class="l l1">▸ Calibración radiométrica anclada a Sentinel-2 L2A</text>
+  <text x="82" y="222" class="l l2">▸ Georreferenciación automática de 2415 parcelas</text>
+  <text x="82" y="222" class="l l3">▸ Dinámica del dosel en grados-día y heredabilidad</text>
+  <text x="82" y="222" class="l l4">▸ Aprendizaje automático validado entre genotipos y ambientes</text>
+  <rect x="80" y="252" width="420" height="8" rx="4" fill="#30363d"/>
+  <rect x="80" y="252" width="420" height="8" rx="4" fill="url(#ndvi)" class="bar"/>
+  <text x="510" y="261" class="s" style="font-size:13px;fill:#8b949e">NDVI</text>
+</svg>

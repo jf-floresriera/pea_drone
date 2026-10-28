@@ -30,7 +30,7 @@ Logs originales completos (sin editar) en [`docs/logs/`](logs/):
   - Luego se seleccionó el modelo por **plausibilidad física**. Se descartó el de offset común por sesgo de
     atenuación y se adoptó el modelo por el origen (M3).
 
-## 2026-10-17 — Fases 2-7: grilla, rasgos, análisis, modelos y manuscrito
+## 2026-10-17 — Fases 2-7: grilla, rasgos, análisis, modelos y figuras
 
 ### Grilla de parcelas (pasos 06, 07, 07b)
 - **06.** Croquis del PDF digitalizados por el color vectorial de las celdas: 34/34 ensayos coinciden 1:1 con el Excel
@@ -94,11 +94,11 @@ Logs originales completos (sin editar) en [`docs/logs/`](logs/):
 - **15b (ejecución manual).** Rasgos calibrados absolutos frente a estandarizados para predecir entre ambientes: la
   calibración reduce el RMSE en garbanzo (820 → 548-590 kg/ha), pero no en arveja.
 
-### Figuras, tablas y manuscrito (paso 16)
-- **16 (14:21) — OK.** 22 figuras y 5 tablas en `outputs/16_manuscript/`, más `RESULTS_SUMMARY.md`.
+### Figuras y tablas (paso 16)
+- **16 (14:21) — OK.** 22 figuras y 5 tablas en `outputs/16_figures/`, más `RESULTS_SUMMARY.md`.
   - Se revisaron visualmente todas las figuras.
   - Se compactó la figura del flujo metodológico.
-- Manuscrito completo en `docs/MANUSCRIPT.md`; cada cifra se verificó contra las tablas de salida.
+- Cada cifra del resumen de resultados se verificó contra las tablas de salida.
 
 ## 2026-10-19 — Autoría del repositorio
 - Se quitaron las líneas de coautoría automática de los 25 commits (`git filter-branch`) y se publicó el historial
@@ -108,6 +108,11 @@ Logs originales completos (sin editar) en [`docs/logs/`](logs/):
 
 ## 2026-10-20 — Documentación del desarrollo
 - Se guardaron los logs completos en `docs/logs/` y se creó esta bitácora antes de reiniciar el equipo.
+
+## 2026-10-28 — Organización del repositorio
+- Nuevo README con la descripción de cada fase del trabajo, timelapse de vuelos y nota sobre el uso de IA.
+- Las figuras y tablas finales quedan en `outputs/16_figures/` (se actualizó el paso 16).
+- Se agregó `CITATION.cff` para citar el repositorio. Los logs originales de `docs/logs/` se conservan sin editar.
 
 ---
 

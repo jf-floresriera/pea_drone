@@ -1,13 +1,13 @@
-"""Paso 8 - Figuras y tablas finales del manuscrito (numeradas, estilo común) y resumen de resultados.
+"""Paso 16 - Figuras y tablas finales de resultados (numeradas, estilo común) y resumen de resultados.
 
-Figuras (outputs/16_manuscript/figures/):
+Figuras (outputs/16_figures/figures/):
   Fig1 localización (de `04`) · Fig2 flujo metodológico (nuevo) · Fig3 calibración antes/después (nuevo)
   Fig4 grilla georreferenciada (de `07b`) · Fig5 curvas por clase (`12`) · Fig6 H² por GDD (`13`)
   Fig7 réplica LASSO (`11`) · Fig8 desempeño de modelos (`15`) · Fig9 importancia (`15`)
   Suplementarias: S1 sitios, S2 calendario, S3 GDD, S4 correlaciones, S5 parámetros de curva, S6 fenología, S7 ρ.
-Tablas (outputs/16_manuscript/tables/, CSV + Markdown): T1 ensayos, T2 calibración, T3 réplica vs Zhang,
+Tablas (outputs/16_figures/tables/, CSV + Markdown): T1 ensayos, T2 calibración, T3 réplica vs Zhang,
   T4 heredabilidad, T5 modelos.
-Resumen: outputs/16_manuscript/RESULTS_SUMMARY.md (cifras clave para redactar Resultados y Discusión).
+Resumen: outputs/16_figures/RESULTS_SUMMARY.md (cifras clave de los resultados).
 """
 from __future__ import annotations
 
@@ -23,7 +23,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 import style  # noqa: E402
 from config import BANDS, OUT  # noqa: E402
 
-OUTDIR = OUT / "16_manuscript"
+OUTDIR = OUT / "16_figures"
 FIG, TAB = OUTDIR / "figures", OUTDIR / "tables"
 
 

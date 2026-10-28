@@ -1,13 +1,13 @@
 # Flujo de trabajo: fenotipado UAV multiespectral de arveja y garbanzo (WSU/USDA-ARS, 2017-2019)
 
-**Objetivo del artículo.** Replicar Zhang et al. (2021, *Front. Plant Sci.* 12:640259) y extenderlo en cuatro
+**Objetivo del proyecto.** Replicar Zhang et al. (2021, *Front. Plant Sci.* 12:640259) y extenderlo en cuatro
 direcciones: (1) dinámica temporal del dosel en función de grados-día, (2) parámetros genéticos de los rasgos UAV
 (heredabilidad, correlaciones genéticas, G×E), (3) nuevos rasgos fisiológicos (índices de clorofila, flores, senescencia)
 y (4) modelos de ML/DL evaluados con validación entre ambientes. Referencia metodológica secundaria:
 Marzougui et al. (2023, *Front. Plant Sci.* 14:1111575): Random Forest con holdout por entrada e importancia por permutación.
 
 **Principio de trabajo.** Se procede como si se partiera de cero. Cada paso queda en un script numerado (`pipeline/NN_*.py`)
-con salidas en `outputs/NN_*/`, de modo que el artículo completo se pueda reproducir desde los datos crudos.
+con salidas en `outputs/NN_*/`, de modo que todos los resultados se puedan reproducir desde los datos crudos.
 
 ---
 
@@ -201,12 +201,9 @@ El panel de reflectancia (MicaSense 2017, Spectralon 99 % en 2018-19) no está e
 **Métricas:** R², RMSE, rRMSE, ρ de Spearman y coincidencia de selección top-k. También interpretabilidad (SHAP o
 permutación) y costo computacional y huella de CO₂ (CodeCarbon), como en *Field to Pixel*.
 
-## 7. Artículo
-- Revistas objetivo: *Frontiers in Plant Science* (la misma de los trabajos replicados), *Plant Phenomics*
-  o *Computers and Electronics in Agriculture*.
-- Estructura: Introducción → Materiales y métodos (2.1-2.5 y 3-6) → Resultados (calidad de datos, réplica, temporal,
-  genética, ML) → Discusión (qué se replica, qué no y por qué; transferibilidad) → Conclusiones.
-- Disponibilidad: código en GitHub y rasgos por parcela en Zenodo (DOI). Las imágenes se publican solo con autorización de WSU/USDA-ARS.
+## 7. Figuras, tablas y disponibilidad
+- Disponibilidad: código y tablas derivadas en GitHub. Las imágenes y los datos de campo se publican solo con
+  autorización de WSU/USDA-ARS.
 - Figuras previstas:
   1. Sitios, diseño y calendario de vuelos.
   2. Flujo metodológico.

@@ -1,11 +1,11 @@
-"""Estilo gráfico común para todas las figuras del manuscrito.
+"""Estilo gráfico común para todas las figuras de resultados.
 
 Reglas (aplicadas en todos los scripts de resultados):
 - Una sola tipografía (DejaVu Sans), tamaños fijos: 8 pt texto, 7 pt ejes, 6 pt notas.
 - Paleta categórica validada (orden fijo, nunca cíclica): años, cultivos y clases comerciales usan siempre el mismo color.
 - Secuencial = un solo tono; divergente = dos tonos con gris neutro en el centro (correlaciones).
 - `constrained_layout` en todas las figuras; leyendas fuera del área de datos; etiquetas largas se envuelven.
-- Anchos de figura de revista: 1 columna = 3,5 in, 1,5 columnas = 5,5 in, 2 columnas = 7,2 in. Exportación a 300 dpi
+- Anchos de figura estándar: 1 columna = 3,5 in, 1,5 columnas = 5,5 in, 2 columnas = 7,2 in. Exportación a 300 dpi
   en PNG y PDF.
 """
 from __future__ import annotations

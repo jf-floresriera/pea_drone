@@ -32,5 +32,5 @@ del panel, ni metadatos del sensor de irradiancia (DLS). En los mosaicos solo ap
   technology, measurement procedures, and data correction workflows. *Remote Sens.* 10:1091.
 - Mamaghani & Salvaggio (2019). Multispectral sensor calibration and characterization for sUAS remote sensing. *Sensors* 19:4453.
 - Pendiente: revisión bibliográfica de estudios de consistencia UAV vs. Sentinel-2 (búsqueda "UAV Sentinel-2 radiometric
-  cross-calibration"), para citar en la discusión. Verificar las referencias antes de incluirlas en el manuscrito.
+  cross-calibration"), Verificar las referencias antes de citarlas.
 - Rodríguez-Álvarez et al. (2018). Correcting for spatial heterogeneity in plant breeding experiments with P-splines (SpATS). *Spatial Statistics* 23:52.

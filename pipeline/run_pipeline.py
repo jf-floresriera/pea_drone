@@ -33,7 +33,7 @@ STEPS = [  # (id, script, descripción, minutos estimados)
     ("13", "13_mixed_models.py", "Modelos mixtos: H², correlaciones, G×E", 30),
     ("14", "14_phenology.py", "Fenología desde el aire", 5),
     ("15", "15_models.py", "Machine Learning / Deep Learning", 120),
-    ("16", "16_figures_tables.py", "Figuras y tablas del manuscrito", 3),
+    ("16", "16_figures_tables.py", "Figuras y tablas de resultados", 3),
 ]
 
 

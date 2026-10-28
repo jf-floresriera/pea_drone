@@ -3,7 +3,7 @@
 **Autor:** Jesús Enrique Flores Riera — candidato a Maestría en Geomática, Universidad Nacional de Colombia
 (jfloresr@unal.edu.co).
 
-Estado al **2026-10-19**: pipeline completo (01 → 16) y borrador del artículo completo.
+Estado al **2026-10-19**: pipeline completo (01 → 16) con figuras y tablas de resultados.
 ✅ hecho · ⏳ pendiente · 🔒 depende de los autores de los datos (WSU/USDA-ARS) · ➕ extensión opcional.
 Cada paso es un script numerado en `pipeline/` con salidas en `outputs/`.
 
@@ -50,26 +50,18 @@ Cada paso es un script numerado en `pipeline/` con salidas en `outputs/`.
 - ✅ Importancia por permutación y TreeSHAP (API nativa de XGBoost); tiempos de cómputo
 - ✅ Rasgos absolutos calibrados vs. estandarizados para predecir entre ambientes (`15b`)
 
-## Fase 7 - Manuscrito
-- ✅ Borrador completo en inglés en `docs/MANUSCRIPT.md`, con 31 referencias verificadas
-- ✅ 22 figuras y 5 tablas en `outputs/16_manuscript/`, más `RESULTS_SUMMARY.md` (`16`)
+## Fase 7 - Figuras y tablas de resultados ✅
+- ✅ 22 figuras y 5 tablas en `outputs/16_figures/`, más `RESULTS_SUMMARY.md` (`16`)
 
-## ⏳ Pendiente al 2026-10-19
-**Del autor (decisiones y gestión):**
-1. Subir a GitHub el historial reescrito, sin coautoría automática. Ya está aplicado localmente; falta el
-   `git push --force-with-lease` (ver "Mantenimiento del repositorio" en el README).
-2. Leer y revisar el manuscrito completo: redacción, énfasis de la discusión y título.
-3. Definir la autoría final (director de tesis y, si corresponde, los proveedores de los datos) y la revista
-   (propuesta: *Frontiers in Plant Science*).
-4. Decidir si los datos de campo (Excel y croquis) se publican en el repositorio o en Zenodo. Requiere la autorización
+## ⏳ Pendiente
+**Gestión de datos:**
+1. Decidir si los datos de campo (Excel y croquis) se publican en el repositorio o en Zenodo. Requiere la autorización
    escrita de WSU/USDA-ARS (ver 🔒).
-5. Si se necesita para la tesis: versión en español del manuscrito.
 
-**Técnico (antes del envío):**
-6. Adaptar el manuscrito a la plantilla de la revista (límite de palabras, figuras en TIFF/EPS a 300-600 dpi,
-   declaraciones de contribución, financiación y conflictos de interés).
-7. Análisis de sensibilidad excluyendo los campos de confianza media (GRID-02: Pullman 2017 arveja y Genesee 2018).
-8. Depositar código y tablas derivadas en Zenodo con DOI y citarlo en *Data availability*.
+**Técnico:**
+2. Análisis de sensibilidad excluyendo los campos de confianza media (GRID-02: Pullman 2017 arveja y Genesee 2018).
+3. Exportar figuras en TIFF a 300-600 dpi.
+4. Depositar código y tablas derivadas en Zenodo con DOI.
 
 ## 🔒 Pendiente de los autores de los datos
 1. Los 34 `.tif` vacíos (Pullman 2019; red edge del garbanzo de Pullman 2017)
@@ -78,7 +70,7 @@ Cada paso es un script numerado en `pipeline/` con salidas en `outputs/`.
 4. Opcional: metadatos de genotipos (tipo de hoja, pedigrí, marcadores)
 5. Autorización explícita para publicar los datos de campo
 
-## ➕ Extensiones opcionales (no bloquean el artículo)
+## ➕ Extensiones opcionales
 - Modelos espaciales con P-splines (SpATS, en R) y H² de Cullis
 - Detección de flores de arveja a alta resolución para mejorar la fenología
 - CNN sobre recortes de imagen por parcela

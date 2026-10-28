@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: "Si usa este código o sus resultados, cítelo como se indica."
+title: "pea_drone: flujo reproducible para el fenotipado UAV multiespectral de arveja y garbanzo (2017-2019)"
+type: software
+authors:
+  - family-names: "Flores Riera"
+    given-names: "Jesús Enrique"
+    email: "jfloresr@unal.edu.co"
+    affiliation: "Maestría en Geomática, Universidad Nacional de Colombia"
+repository-code: "https://github.com/jf-floresriera/pea_drone"
+date-released: "2026-10-28"
+keywords:
+  - UAV
+  - fenotipado
+  - multiespectral
+  - Sentinel-2
+  - calibración radiométrica
+  - arveja
+  - garbanzo
+references:
+  - type: article
+    title: "Crop performance evaluation of chickpea and dry pea breeding lines across seasons and locations using phenomics data"
+    authors:
+      - family-names: "Zhang"
+        given-names: "Chongyuan"
+      - family-names: "McGee"
+        given-names: "Rebecca J."
+      - family-names: "Vandemark"
+        given-names: "George J."
+      - family-names: "Sankaran"
+        given-names: "Sindhuja"
+    journal: "Frontiers in Plant Science"
+    volume: 12
+    year: 2021
+    doi: "10.3389/fpls.2021.640259"

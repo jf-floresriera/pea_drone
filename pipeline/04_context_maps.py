@@ -1,4 +1,4 @@
-"""Fase 1d - Mapas de contexto: dónde y cuándo se realizaron los ensayos (Figura 1 del manuscrito y suplementos).
+"""Fase 1d - Mapas de contexto: dónde y cuándo se realizaron los ensayos (Figura 1 y figuras de contexto S1-S2).
 
 Fig. 1  Localización: (a) EE. UU. con WA/ID, (b) región del Palouse con los ensayos por año.
 Fig. S1 Ensayos por sitio × año: ortomosaico CIR (submuestreado, georreferenciado) sobre imagen satelital.
