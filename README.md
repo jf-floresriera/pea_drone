@@ -52,27 +52,12 @@ El trabajo replica el estudio de **Zhang et al. (2021)** y lo amplía en cuatro 
 
 ## Flujo de trabajo
 
-Cada caja es un programa numerado en [`pipeline/`](pipeline/) con sus resultados en `outputs/NN_*/`.
+<p align="center">
+  <img src="docs/img/workflow.svg" alt="Flujo de trabajo en cinco fases: datos y calidad, geomática, rasgos por parcela, réplica y análisis, modelos y resultados" width="100%">
+</p>
 
-```mermaid
-flowchart LR
-    subgraph F1["① Datos y calidad"]
-        A01["01 Inventario<br/>de imágenes"] --> A02["02 QC de datos<br/>de campo"] --> A03["03 Respuesta<br/>espectral"] --> A04["04 Mapas de<br/>contexto"]
-    end
-    subgraph F2["② Geomática"]
-        A05["05 Calibración<br/>con Sentinel-2"] --> A06["06 Digitalizar<br/>croquis"] --> A07["07 / 07b Georreferenciar<br/>y refinar la grilla"] --> A09["09 Corregistro<br/>entre fechas"]
-    end
-    subgraph F3["③ Rasgos"]
-        A08["08 Clima y<br/>grados-día"] --> A10["10 Rasgos por<br/>parcela y vuelo"]
-    end
-    subgraph F4["④ Análisis"]
-        A11["11 / 11b Réplica<br/>Zhang et al."] --> A12["12 Curvas<br/>temporales"] --> A13["13 Modelos mixtos<br/>H² y G×E"] --> A14["14 Fenología"]
-    end
-    subgraph F5["⑤ Modelos"]
-        A15["15 / 15b Machine<br/>learning"] --> A16["16 Figuras<br/>y tablas"]
-    end
-    F1 --> F2 --> F3 --> F4 --> F5
-```
+Cada paso es un programa numerado en [`pipeline/`](pipeline/) y guarda sus resultados en `outputs/NN_*/`. El diagrama se
+genera con [`docs/img/workflow_svg.py`](docs/img/workflow_svg.py).
 
 ## Las partes del trabajo
 

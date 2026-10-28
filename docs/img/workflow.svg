@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" role="img" aria-label="Flujo de trabajo del pipeline pea_drone en cinco fases">
+<defs>
+<linearGradient id="bgw" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#10231a"/></linearGradient>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8b949e"/></marker>
+</defs>
+<style>.h{font:700 22px 'Segoe UI',Helvetica,Arial,sans-serif;fill:#f0f6fc}.sh{font:400 14px 'Segoe UI',Helvetica,Arial,sans-serif;fill:#8b949e}.pt{font:700 15px 'Segoe UI',Helvetica,Arial,sans-serif;fill:#f0f6fc}.pn{font:700 13px 'Segoe UI',Helvetica,Arial,sans-serif;fill:#0d1117}.bn{font:600 13px 'Segoe UI',Helvetica,Arial,sans-serif;fill:#e6edf3}.bd{font:400 11.5px 'Segoe UI',Helvetica,Arial,sans-serif;fill:#8b949e}.code{font:700 11px 'Consolas','SFMono-Regular',Menlo,monospace}.in{font:600 12px 'Segoe UI',Helvetica,Arial,sans-serif;fill:#c9d1d9}.flow{stroke-dasharray:6 6;animation:dash 1s linear infinite}@keyframes dash{to{stroke-dashoffset:-12}}@keyframes glow{0%,24%,100%{opacity:0}4%,18%{opacity:1}}@keyframes dot{from{transform:translateX(0)}to{transform:translateX(1120px)}}.dot{animation:dot 10s linear infinite}.g0{opacity:0;animation:glow 10s ease-in-out infinite 0.0s}.g1{opacity:0;animation:glow 10s ease-in-out infinite 2.0s}.g2{opacity:0;animation:glow 10s ease-in-out infinite 4.0s}.g3{opacity:0;animation:glow 10s ease-in-out infinite 6.0s}.g4{opacity:0;animation:glow 10s ease-in-out infinite 8.0s}</style>
+<rect width="1200" height="640" rx="14" fill="url(#bgw)"/>
+<text x="30" y="44" class="h">Flujo de trabajo reproducible</text>
+<text x="30" y="68" class="sh">16 programas numerados en pipeline/ · cada paso guarda sus resultados en outputs/NN_*/</text>
+<rect x="30" y="86" width="218" height="30" rx="15" fill="#161b22" stroke="#30363d"/>
+<text x="139" y="106" text-anchor="middle" class="in">Ortomosaicos UAV</text>
+<rect x="260" y="86" width="218" height="30" rx="15" fill="#161b22" stroke="#30363d"/>
+<text x="370" y="106" text-anchor="middle" class="in">Datos de campo</text>
+<rect x="491" y="86" width="218" height="30" rx="15" fill="#161b22" stroke="#30363d"/>
+<text x="600" y="106" text-anchor="middle" class="in">Croquis PDF</text>
+<rect x="721" y="86" width="218" height="30" rx="15" fill="#161b22" stroke="#30363d"/>
+<text x="830" y="106" text-anchor="middle" class="in">Sentinel-2 L2A</text>
+<rect x="952" y="86" width="218" height="30" rx="15" fill="#161b22" stroke="#30363d"/>
+<text x="1061" y="106" text-anchor="middle" class="in">Daymet V4</text>
+<text x="600.0" y="136" text-anchor="middle" class="sh" style="font-size:11px">datos de entrada</text>
+<rect x="30" y="150" width="210" height="404" rx="12" fill="#161b22" stroke="#30363d"/>
+<rect class="g0" x="29" y="149" width="212" height="406" rx="13" fill="none" stroke="#58a6ff" stroke-width="2.5"/>
+<rect x="30" y="150" width="210" height="40" rx="12" fill="#58a6ff" fill-opacity="0.14"/>
+<circle cx="52" cy="170" r="11" fill="#58a6ff"/>
+<text x="52" y="175" text-anchor="middle" class="pn">1</text>
+<text x="70" y="175" class="pt">Datos y calidad</text>
+<rect x="42" y="202" width="186" height="74" rx="8" fill="#0d1117" stroke="#30363d"/>
+<rect x="42" y="202" width="4" height="74" rx="2" fill="#58a6ff"/>
+<text x="56" y="224" class="code" fill="#58a6ff" style="fill:#58a6ff">01</text>
+<text x="56" y="244" class="bn">Inventario de imágenes</text>
+<text x="56" y="263" class="bd">275 ortomosaicos, 55 vuelos</text>
+<rect x="42" y="290" width="186" height="74" rx="8" fill="#0d1117" stroke="#30363d"/>
+<rect x="42" y="290" width="4" height="74" rx="2" fill="#58a6ff"/>
+<text x="56" y="312" class="code" fill="#58a6ff" style="fill:#58a6ff">02</text>
+<text x="56" y="332" class="bn">Revisión de datos de campo</text>
+<text x="56" y="351" class="bd">2415 parcelas, 34 ensayos</text>
+<line x1="135.0" y1="276" x2="135.0" y2="288" stroke="#8b949e" stroke-width="1.5" class="flow" marker-end="url(#ar)"/>
+<rect x="42" y="378" width="186" height="74" rx="8" fill="#0d1117" stroke="#30363d"/>
+<rect x="42" y="378" width="4" height="74" rx="2" fill="#58a6ff"/>
+<text x="56" y="400" class="code" fill="#58a6ff" style="fill:#58a6ff">03</text>
+<text x="56" y="420" class="bn">Respuesta espectral</text>
+<text x="56" y="439" class="bd">DN, no reflectancia</text>
+<line x1="135.0" y1="364" x2="135.0" y2="376" stroke="#8b949e" stroke-width="1.5" class="flow" marker-end="url(#ar)"/>
+<rect x="42" y="466" width="186" height="74" rx="8" fill="#0d1117" stroke="#30363d"/>
+<rect x="42" y="466" width="4" height="74" rx="2" fill="#58a6ff"/>
+<text x="56" y="488" class="code" fill="#58a6ff" style="fill:#58a6ff">04</text>
+<text x="56" y="508" class="bn">Mapas de contexto</text>
+<text x="56" y="527" class="bd">sitios y calendario</text>
+<line x1="135.0" y1="452" x2="135.0" y2="464" stroke="#8b949e" stroke-width="1.5" class="flow" marker-end="url(#ar)"/>
+<line x1="242" y1="352.0" x2="259" y2="352.0" stroke="#58a6ff" stroke-width="3" class="flow" marker-end="url(#ar)"/>
+<rect x="262" y="150" width="210" height="404" rx="12" fill="#161b22" stroke="#30363d"/>
+<rect class="g1" x="261" y="149" width="212" height="406" rx="13" fill="none" stroke="#3fb950" stroke-width="2.5"/>
+<rect x="262" y="150" width="210" height="40" rx="12" fill="#3fb950" fill-opacity="0.14"/>
+<circle cx="284" cy="170" r="11" fill="#3fb950"/>
+<text x="284" y="175" text-anchor="middle" class="pn">2</text>
+<text x="302" y="175" class="pt">Geomática</text>
+<rect x="274" y="202" width="186" height="74" rx="8" fill="#0d1117" stroke="#30363d"/>
+<rect x="274" y="202" width="4" height="74" rx="2" fill="#3fb950"/>
+<text x="288" y="224" class="code" fill="#3fb950" style="fill:#3fb950">05</text>
+<text x="288" y="244" class="bn">Calibración con Sentinel-2</text>
+<text x="288" y="263" class="bd">442 sectores de 20 m</text>
+<rect x="274" y="290" width="186" height="74" rx="8" fill="#0d1117" stroke="#30363d"/>
+<rect x="274" y="290" width="4" height="74" rx="2" fill="#3fb950"/>
+<text x="288" y="312" class="code" fill="#3fb950" style="fill:#3fb950">06</text>
+<text x="288" y="332" class="bn">Digitalización de croquis</text>
+<text x="288" y="351" class="bd">34/34 ensayos validados</text>
+<line x1="367.0" y1="276" x2="367.0" y2="288" stroke="#8b949e" stroke-width="1.5" class="flow" marker-end="url(#ar)"/>
+<rect x="274" y="378" width="186" height="74" rx="8" fill="#0d1117" stroke="#30363d"/>
+<rect x="274" y="378" width="4" height="74" rx="2" fill="#3fb950"/>
+<text x="288" y="400" class="code" fill="#3fb950" style="fill:#3fb950">07</text>
+<text x="288" y="420" class="bn">Georreferenciar la grilla</text>
+<text x="288" y="439" class="bd">12 lotes, refinamiento afín</text>
+<line x1="367.0" y1="364" x2="367.0" y2="376" stroke="#8b949e" stroke-width="1.5" class="flow" marker-end="url(#ar)"/>
+<rect x="274" y="466" width="186" height="74" rx="8" fill="#0d1117" stroke="#30363d"/>
+<rect x="274" y="466" width="4" height="74" rx="2" fill="#3fb950"/>
+<text x="288" y="488" class="code" fill="#3fb950" style="fill:#3fb950">09</text>
+<text x="288" y="508" class="bn">Corregistro entre fechas</text>
+<text x="288" y="527" class="bd">desfase mediano 0,68 m</text>
+<line x1="367.0" y1="452" x2="367.0" y2="464" stroke="#8b949e" stroke-width="1.5" class="flow" marker-end="url(#ar)"/>
+<line x1="474" y1="352.0" x2="491" y2="352.0" stroke="#3fb950" stroke-width="3" class="flow" marker-end="url(#ar)"/>
+<rect x="494" y="150" width="210" height="404" rx="12" fill="#161b22" stroke="#30363d"/>
+<rect class="g2" x="493" y="149" width="212" height="406" rx="13" fill="none" stroke="#d29922" stroke-width="2.5"/>
+<rect x="494" y="150" width="210" height="40" rx="12" fill="#d29922" fill-opacity="0.14"/>
+<circle cx="516" cy="170" r="11" fill="#d29922"/>
+<text x="516" y="175" text-anchor="middle" class="pn">3</text>
+<text x="534" y="175" class="pt">Rasgos por parcela</text>
+<rect x="506" y="202" width="186" height="74" rx="8" fill="#0d1117" stroke="#30363d"/>
+<rect x="506" y="202" width="4" height="74" rx="2" fill="#d29922"/>
+<text x="520" y="224" class="code" fill="#d29922" style="fill:#d29922">08</text>
+<text x="520" y="244" class="bn">Clima y grados-día</text>
+<text x="520" y="263" class="bd">Daymet V4, base 3 °C</text>
+<rect x="506" y="290" width="186" height="74" rx="8" fill="#0d1117" stroke="#30363d"/>
+<rect x="506" y="290" width="4" height="74" rx="2" fill="#d29922"/>
+<text x="520" y="312" class="code" fill="#d29922" style="fill:#d29922">10</text>
+<text x="520" y="332" class="bn">Máscara de dosel</text>
+<text x="520" y="351" class="bd">Otsu sobre SAVI calibrado</text>
+<line x1="599.0" y1="276" x2="599.0" y2="288" stroke="#8b949e" stroke-width="1.5" class="flow" marker-end="url(#ar)"/>
+<rect x="506" y="378" width="186" height="74" rx="8" fill="#0d1117" stroke="#30363d"/>
+<rect x="506" y="378" width="4" height="74" rx="2" fill="#d29922"/>
+<text x="520" y="400" class="code" fill="#d29922" style="fill:#d29922">10</text>
+<text x="520" y="420" class="bn">Índices y textura</text>
+<text x="520" y="439" class="bd">11 índices + GLCM por parcela</text>
+<line x1="599.0" y1="364" x2="599.0" y2="376" stroke="#8b949e" stroke-width="1.5" class="flow" marker-end="url(#ar)"/>
+<rect x="506" y="466" width="186" height="74" rx="8" fill="#0d1117" stroke="#30363d"/>
+<rect x="506" y="466" width="4" height="74" rx="2" fill="#d29922"/>
+<text x="520" y="488" class="code" fill="#d29922" style="fill:#d29922">10</text>
+<text x="520" y="508" class="bn">Rasgos por vuelo</text>
+<text x="520" y="527" class="bd">8079 registros</text>
+<line x1="599.0" y1="452" x2="599.0" y2="464" stroke="#8b949e" stroke-width="1.5" class="flow" marker-end="url(#ar)"/>
+<line x1="706" y1="352.0" x2="723" y2="352.0" stroke="#d29922" stroke-width="3" class="flow" marker-end="url(#ar)"/>
+<rect x="726" y="150" width="210" height="404" rx="12" fill="#161b22" stroke="#30363d"/>
+<rect class="g3" x="725" y="149" width="212" height="406" rx="13" fill="none" stroke="#bc8cff" stroke-width="2.5"/>
+<rect x="726" y="150" width="210" height="40" rx="12" fill="#bc8cff" fill-opacity="0.14"/>
+<circle cx="748" cy="170" r="11" fill="#bc8cff"/>
+<text x="748" y="175" text-anchor="middle" class="pn">4</text>
+<text x="766" y="175" class="pt">Réplica y análisis</text>
+<rect x="738" y="202" width="186" height="74" rx="8" fill="#0d1117" stroke="#30363d"/>
+<rect x="738" y="202" width="4" height="74" rx="2" fill="#bc8cff"/>
+<text x="752" y="224" class="code" fill="#bc8cff" style="fill:#bc8cff">11</text>
+<text x="752" y="244" class="bn">Réplica de Zhang et al.</text>
+<text x="752" y="263" class="bd">correlación y LASSO</text>
+<rect x="738" y="290" width="186" height="74" rx="8" fill="#0d1117" stroke="#30363d"/>
+<rect x="738" y="290" width="4" height="74" rx="2" fill="#bc8cff"/>
+<text x="752" y="312" class="code" fill="#bc8cff" style="fill:#bc8cff">12</text>
+<text x="752" y="332" class="bn">Curvas en grados-día</text>
+<text x="752" y="351" class="bd">crecimiento y senescencia</text>
+<line x1="831.0" y1="276" x2="831.0" y2="288" stroke="#8b949e" stroke-width="1.5" class="flow" marker-end="url(#ar)"/>
+<rect x="738" y="378" width="186" height="74" rx="8" fill="#0d1117" stroke="#30363d"/>
+<rect x="738" y="378" width="4" height="74" rx="2" fill="#bc8cff"/>
+<text x="752" y="400" class="code" fill="#bc8cff" style="fill:#bc8cff">13</text>
+<text x="752" y="420" class="bn">Modelos mixtos</text>
+<text x="752" y="439" class="bd">H², correlación genética, G×E</text>
+<line x1="831.0" y1="364" x2="831.0" y2="376" stroke="#8b949e" stroke-width="1.5" class="flow" marker-end="url(#ar)"/>
+<rect x="738" y="466" width="186" height="74" rx="8" fill="#0d1117" stroke="#30363d"/>
+<rect x="738" y="466" width="4" height="74" rx="2" fill="#bc8cff"/>
+<text x="752" y="488" class="code" fill="#bc8cff" style="fill:#bc8cff">14</text>
+<text x="752" y="508" class="bn">Fenología</text>
+<text x="752" y="527" class="bd">floración y madurez</text>
+<line x1="831.0" y1="452" x2="831.0" y2="464" stroke="#8b949e" stroke-width="1.5" class="flow" marker-end="url(#ar)"/>
+<line x1="938" y1="352.0" x2="955" y2="352.0" stroke="#bc8cff" stroke-width="3" class="flow" marker-end="url(#ar)"/>
+<rect x="958" y="150" width="210" height="404" rx="12" fill="#161b22" stroke="#30363d"/>
+<rect class="g4" x="957" y="149" width="212" height="406" rx="13" fill="none" stroke="#f78166" stroke-width="2.5"/>
+<rect x="958" y="150" width="210" height="40" rx="12" fill="#f78166" fill-opacity="0.14"/>
+<circle cx="980" cy="170" r="11" fill="#f78166"/>
+<text x="980" y="175" text-anchor="middle" class="pn">5</text>
+<text x="998" y="175" class="pt">Modelos y resultados</text>
+<rect x="970" y="202" width="186" height="74" rx="8" fill="#0d1117" stroke="#30363d"/>
+<rect x="970" y="202" width="4" height="74" rx="2" fill="#f78166"/>
+<text x="984" y="224" class="code" fill="#f78166" style="fill:#f78166">15</text>
+<text x="984" y="244" class="bn">Aprendizaje automático</text>
+<text x="984" y="263" class="bd">6 modelos × 4 validaciones</text>
+<rect x="970" y="290" width="186" height="74" rx="8" fill="#0d1117" stroke="#30363d"/>
+<rect x="970" y="290" width="4" height="74" rx="2" fill="#f78166"/>
+<text x="984" y="312" class="code" fill="#f78166" style="fill:#f78166">15b</text>
+<text x="984" y="332" class="bn">Reflectancia absoluta</text>
+<text x="984" y="351" class="bd">transferencia entre ambientes</text>
+<line x1="1063.0" y1="276" x2="1063.0" y2="288" stroke="#8b949e" stroke-width="1.5" class="flow" marker-end="url(#ar)"/>
+<rect x="970" y="378" width="186" height="74" rx="8" fill="#0d1117" stroke="#30363d"/>
+<rect x="970" y="378" width="4" height="74" rx="2" fill="#f78166"/>
+<text x="984" y="400" class="code" fill="#f78166" style="fill:#f78166">16</text>
+<text x="984" y="420" class="bn">Figuras y tablas</text>
+<text x="984" y="439" class="bd">22 figuras, 5 tablas</text>
+<line x1="1063.0" y1="364" x2="1063.0" y2="376" stroke="#8b949e" stroke-width="1.5" class="flow" marker-end="url(#ar)"/>
+<rect x="970" y="466" width="186" height="74" rx="8" fill="#0d1117" stroke="#30363d"/>
+<rect x="970" y="466" width="4" height="74" rx="2" fill="#f78166"/>
+<text x="984" y="488" class="code" fill="#f78166" style="fill:#f78166">run</text>
+<text x="984" y="508" class="bn">Orquestador del pipeline</text>
+<text x="984" y="527" class="bd">ejecuta 07b → 16 con log</text>
+<line x1="1063.0" y1="452" x2="1063.0" y2="464" stroke="#8b949e" stroke-width="1.5" class="flow" marker-end="url(#ar)"/>
+<line x1="40" y1="584" x2="1160" y2="584" stroke="#30363d" stroke-width="4" stroke-linecap="round"/>
+<g class="dot"><circle cx="40" cy="584" r="7" fill="#3fb950"/><circle cx="40" cy="584" r="12" fill="#3fb950" fill-opacity="0.25"/></g>
+<text x="40" y="610" class="sh" style="font-size:12px">imágenes y datos crudos</text>
+<text x="1160" y="610" text-anchor="end" class="sh" style="font-size:12px">rasgos, parámetros genéticos, modelos y figuras</text>
+</svg>
