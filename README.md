@@ -17,7 +17,7 @@
 
 ---
 
-## 🌱 De qué trata
+## De qué trata
 
 Este repositorio reprocesa desde cero, con código abierto, **tres temporadas (2017–2019) de imágenes multiespectrales
 tomadas con dron** sobre ensayos de mejoramiento de **arveja** (*Pisum sativum*) y **garbanzo** (*Cicer arietinum*) del
@@ -25,12 +25,12 @@ USDA-ARS y Washington State University, en Pullman (WA), Fairfield (WA) y Genese
 
 El trabajo replica el estudio de **Zhang et al. (2021)** y lo amplía en cuatro direcciones:
 
-| | Pregunta | Cómo se responde |
-|:-:|---|---|
-| 🛰️ | ¿Se pueden comparar imágenes de distintas fechas y años si no son reflectancia? | Calibración cruzada con **Sentinel-2 L2A** por sectores |
-| 📈 | ¿Cómo crece y envejece el dosel de cada genotipo? | Curvas en **grados-día** (tiempo térmico) |
-| 🧬 | ¿Los rasgos medidos con dron son heredables y útiles para seleccionar? | **Modelos mixtos**: H², correlación genética, G×E |
-| 🤖 | ¿Los modelos predicen genotipos y ambientes **nuevos**? | **Aprendizaje automático** con 4 esquemas de validación |
+| Pregunta | Cómo se responde |
+|---|---|
+| ¿Se pueden comparar imágenes de distintas fechas y años si no son reflectancia? | Calibración cruzada con **Sentinel-2 L2A** por sectores |
+| ¿Cómo crece y envejece el dosel de cada genotipo? | Curvas en **grados-día** (tiempo térmico) |
+| ¿Los rasgos medidos con dron son heredables y útiles para seleccionar? | **Modelos mixtos**: H², correlación genética, G×E |
+| ¿Los modelos predicen genotipos y ambientes **nuevos**? | **Aprendizaje automático** con 4 esquemas de validación |
 
 <p align="center">
   <img src="docs/img/timelapse_genesee_2018.gif" alt="Timelapse de cinco vuelos en Genesee 2018" width="420"><br>
@@ -38,7 +38,7 @@ El trabajo replica el estudio de **Zhang et al. (2021)** y lo amplía en cuatro 
   la arveja envejece (tonos claros) mientras el garbanzo sigue verde (rojo intenso).</sub>
 </p>
 
-## 📊 El trabajo en cifras
+## El trabajo en cifras
 
 <table align="center">
   <tr>
@@ -50,7 +50,7 @@ El trabajo replica el estudio de **Zhang et al. (2021)** y lo amplía en cuatro 
   </tr>
 </table>
 
-## 🗺️ Flujo de trabajo
+## Flujo de trabajo
 
 Cada caja es un programa numerado en [`pipeline/`](pipeline/) con sus resultados en `outputs/NN_*/`.
 
@@ -74,7 +74,7 @@ flowchart LR
     F1 --> F2 --> F3 --> F4 --> F5
 ```
 
-## 🔬 Las partes del trabajo
+## Las partes del trabajo
 
 <details open>
 <summary><b>① Inventario y control de calidad</b> · pasos <code>01</code>–<code>04</code></summary>
@@ -164,7 +164,7 @@ El plan de modelado está en [`docs/MODELING_PLAN.md`](docs/MODELING_PLAN.md).
 </p>
 </details>
 
-## 💡 Hallazgos principales
+## Hallazgos principales
 
 > [!NOTE]
 > 1. **Los mosaicos archivados no eran reflectancia**, pero pudieron armonizarse con Sentinel-2 y código abierto.
@@ -173,7 +173,7 @@ El plan de modelado está en [`docs/MODELING_PLAN.md`](docs/MODELING_PLAN.md).
 > 3. **Los rasgos del dron son heredables** en ambos cultivos, pero se asocian con el rendimiento sobre todo en garbanzo.
 > 4. **La calibración radiométrica permite transferir** las predicciones de garbanzo a ambientes nuevos.
 
-## 📁 Estructura del repositorio
+## Estructura del repositorio
 
 ```text
 pea_drone/
@@ -196,7 +196,7 @@ pea_drone/
 └── requirements.txt
 ```
 
-## ▶️ Cómo reproducirlo
+## Cómo reproducirlo
 
 ```bash
 pip install -r requirements.txt
@@ -211,7 +211,7 @@ python pipeline/run_pipeline.py --from 07b      # resto en secuencia (07b → 16
 Los datos crudos (ortomosaicos `Images20NN/`, `20NNPulseDataset.xlsx`, `PulsePlotMaps_2017-2019.pdf`) **no se
 versionan**: pertenecen a WSU/USDA-ARS. Se colocan en la raíz del repositorio con la misma estructura de carpetas.
 
-## 🗄️ Fuentes de datos
+## Fuentes de datos
 
 | Datos | Proveedor / repositorio | Acceso |
 |---|---|---|
@@ -221,14 +221,14 @@ versionan**: pertenecen a WSU/USDA-ARS. Se colocan en la raíz del repositorio c
 | Límites administrativos | [Natural Earth](https://www.naturalearthdata.com) y [U.S. Census Bureau](https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html) | Descarga abierta |
 | Mapas base | Esri World Shaded Relief y World Imagery | Servicios de teselas |
 
-## 👤 Autor
+## Autor
 
 **Jesús Enrique Flores Riera** — candidato a Maestría en Geomática, Universidad Nacional de Colombia
 ([jfloresr@unal.edu.co](mailto:jfloresr@unal.edu.co)).
 
 Autor único del diseño metodológico, el análisis, el código y la documentación de este repositorio.
 
-## 🤖 Nota sobre el uso de inteligencia artificial
+## Nota sobre el uso de inteligencia artificial
 
 En este proyecto se usaron herramientas de inteligencia artificial generativa como apoyo para **documentar el código**
 (comentarios, descripciones de los programas y bitácora) y para **organizar el repositorio** (estructura de carpetas y
@@ -236,14 +236,14 @@ este README). El diseño del estudio, las decisiones metodológicas, la ejecuci�
 resultados y su interpretación son del autor, que revisó todo el contenido y es responsable de él. Las herramientas de
 IA no figuran como autoras.
 
-## 📚 Cómo citar
+## Cómo citar
 
 Use el botón **"Cite this repository"** de GitHub (archivo [`CITATION.cff`](CITATION.cff)) o:
 
 > Flores Riera, J. E. (2026). *pea_drone: flujo reproducible para el fenotipado UAV multiespectral de arveja y garbanzo
 > (2017–2019)* [Programa informático]. GitHub. https://github.com/jf-floresriera/pea_drone
 
-## 🙏 Créditos de los datos
+## Créditos de los datos
 
 Los ensayos y las imágenes no son del autor: pertenecen a R. J. McGee y G. J. Vandemark (USDA-ARS Grain Legume Genetics
 and Physiology Research Unit) y a S. Sankaran y C. Zhang (WSU Biological Systems Engineering). Se usan con autorización,
